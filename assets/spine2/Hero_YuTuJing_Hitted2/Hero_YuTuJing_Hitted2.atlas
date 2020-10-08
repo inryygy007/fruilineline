@@ -1,0 +1,49 @@
+
+Hero_YuTuJing_Hitted2.png
+size: 256,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+effect/atk_sg_00
+  rotate: false
+  xy: 84, 168
+  size: 51, 53
+  orig: 80, 80
+  offset: 15, 14
+  index: -1
+effect/atk_sg_01
+  rotate: false
+  xy: 2, 141
+  size: 80, 80
+  orig: 80, 80
+  offset: 0, 0
+  index: -1
+effect/atk_sg_02
+  rotate: false
+  xy: 2, 59
+  size: 80, 80
+  orig: 80, 80
+  offset: 0, 0
+  index: -1
+effect/atk_sg_03
+  rotate: false
+  xy: 2, 2
+  size: 49, 55
+  orig: 80, 80
+  offset: 16, 13
+  index: -1
+effect/atk_sg_04
+  rotate: false
+  xy: 137, 180
+  size: 36, 41
+  orig: 80, 80
+  offset: 22, 20
+  index: -1
+effect/atk_sg_05
+  rotate: false
+  xy: 84, 125
+  size: 36, 41
+  orig: 80, 80
+  offset: 22, 20
+  index: -1
+

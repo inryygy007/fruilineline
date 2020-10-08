@@ -1,0 +1,161 @@
+
+Hero_DaoDeTianZun.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+aida
+  rotate: false
+  xy: 78, 18
+  size: 54, 46
+  orig: 54, 46
+  offset: 0, 0
+  index: -1
+gongji
+  rotate: true
+  xy: 344, 472
+  size: 54, 46
+  orig: 54, 46
+  offset: 0, 0
+  index: -1
+houfa
+  rotate: false
+  xy: 2, 284
+  size: 214, 312
+  orig: 214, 312
+  offset: 0, 0
+  index: -1
+houpp1
+  rotate: false
+  xy: 78, 66
+  size: 79, 216
+  orig: 79, 216
+  offset: 0, 0
+  index: -1
+houpp2
+  rotate: true
+  xy: 384, 681
+  size: 121, 219
+  orig: 121, 219
+  offset: 0, 0
+  index: -1
+huan
+  rotate: true
+  xy: 711, 817
+  size: 76, 83
+  orig: 76, 83
+  offset: 0, 0
+  index: -1
+siwang
+  rotate: false
+  xy: 817, 909
+  size: 50, 14
+  orig: 50, 14
+  offset: 0, 0
+  index: -1
+tou
+  rotate: false
+  xy: 613, 812
+  size: 96, 203
+  orig: 96, 203
+  offset: 0, 0
+  index: -1
+toufa1
+  rotate: false
+  xy: 159, 107
+  size: 44, 175
+  orig: 44, 175
+  offset: 0, 0
+  index: -1
+toufa2
+  rotate: true
+  xy: 817, 974
+  size: 41, 168
+  orig: 41, 168
+  offset: 0, 0
+  index: -1
+xiabai
+  rotate: false
+  xy: 2, 598
+  size: 380, 417
+  orig: 380, 417
+  offset: 0, 0
+  index: -1
+youdb
+  rotate: false
+  xy: 711, 895
+  size: 104, 120
+  orig: 104, 120
+  offset: 0, 0
+  index: -1
+youj
+  rotate: false
+  xy: 159, 67
+  size: 30, 38
+  orig: 30, 38
+  offset: 0, 0
+  index: -1
+youp
+  rotate: true
+  xy: 2, 2
+  size: 280, 74
+  orig: 280, 74
+  offset: 0, 0
+  index: -1
+yous
+  rotate: true
+  xy: 574, 620
+  size: 59, 29
+  orig: 59, 29
+  offset: 0, 0
+  index: -1
+youxb
+  rotate: false
+  xy: 384, 804
+  size: 227, 211
+  orig: 227, 211
+  offset: 0, 0
+  index: -1
+youxb1
+  rotate: true
+  xy: 384, 611
+  size: 68, 188
+  orig: 68, 188
+  offset: 0, 0
+  index: -1
+zuodb
+  rotate: true
+  xy: 218, 300
+  size: 72, 93
+  orig: 72, 93
+  offset: 0, 0
+  index: -1
+zuoj
+  rotate: true
+  xy: 344, 417
+  size: 53, 40
+  orig: 53, 40
+  offset: 0, 0
+  index: -1
+zuos
+  rotate: true
+  xy: 344, 528
+  size: 68, 31
+  orig: 68, 31
+  offset: 0, 0
+  index: -1
+zuoxb
+  rotate: false
+  xy: 218, 374
+  size: 124, 222
+  orig: 124, 222
+  offset: 0, 0
+  index: -1
+zuoxb1
+  rotate: true
+  xy: 817, 925
+  size: 47, 134
+  orig: 47, 134
+  offset: 0, 0
+  index: -1
+

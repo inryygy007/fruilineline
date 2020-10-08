@@ -1,0 +1,336 @@
+
+Hero_XiaoZuanFeng.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+L_calf
+  rotate: true
+  xy: 479, 954
+  size: 65, 140
+  orig: 65, 140
+  offset: 0, 0
+  index: -1
+L_eye1
+  rotate: true
+  xy: 2, 676
+  size: 164, 136
+  orig: 164, 136
+  offset: 0, 0
+  index: -1
+L_eye2
+  rotate: false
+  xy: 140, 883
+  size: 164, 136
+  orig: 164, 136
+  offset: 0, 0
+  index: -1
+L_eye3
+  rotate: false
+  xy: 296, 779
+  size: 98, 93
+  orig: 98, 93
+  offset: 0, 0
+  index: -1
+L_eye4
+  rotate: false
+  xy: 140, 753
+  size: 154, 128
+  orig: 154, 128
+  offset: 0, 0
+  index: -1
+L_eyebrow1
+  rotate: true
+  xy: 396, 766
+  size: 106, 46
+  orig: 106, 46
+  offset: 0, 0
+  index: -1
+L_eyebrow4
+  rotate: true
+  xy: 396, 766
+  size: 106, 46
+  orig: 106, 46
+  offset: 0, 0
+  index: -1
+L_eyebrow2
+  rotate: true
+  xy: 132, 396
+  size: 112, 28
+  orig: 112, 28
+  offset: 0, 0
+  index: -1
+L_eyebrow3
+  rotate: true
+  xy: 2, 82
+  size: 114, 78
+  orig: 114, 78
+  offset: 0, 0
+  index: -1
+L_forearm
+  rotate: true
+  xy: 386, 647
+  size: 37, 67
+  orig: 37, 67
+  offset: 0, 0
+  index: -1
+L_hand
+  rotate: false
+  xy: 430, 887
+  size: 26, 34
+  orig: 26, 34
+  offset: 0, 0
+  index: -1
+L_thigh
+  rotate: false
+  xy: 257, 353
+  size: 65, 71
+  orig: 65, 71
+  offset: 0, 0
+  index: -1
+L_upper_arm
+  rotate: false
+  xy: 396, 686
+  size: 46, 78
+  orig: 46, 78
+  offset: 0, 0
+  index: -1
+L_weapon
+  rotate: true
+  xy: 255, 426
+  size: 93, 65
+  orig: 93, 65
+  offset: 0, 0
+  index: -1
+R_calf
+  rotate: true
+  xy: 756, 959
+  size: 60, 123
+  orig: 60, 123
+  offset: 0, 0
+  index: -1
+R_eye1
+  rotate: false
+  xy: 296, 687
+  size: 98, 90
+  orig: 98, 90
+  offset: 0, 0
+  index: -1
+R_eye2
+  rotate: true
+  xy: 309, 532
+  size: 98, 91
+  orig: 98, 91
+  offset: 0, 0
+  index: -1
+R_eye3
+  rotate: true
+  xy: 2, 510
+  size: 164, 136
+  orig: 164, 136
+  offset: 0, 0
+  index: -1
+R_eye4
+  rotate: false
+  xy: 140, 519
+  size: 91, 104
+  orig: 91, 104
+  offset: 0, 0
+  index: -1
+R_eyebrow1
+  rotate: true
+  xy: 377, 367
+  size: 74, 24
+  orig: 74, 24
+  offset: 0, 0
+  index: -1
+R_eyebrow4
+  rotate: true
+  xy: 377, 367
+  size: 74, 24
+  orig: 74, 24
+  offset: 0, 0
+  index: -1
+R_eyebrow2
+  rotate: true
+  xy: 87, 32
+  size: 64, 46
+  orig: 64, 46
+  offset: 0, 0
+  index: -1
+R_eyebrow3
+  rotate: false
+  xy: 306, 874
+  size: 122, 47
+  orig: 122, 47
+  offset: 0, 0
+  index: -1
+R_forearm
+  rotate: true
+  xy: 436, 575
+  size: 70, 26
+  orig: 70, 26
+  offset: 0, 0
+  index: -1
+R_hand
+  rotate: false
+  xy: 87, 4
+  size: 27, 26
+  orig: 27, 26
+  offset: 0, 0
+  index: -1
+R_thigh
+  rotate: false
+  xy: 82, 98
+  size: 58, 70
+  orig: 58, 70
+  offset: 0, 0
+  index: -1
+R_upper_arm
+  rotate: false
+  xy: 82, 247
+  size: 36, 78
+  orig: 36, 78
+  offset: 0, 0
+  index: -1
+R_weapon1
+  rotate: true
+  xy: 162, 353
+  size: 66, 93
+  orig: 66, 93
+  offset: 0, 0
+  index: -1
+R_weapon2
+  rotate: false
+  xy: 80, 327
+  size: 43, 57
+  orig: 43, 57
+  offset: 0, 0
+  index: -1
+clothes1
+  rotate: false
+  xy: 162, 421
+  size: 91, 96
+  orig: 91, 96
+  offset: 0, 0
+  index: -1
+clothes10
+  rotate: true
+  xy: 621, 957
+  size: 62, 133
+  orig: 62, 133
+  offset: 0, 0
+  index: -1
+clothes15
+  rotate: false
+  xy: 2, 198
+  size: 78, 127
+  orig: 78, 127
+  offset: 0, 0
+  index: -1
+clothes2
+  rotate: false
+  xy: 324, 351
+  size: 51, 90
+  orig: 51, 90
+  offset: 0, 0
+  index: -1
+clothes20
+  rotate: false
+  xy: 881, 951
+  size: 120, 68
+  orig: 120, 68
+  offset: 0, 0
+  index: -1
+clothes3
+  rotate: true
+  xy: 402, 572
+  size: 73, 32
+  orig: 73, 32
+  offset: 0, 0
+  index: -1
+clothes4
+  rotate: false
+  xy: 2, 842
+  size: 136, 177
+  orig: 136, 177
+  offset: 0, 0
+  index: -1
+clothes5
+  rotate: false
+  xy: 2, 327
+  size: 76, 181
+  orig: 76, 181
+  offset: 0, 0
+  index: -1
+clothes6
+  rotate: false
+  xy: 233, 521
+  size: 74, 102
+  orig: 74, 102
+  offset: 0, 0
+  index: -1
+collar
+  rotate: true
+  xy: 322, 443
+  size: 87, 74
+  orig: 87, 74
+  offset: 0, 0
+  index: -1
+hair1
+  rotate: true
+  xy: 287, 632
+  size: 53, 97
+  orig: 53, 97
+  offset: 0, 0
+  index: -1
+hair2
+  rotate: false
+  xy: 82, 170
+  size: 37, 75
+  orig: 37, 75
+  offset: 0, 0
+  index: -1
+head
+  rotate: false
+  xy: 140, 625
+  size: 114, 126
+  orig: 114, 126
+  offset: 0, 0
+  index: -1
+mouth1
+  rotate: false
+  xy: 306, 923
+  size: 171, 96
+  orig: 171, 96
+  offset: 0, 0
+  index: -1
+mouth2
+  rotate: false
+  xy: 479, 922
+  size: 117, 30
+  orig: 117, 30
+  offset: 0, 0
+  index: -1
+mouth3
+  rotate: true
+  xy: 80, 386
+  size: 122, 50
+  orig: 122, 50
+  offset: 0, 0
+  index: -1
+mouth4
+  rotate: true
+  xy: 256, 625
+  size: 126, 29
+  orig: 126, 29
+  offset: 0, 0
+  index: -1
+torso
+  rotate: true
+  xy: 2, 2
+  size: 78, 83
+  orig: 78, 83
+  offset: 0, 0
+  index: -1
+

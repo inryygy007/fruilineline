@@ -1,0 +1,63 @@
+
+Hero_TangSanZang_Fly.png
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+images/effect/atk/zidan_00016
+  rotate: false
+  xy: 2, 93
+  size: 135, 56
+  orig: 300, 300
+  offset: 50, 104
+  index: -1
+images/effect/atk/zidan_00018
+  rotate: false
+  xy: 2, 151
+  size: 143, 58
+  orig: 300, 300
+  offset: 44, 103
+  index: -1
+images/effect/atk/zidan_00020
+  rotate: false
+  xy: 2, 211
+  size: 149, 60
+  orig: 300, 300
+  offset: 39, 102
+  index: -1
+images/effect/atk/zidan_00022
+  rotate: false
+  xy: 2, 273
+  size: 155, 63
+  orig: 300, 300
+  offset: 34, 100
+  index: -1
+images/effect/atk/zidan_00024
+  rotate: false
+  xy: 2, 338
+  size: 157, 63
+  orig: 300, 300
+  offset: 33, 100
+  index: -1
+images/effect/atk/zidan_00026
+  rotate: false
+  xy: 2, 403
+  size: 161, 61
+  orig: 300, 300
+  offset: 28, 101
+  index: -1
+images/effect/atk/zidan_00028
+  rotate: false
+  xy: 165, 406
+  size: 152, 58
+  orig: 300, 300
+  offset: 35, 103
+  index: -1
+images/effect/atk/zidan_00030
+  rotate: false
+  xy: 319, 409
+  size: 147, 55
+  orig: 300, 300
+  offset: 38, 104
+  index: -1
+

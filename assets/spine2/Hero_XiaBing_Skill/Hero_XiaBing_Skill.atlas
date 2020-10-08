@@ -1,0 +1,224 @@
+
+Hero_XiaBing_Skill.png
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+atk_dg_00
+  rotate: false
+  xy: 207, 350
+  size: 75, 75
+  orig: 75, 75
+  offset: 0, 0
+  index: -1
+atk_dg_01
+  rotate: false
+  xy: 284, 350
+  size: 75, 75
+  orig: 75, 75
+  offset: 0, 0
+  index: -1
+atk_dg_02
+  rotate: false
+  xy: 361, 350
+  size: 75, 75
+  orig: 75, 75
+  offset: 0, 0
+  index: -1
+atk_dg_03
+  rotate: false
+  xy: 77, 206
+  size: 75, 75
+  orig: 75, 75
+  offset: 0, 0
+  index: -1
+atk_dg_04
+  rotate: true
+  xy: 77, 283
+  size: 62, 69
+  orig: 75, 75
+  offset: 13, 2
+  index: -1
+atk_dg_05
+  rotate: true
+  xy: 148, 285
+  size: 54, 57
+  orig: 75, 75
+  offset: 15, 7
+  index: -1
+atk_dg_06
+  rotate: true
+  xy: 2, 2
+  size: 30, 56
+  orig: 75, 75
+  offset: 39, 7
+  index: -1
+skill_dg_00
+  rotate: false
+  xy: 54, 347
+  size: 92, 73
+  orig: 100, 75
+  offset: 7, 0
+  index: -1
+skill_dg_01
+  rotate: false
+  xy: 188, 427
+  size: 92, 73
+  orig: 100, 75
+  offset: 7, 0
+  index: -1
+skill_dg_02
+  rotate: false
+  xy: 282, 427
+  size: 92, 73
+  orig: 100, 75
+  offset: 7, 0
+  index: -1
+skill_dg_03
+  rotate: false
+  xy: 376, 427
+  size: 92, 73
+  orig: 100, 75
+  offset: 7, 0
+  index: -1
+skill_dg_04
+  rotate: true
+  xy: 2, 206
+  size: 92, 73
+  orig: 100, 75
+  offset: 7, 0
+  index: -1
+skill_dl_00
+  rotate: true
+  xy: 2, 300
+  size: 120, 50
+  orig: 120, 50
+  offset: 0, 0
+  index: -1
+skill_mz_00
+  rotate: true
+  xy: 2, 34
+  size: 80, 72
+  orig: 100, 100
+  offset: 7, 10
+  index: -1
+skill_mz_01
+  rotate: true
+  xy: 2, 116
+  size: 88, 77
+  orig: 100, 100
+  offset: 6, 10
+  index: -1
+skill_mz_02
+  rotate: false
+  xy: 2, 422
+  size: 93, 78
+  orig: 100, 100
+  offset: 4, 10
+  index: -1
+skill_mz_03
+  rotate: false
+  xy: 97, 422
+  size: 89, 78
+  orig: 100, 100
+  offset: 4, 10
+  index: -1
+skill_mz_04
+  rotate: false
+  xy: 438, 348
+  size: 60, 77
+  orig: 100, 100
+  offset: 3, 10
+  index: -1
+skill_mz_05
+  rotate: false
+  xy: 148, 341
+  size: 57, 79
+  orig: 100, 100
+  offset: 2, 11
+  index: -1
+skill_xz_00
+  rotate: false
+  xy: 81, 144
+  size: 60, 60
+  orig: 60, 60
+  offset: 0, 0
+  index: -1
+skill_xz_01
+  rotate: false
+  xy: 207, 288
+  size: 60, 60
+  orig: 60, 60
+  offset: 0, 0
+  index: -1
+skill_xz_02
+  rotate: false
+  xy: 269, 288
+  size: 60, 60
+  orig: 60, 60
+  offset: 0, 0
+  index: -1
+skill_xz_03
+  rotate: false
+  xy: 331, 288
+  size: 60, 60
+  orig: 60, 60
+  offset: 0, 0
+  index: -1
+skill_xz_04
+  rotate: false
+  xy: 154, 223
+  size: 60, 60
+  orig: 60, 60
+  offset: 0, 0
+  index: -1
+skill_xz_05
+  rotate: false
+  xy: 216, 226
+  size: 60, 60
+  orig: 60, 60
+  offset: 0, 0
+  index: -1
+skill_xz_06
+  rotate: false
+  xy: 278, 226
+  size: 60, 60
+  orig: 60, 60
+  offset: 0, 0
+  index: -1
+skill_xz_07
+  rotate: false
+  xy: 340, 226
+  size: 60, 60
+  orig: 60, 60
+  offset: 0, 0
+  index: -1
+skill_xz_08
+  rotate: false
+  xy: 81, 82
+  size: 60, 60
+  orig: 60, 60
+  offset: 0, 0
+  index: -1
+skill_xz_09
+  rotate: false
+  xy: 76, 20
+  size: 60, 60
+  orig: 60, 60
+  offset: 0, 0
+  index: -1
+skill_xz_10
+  rotate: false
+  xy: 154, 164
+  size: 60, 57
+  orig: 60, 60
+  offset: 0, 1
+  index: -1
+skill_xz_11
+  rotate: false
+  xy: 216, 176
+  size: 51, 48
+  orig: 60, 60
+  offset: 3, 6
+  index: -1
+

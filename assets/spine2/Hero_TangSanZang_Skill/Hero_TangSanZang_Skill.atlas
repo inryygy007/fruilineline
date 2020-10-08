@@ -1,0 +1,140 @@
+
+Hero_TangSanZang_Skill.png
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+effect/fire_00002
+  rotate: false
+  xy: 353, 247
+  size: 93, 96
+  orig: 304, 304
+  offset: 99, 95
+  index: -1
+effect/fire_00005
+  rotate: false
+  xy: 195, 53
+  size: 93, 110
+  orig: 304, 304
+  offset: 99, 93
+  index: -1
+effect/fire_00008
+  rotate: false
+  xy: 103, 22
+  size: 90, 133
+  orig: 304, 304
+  offset: 98, 87
+  index: -1
+effect/fire_00011
+  rotate: false
+  xy: 416, 350
+  size: 92, 158
+  orig: 304, 304
+  offset: 98, 80
+  index: -1
+effect/fire_00014
+  rotate: false
+  xy: 152, 165
+  size: 99, 138
+  orig: 304, 304
+  offset: 99, 80
+  index: -1
+effect/fire_00017
+  rotate: false
+  xy: 2, 16
+  size: 99, 139
+  orig: 304, 304
+  offset: 98, 84
+  index: -1
+effect/fire_00020
+  rotate: false
+  xy: 311, 345
+  size: 103, 163
+  orig: 304, 304
+  offset: 98, 83
+  index: -1
+effect/fire_00023
+  rotate: false
+  xy: 208, 330
+  size: 101, 178
+  orig: 304, 304
+  offset: 95, 90
+  index: -1
+effect/fire_00026
+  rotate: false
+  xy: 253, 219
+  size: 98, 109
+  orig: 304, 304
+  offset: 94, 105
+  index: -1
+effect/skill/fazhen_a_00000
+  rotate: false
+  xy: 2, 305
+  size: 204, 203
+  orig: 204, 203
+  offset: 0, 0
+  index: -1
+effect/skill/xuanwo_00019
+  rotate: false
+  xy: 2, 157
+  size: 148, 146
+  orig: 148, 146
+  offset: 0, 0
+  index: -1
+effect/skill/xuli_00005
+  rotate: true
+  xy: 316, 183
+  size: 34, 30
+  orig: 167, 240
+  offset: 51, 92
+  index: -1
+effect/skill/xuli_00008
+  rotate: false
+  xy: 253, 165
+  size: 61, 52
+  orig: 167, 240
+  offset: 47, 91
+  index: -1
+effect/skill/xuli_00010
+  rotate: false
+  xy: 417, 124
+  size: 65, 60
+  orig: 167, 240
+  offset: 47, 93
+  index: -1
+effect/skill/xuli_00012
+  rotate: false
+  xy: 350, 124
+  size: 65, 65
+  orig: 167, 240
+  offset: 48, 96
+  index: -1
+effect/skill/xuli_00014
+  rotate: true
+  xy: 438, 186
+  size: 59, 72
+  orig: 167, 240
+  offset: 52, 100
+  index: -1
+effect/skill/xuli_00016
+  rotate: false
+  xy: 290, 84
+  size: 58, 79
+  orig: 167, 240
+  offset: 51, 104
+  index: -1
+effect/skill/xuli_00018
+  rotate: true
+  xy: 353, 191
+  size: 54, 83
+  orig: 167, 240
+  offset: 52, 108
+  index: -1
+effect/skill/xuli_00020
+  rotate: false
+  xy: 448, 255
+  size: 50, 93
+  orig: 167, 240
+  offset: 57, 106
+  index: -1
+

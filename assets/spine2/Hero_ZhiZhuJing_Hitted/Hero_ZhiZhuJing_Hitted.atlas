@@ -1,0 +1,56 @@
+
+Hero_ZhiZhuJing_Hitted.png
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+effect/atk_mz_00
+  rotate: false
+  xy: 295, 164
+  size: 110, 142
+  orig: 160, 160
+  offset: 50, 18
+  index: -1
+effect/atk_mz_01
+  rotate: false
+  xy: 2, 302
+  size: 156, 154
+  orig: 160, 160
+  offset: 2, 2
+  index: -1
+effect/atk_mz_02
+  rotate: false
+  xy: 310, 310
+  size: 147, 146
+  orig: 160, 160
+  offset: 7, 7
+  index: -1
+effect/atk_mz_03
+  rotate: false
+  xy: 2, 2
+  size: 148, 147
+  orig: 160, 160
+  offset: 8, 8
+  index: -1
+effect/atk_mz_04
+  rotate: false
+  xy: 2, 151
+  size: 149, 149
+  orig: 160, 160
+  offset: 9, 9
+  index: -1
+effect/atk_mz_05
+  rotate: false
+  xy: 160, 308
+  size: 148, 148
+  orig: 160, 160
+  offset: 10, 10
+  index: -1
+effect/atk_mz_06
+  rotate: true
+  xy: 153, 158
+  size: 142, 140
+  orig: 160, 160
+  offset: 10, 10
+  index: -1
+

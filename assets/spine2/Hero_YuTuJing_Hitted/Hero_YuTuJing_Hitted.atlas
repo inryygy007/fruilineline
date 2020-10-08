@@ -1,0 +1,210 @@
+
+Hero_YuTuJing_Hitted.png
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+atk_bz_00
+  rotate: false
+  xy: 2, 410
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+atk_bz_01
+  rotate: false
+  xy: 2, 308
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+atk_bz_02
+  rotate: false
+  xy: 104, 410
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+atk_bz_03
+  rotate: false
+  xy: 2, 206
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+atk_bz_04
+  rotate: false
+  xy: 104, 308
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+atk_bz_06
+  rotate: false
+  xy: 206, 410
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+atk_bz_08
+  rotate: false
+  xy: 2, 104
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+atk_mz_00
+  rotate: true
+  xy: 2, 3
+  size: 17, 65
+  orig: 40, 90
+  offset: 13, 25
+  index: -1
+atk_mz_01
+  rotate: true
+  xy: 420, 470
+  size: 40, 90
+  orig: 40, 90
+  offset: 0, 0
+  index: -1
+atk_mz_02
+  rotate: true
+  xy: 420, 428
+  size: 40, 90
+  orig: 40, 90
+  offset: 0, 0
+  index: -1
+atk_mz_04
+  rotate: false
+  xy: 318, 338
+  size: 40, 90
+  orig: 40, 90
+  offset: 0, 0
+  index: -1
+atk_mz_06
+  rotate: false
+  xy: 360, 338
+  size: 40, 90
+  orig: 40, 90
+  offset: 0, 0
+  index: -1
+atk_mz_08
+  rotate: true
+  xy: 402, 386
+  size: 40, 90
+  orig: 40, 90
+  offset: 0, 0
+  index: -1
+atk_mz_10
+  rotate: true
+  xy: 402, 344
+  size: 40, 90
+  orig: 40, 90
+  offset: 0, 0
+  index: -1
+skill_bz_00
+  rotate: true
+  xy: 104, 196
+  size: 110, 80
+  orig: 120, 80
+  offset: 0, 0
+  index: -1
+skill_bz_02
+  rotate: false
+  xy: 308, 430
+  size: 110, 80
+  orig: 120, 80
+  offset: 0, 0
+  index: -1
+skill_bz_04
+  rotate: false
+  xy: 206, 328
+  size: 110, 80
+  orig: 120, 80
+  offset: 0, 0
+  index: -1
+skill_bz_06
+  rotate: false
+  xy: 2, 22
+  size: 110, 80
+  orig: 120, 80
+  offset: 0, 0
+  index: -1
+skill_bz_08
+  rotate: false
+  xy: 104, 114
+  size: 110, 80
+  orig: 120, 80
+  offset: 0, 0
+  index: -1
+skill_bz_10
+  rotate: true
+  xy: 114, 2
+  size: 110, 80
+  orig: 120, 80
+  offset: 0, 0
+  index: -1
+skill_fz_00
+  rotate: true
+  xy: 196, 63
+  size: 49, 33
+  orig: 52, 40
+  offset: 2, 2
+  index: -1
+skill_liz_01
+  rotate: false
+  xy: 216, 138
+  size: 40, 64
+  orig: 40, 80
+  offset: 0, 16
+  index: -1
+skill_liz_03
+  rotate: true
+  xy: 327, 296
+  size: 40, 80
+  orig: 40, 80
+  offset: 0, 0
+  index: -1
+skill_liz_05
+  rotate: true
+  xy: 409, 302
+  size: 40, 80
+  orig: 40, 80
+  offset: 0, 0
+  index: -1
+skill_liz_07
+  rotate: false
+  xy: 186, 204
+  size: 40, 80
+  orig: 40, 80
+  offset: 0, 0
+  index: -1
+skill_liz_09
+  rotate: false
+  xy: 228, 204
+  size: 40, 80
+  orig: 40, 80
+  offset: 0, 0
+  index: -1
+skill_liz_11
+  rotate: false
+  xy: 270, 204
+  size: 40, 80
+  orig: 40, 80
+  offset: 0, 0
+  index: -1
+skill_tw_00
+  rotate: true
+  xy: 206, 286
+  size: 40, 119
+  orig: 40, 240
+  offset: 0, 120
+  index: -1
+skill_yl_00
+  rotate: false
+  xy: 258, 152
+  size: 39, 50
+  orig: 40, 60
+  offset: 1, 3
+  index: -1
+

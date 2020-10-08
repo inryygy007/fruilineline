@@ -1,0 +1,168 @@
+
+Hero_Nianyu_Skill.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+effect/atk/atk_00008
+  rotate: true
+  xy: 383, 202
+  size: 109, 166
+  orig: 270, 360
+  offset: 77, 85
+  index: -1
+effect/atk/atk_00010
+  rotate: false
+  xy: 496, 37
+  size: 122, 163
+  orig: 270, 360
+  offset: 70, 84
+  index: -1
+effect/atk/atk_00012
+  rotate: true
+  xy: 394, 313
+  size: 134, 173
+  orig: 270, 360
+  offset: 64, 81
+  index: -1
+effect/atk/atk_00014
+  rotate: false
+  xy: 189, 26
+  size: 147, 182
+  orig: 270, 360
+  offset: 57, 78
+  index: -1
+effect/atk/atk_00018
+  rotate: false
+  xy: 405, 619
+  size: 172, 189
+  orig: 270, 360
+  offset: 44, 71
+  index: -1
+effect/atk/atk_00020
+  rotate: false
+  xy: 2, 25
+  size: 185, 192
+  orig: 270, 360
+  offset: 37, 68
+  index: -1
+effect/atk/atk_00024
+  rotate: false
+  xy: 206, 821
+  size: 197, 198
+  orig: 270, 360
+  offset: 35, 62
+  index: -1
+effect/atk/atk_00026
+  rotate: false
+  xy: 2, 607
+  size: 202, 198
+  orig: 270, 360
+  offset: 33, 61
+  index: -1
+effect/atk/atk_00028
+  rotate: false
+  xy: 769, 829
+  size: 185, 190
+  orig: 270, 360
+  offset: 37, 68
+  index: -1
+effect/atk/atk_00030
+  rotate: false
+  xy: 206, 432
+  size: 186, 192
+  orig: 270, 360
+  offset: 41, 65
+  index: -1
+effect/atk/atk_00032
+  rotate: false
+  xy: 206, 626
+  size: 197, 193
+  orig: 270, 360
+  offset: 35, 62
+  index: -1
+effect/atk/atk_00034
+  rotate: false
+  xy: 2, 414
+  size: 202, 191
+  orig: 270, 360
+  offset: 33, 61
+  index: -1
+effect/skill/skill_00002
+  rotate: false
+  xy: 569, 417
+  size: 116, 58
+  orig: 270, 270
+  offset: 76, 67
+  index: -1
+effect/skill/skill_00005
+  rotate: true
+  xy: 956, 888
+  size: 131, 65
+  orig: 270, 270
+  offset: 67, 61
+  index: -1
+effect/skill/skill_00011
+  rotate: true
+  xy: 566, 477
+  size: 140, 136
+  orig: 270, 270
+  offset: 58, 59
+  index: -1
+effect/skill/skill_00014
+  rotate: false
+  xy: 338, 42
+  size: 156, 158
+  orig: 270, 270
+  offset: 48, 57
+  index: -1
+effect/skill/skill_00017
+  rotate: false
+  xy: 394, 449
+  size: 170, 168
+  orig: 270, 270
+  offset: 38, 52
+  index: -1
+effect/skill/skill_00023
+  rotate: false
+  xy: 2, 219
+  size: 190, 193
+  orig: 270, 270
+  offset: 30, 47
+  index: -1
+effect/skill/skill_00026
+  rotate: false
+  xy: 2, 807
+  size: 202, 212
+  orig: 270, 270
+  offset: 24, 45
+  index: -1
+effect/skill/skill_00029
+  rotate: false
+  xy: 405, 810
+  size: 181, 209
+  orig: 270, 270
+  offset: 35, 50
+  index: -1
+effect/skill/skill_00036
+  rotate: false
+  xy: 588, 820
+  size: 179, 199
+  orig: 270, 270
+  offset: 31, 53
+  index: -1
+effect/skill/skill_00039
+  rotate: true
+  xy: 292, 245
+  size: 185, 89
+  orig: 270, 270
+  offset: 32, 49
+  index: -1
+effect/skill/skill_00042
+  rotate: true
+  xy: 194, 210
+  size: 202, 96
+  orig: 270, 270
+  offset: 23, 46
+  index: -1
+

@@ -1,0 +1,34 @@
+{
+  "ver": "2.3.3",
+  "uuid": "6e2a54e8-b088-436f-95db-3e46748fc02b",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "platformSettings": {},
+  "subMetas": {
+    "Hero_YueLao": {
+      "ver": "1.0.4",
+      "uuid": "8ecc8b7e-5010-49e8-be67-497d7b458f86",
+      "rawTextureUuid": "6e2a54e8-b088-436f-95db-3e46748fc02b",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -1.5,
+      "offsetY": 0,
+      "trimX": 3,
+      "trimY": 3,
+      "width": 1015,
+      "height": 1018,
+      "rawWidth": 1024,
+      "rawHeight": 1024,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

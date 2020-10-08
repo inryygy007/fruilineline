@@ -1,0 +1,49 @@
+
+Hero_YueLao_Hitted.png
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+effect/atk/eft_00025
+  rotate: false
+  xy: 2, 92
+  size: 117, 113
+  orig: 240, 240
+  offset: 62, 59
+  index: -1
+effect/atk/eft_00028
+  rotate: false
+  xy: 2, 207
+  size: 150, 116
+  orig: 240, 240
+  offset: 59, 55
+  index: -1
+effect/atk/eft_00031
+  rotate: false
+  xy: 2, 325
+  size: 166, 122
+  orig: 240, 240
+  offset: 56, 60
+  index: -1
+effect/atk/eft_00034
+  rotate: false
+  xy: 170, 338
+  size: 125, 109
+  orig: 240, 240
+  offset: 55, 59
+  index: -1
+effect/atk/eft_00037
+  rotate: false
+  xy: 297, 347
+  size: 107, 100
+  orig: 240, 240
+  offset: 72, 68
+  index: -1
+effect/atk/eft_00042
+  rotate: false
+  xy: 2, 2
+  size: 105, 88
+  orig: 240, 240
+  offset: 73, 78
+  index: -1
+

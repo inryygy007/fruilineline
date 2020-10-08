@@ -1,0 +1,154 @@
+
+lz_orange.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+cheng/cheng_00000
+  rotate: true
+  xy: 159, 211
+  size: 167, 145
+  orig: 360, 427
+  offset: 97, 107
+  index: -1
+cheng/cheng_00002
+  rotate: true
+  xy: 865, 855
+  size: 159, 151
+  orig: 360, 427
+  offset: 100, 104
+  index: -1
+cheng/cheng_00004
+  rotate: false
+  xy: 2, 539
+  size: 165, 158
+  orig: 360, 427
+  offset: 93, 99
+  index: -1
+cheng/cheng_00006
+  rotate: true
+  xy: 2, 212
+  size: 166, 155
+  orig: 360, 427
+  offset: 93, 100
+  index: -1
+cheng/cheng_00008
+  rotate: true
+  xy: 156, 44
+  size: 165, 146
+  orig: 360, 427
+  offset: 95, 107
+  index: -1
+cheng/cheng_00010
+  rotate: false
+  xy: 348, 862
+  size: 171, 152
+  orig: 360, 427
+  offset: 97, 106
+  index: -1
+cheng/cheng_00012
+  rotate: false
+  xy: 2, 859
+  size: 171, 155
+  orig: 360, 427
+  offset: 100, 107
+  index: -1
+cheng/cheng_00014
+  rotate: true
+  xy: 340, 428
+  size: 168, 135
+  orig: 360, 427
+  offset: 102, 110
+  index: -1
+cheng/cheng_00016
+  rotate: false
+  xy: 348, 731
+  size: 171, 129
+  orig: 360, 427
+  offset: 98, 114
+  index: -1
+cheng/cheng_00018
+  rotate: true
+  xy: 169, 523
+  size: 174, 131
+  orig: 360, 427
+  offset: 94, 116
+  index: -1
+cheng/cheng_00020
+  rotate: false
+  xy: 694, 726
+  size: 169, 143
+  orig: 360, 427
+  offset: 96, 107
+  index: -1
+cheng/cheng_00022
+  rotate: true
+  xy: 865, 691
+  size: 162, 147
+  orig: 360, 427
+  offset: 99, 106
+  index: -1
+cheng/cheng_00024
+  rotate: false
+  xy: 2, 380
+  size: 165, 157
+  orig: 360, 427
+  offset: 93, 99
+  index: -1
+cheng/cheng_00026
+  rotate: false
+  xy: 2, 699
+  size: 166, 158
+  orig: 360, 427
+  offset: 93, 99
+  index: -1
+cheng/cheng_00028
+  rotate: true
+  xy: 2, 45
+  size: 165, 152
+  orig: 360, 427
+  offset: 95, 104
+  index: -1
+cheng/cheng_00030
+  rotate: false
+  xy: 521, 865
+  size: 171, 149
+  orig: 360, 427
+  offset: 97, 106
+  index: -1
+cheng/cheng_00032
+  rotate: false
+  xy: 175, 861
+  size: 171, 153
+  orig: 360, 427
+  offset: 100, 107
+  index: -1
+cheng/cheng_00034
+  rotate: false
+  xy: 169, 385
+  size: 169, 136
+  orig: 360, 427
+  offset: 101, 110
+  index: -1
+cheng/cheng_00036
+  rotate: false
+  xy: 521, 732
+  size: 171, 131
+  orig: 360, 427
+  offset: 98, 114
+  index: -1
+cheng/cheng_00038
+  rotate: false
+  xy: 302, 598
+  size: 174, 131
+  orig: 360, 427
+  offset: 94, 116
+  index: -1
+cheng/cheng_00040
+  rotate: false
+  xy: 694, 871
+  size: 169, 143
+  orig: 360, 427
+  offset: 96, 107
+  index: -1
+

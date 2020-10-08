@@ -1,0 +1,329 @@
+
+Hero_ZhouWang.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+bell01
+  rotate: false
+  xy: 99, 209
+  size: 131, 124
+  orig: 131, 124
+  offset: 0, 0
+  index: -1
+bianzi01
+  rotate: false
+  xy: 83, 117
+  size: 85, 90
+  orig: 85, 90
+  offset: 0, 0
+  index: -1
+body01
+  rotate: false
+  xy: 99, 335
+  size: 124, 165
+  orig: 124, 165
+  offset: 0, 0
+  index: -1
+face_01
+  rotate: true
+  xy: 262, 227
+  size: 52, 44
+  orig: 52, 44
+  offset: 0, 0
+  index: -1
+face_02
+  rotate: false
+  xy: 523, 614
+  size: 49, 43
+  orig: 49, 43
+  offset: 0, 0
+  index: -1
+face_03
+  rotate: false
+  xy: 436, 620
+  size: 52, 44
+  orig: 52, 44
+  offset: 0, 0
+  index: -1
+face_04
+  rotate: false
+  xy: 425, 575
+  size: 52, 43
+  orig: 52, 43
+  offset: 0, 0
+  index: -1
+hair01
+  rotate: false
+  xy: 312, 491
+  size: 85, 85
+  orig: 85, 85
+  offset: 0, 0
+  index: -1
+hait02
+  rotate: false
+  xy: 447, 765
+  size: 132, 85
+  orig: 132, 85
+  offset: 0, 0
+  index: -1
+hat01
+  rotate: true
+  xy: 900, 938
+  size: 75, 115
+  orig: 75, 115
+  offset: 0, 0
+  index: -1
+hatback
+  rotate: false
+  xy: 232, 230
+  size: 28, 109
+  orig: 28, 109
+  offset: 0, 0
+  index: -1
+head01
+  rotate: true
+  xy: 776, 861
+  size: 79, 108
+  orig: 79, 108
+  offset: 0, 0
+  index: -1
+houmao01
+  rotate: true
+  xy: 170, 115
+  size: 92, 55
+  orig: 92, 55
+  offset: 0, 0
+  index: -1
+larm01
+  rotate: true
+  xy: 782, 942
+  size: 71, 116
+  orig: 71, 116
+  offset: 0, 0
+  index: -1
+larm02
+  rotate: false
+  xy: 436, 666
+  size: 90, 97
+  orig: 90, 97
+  offset: 0, 0
+  index: -1
+ldruss01
+  rotate: false
+  xy: 99, 502
+  size: 131, 230
+  orig: 131, 230
+  offset: 0, 0
+  index: -1
+lfoot01
+  rotate: false
+  xy: 367, 433
+  size: 34, 56
+  orig: 34, 56
+  offset: 0, 0
+  index: -1
+lhand01
+  rotate: true
+  xy: 776, 819
+  size: 40, 41
+  orig: 40, 41
+  offset: 0, 0
+  index: -1
+lhand02
+  rotate: false
+  xy: 262, 281
+  size: 42, 58
+  orig: 42, 58
+  offset: 0, 0
+  index: -1
+lleg01
+  rotate: true
+  xy: 314, 578
+  size: 59, 109
+  orig: 59, 109
+  offset: 0, 0
+  index: -1
+lleg02
+  rotate: true
+  xy: 232, 495
+  size: 85, 78
+  orig: 85, 78
+  offset: 0, 0
+  index: -1
+lleg03
+  rotate: true
+  xy: 628, 839
+  size: 107, 146
+  orig: 107, 146
+  offset: 0, 0
+  index: -1
+llingzi01
+  rotate: true
+  xy: 627, 783
+  size: 54, 63
+  orig: 54, 63
+  offset: 0, 0
+  index: -1
+lmao01
+  rotate: false
+  xy: 310, 777
+  size: 135, 169
+  orig: 135, 169
+  offset: 0, 0
+  index: -1
+lngzi02
+  rotate: true
+  xy: 581, 784
+  size: 66, 44
+  orig: 66, 44
+  offset: 0, 0
+  index: -1
+lshoulder01
+  rotate: true
+  xy: 314, 639
+  size: 136, 120
+  orig: 136, 120
+  offset: 0, 0
+  index: -1
+piaodai01
+  rotate: false
+  xy: 309, 414
+  size: 56, 75
+  orig: 56, 75
+  offset: 0, 0
+  index: -1
+piaodai02
+  rotate: false
+  xy: 225, 410
+  size: 82, 83
+  orig: 82, 83
+  offset: 0, 0
+  index: -1
+pifeng01
+  rotate: false
+  xy: 2, 734
+  size: 306, 279
+  orig: 306, 279
+  offset: 0, 0
+  index: -1
+rarm01
+  rotate: false
+  xy: 83, 12
+  size: 72, 103
+  orig: 72, 103
+  offset: 0, 0
+  index: -1
+rarm02
+  rotate: true
+  xy: 886, 865
+  size: 71, 107
+  orig: 71, 107
+  offset: 0, 0
+  index: -1
+rarm03
+  rotate: true
+  xy: 490, 625
+  size: 39, 31
+  orig: 39, 31
+  offset: 0, 0
+  index: -1
+rarm04
+  rotate: false
+  xy: 157, 41
+  size: 59, 72
+  orig: 59, 72
+  offset: 0, 0
+  index: -1
+rdruss01
+  rotate: false
+  xy: 2, 12
+  size: 79, 233
+  orig: 79, 233
+  offset: 0, 0
+  index: -1
+rfoot01
+  rotate: false
+  xy: 692, 793
+  size: 63, 44
+  orig: 63, 44
+  offset: 0, 0
+  index: -1
+rhand01
+  rotate: false
+  xy: 995, 911
+  size: 19, 25
+  orig: 19, 25
+  offset: 0, 0
+  index: -1
+rhand02
+  rotate: true
+  xy: 399, 545
+  size: 31, 23
+  orig: 31, 23
+  offset: 0, 0
+  index: -1
+rhand03
+  rotate: false
+  xy: 862, 824
+  size: 30, 35
+  orig: 30, 35
+  offset: 0, 0
+  index: -1
+rhand04
+  rotate: false
+  xy: 819, 821
+  size: 41, 38
+  orig: 41, 38
+  offset: 0, 0
+  index: -1
+rhand05
+  rotate: false
+  xy: 157, 2
+  size: 54, 37
+  orig: 54, 37
+  offset: 0, 0
+  index: -1
+rleg01
+  rotate: false
+  xy: 528, 659
+  size: 46, 104
+  orig: 46, 104
+  offset: 0, 0
+  index: -1
+rleg02
+  rotate: false
+  xy: 225, 341
+  size: 69, 67
+  orig: 69, 67
+  offset: 0, 0
+  index: -1
+rleg03
+  rotate: false
+  xy: 232, 582
+  size: 80, 150
+  orig: 80, 150
+  offset: 0, 0
+  index: -1
+rmao01
+  rotate: true
+  xy: 447, 852
+  size: 94, 179
+  orig: 94, 179
+  offset: 0, 0
+  index: -1
+weapon01
+  rotate: true
+  xy: 310, 948
+  size: 65, 470
+  orig: 65, 470
+  offset: 0, 0
+  index: -1
+weapon03
+  rotate: true
+  xy: 2, 247
+  size: 485, 95
+  orig: 485, 95
+  offset: 0, 0
+  index: -1
+

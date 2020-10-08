@@ -1,0 +1,182 @@
+
+Hero_ChangE.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+aida
+  rotate: false
+  xy: 608, 723
+  size: 48, 47
+  orig: 48, 47
+  offset: 0, 0
+  index: -1
+gongji
+  rotate: false
+  xy: 556, 724
+  size: 50, 46
+  orig: 50, 46
+  offset: 0, 0
+  index: -1
+houbai1
+  rotate: false
+  xy: 2, 374
+  size: 263, 234
+  orig: 263, 234
+  offset: 0, 0
+  index: -1
+houbai2
+  rotate: false
+  xy: 2, 56
+  size: 117, 316
+  orig: 117, 316
+  offset: 0, 0
+  index: -1
+jiashou
+  rotate: true
+  xy: 2, 2
+  size: 52, 44
+  orig: 52, 44
+  offset: 0, 0
+  index: -1
+jiashou1
+  rotate: true
+  xy: 846, 832
+  size: 60, 67
+  orig: 60, 67
+  offset: 0, 0
+  index: -1
+qunzi
+  rotate: false
+  xy: 846, 894
+  size: 152, 128
+  orig: 152, 128
+  offset: 0, 0
+  index: -1
+shenti
+  rotate: true
+  xy: 398, 640
+  size: 97, 130
+  orig: 97, 130
+  offset: 0, 0
+  index: -1
+siwang
+  rotate: true
+  xy: 214, 108
+  size: 59, 37
+  orig: 59, 37
+  offset: 0, 0
+  index: -1
+tou
+  rotate: false
+  xy: 686, 849
+  size: 158, 173
+  orig: 158, 173
+  offset: 0, 0
+  index: -1
+toufa
+  rotate: false
+  xy: 2, 610
+  size: 394, 412
+  orig: 394, 412
+  offset: 0, 0
+  index: -1
+tuzi
+  rotate: false
+  xy: 915, 831
+  size: 67, 61
+  orig: 67, 61
+  offset: 0, 0
+  index: -1
+yaodai
+  rotate: true
+  xy: 338, 514
+  size: 94, 70
+  orig: 94, 70
+  offset: 0, 0
+  index: -1
+youdb
+  rotate: false
+  xy: 121, 73
+  size: 91, 94
+  orig: 91, 94
+  offset: 0, 0
+  index: -1
+youj
+  rotate: true
+  xy: 338, 384
+  size: 47, 73
+  orig: 47, 73
+  offset: 0, 0
+  index: -1
+youpiao
+  rotate: true
+  xy: 686, 789
+  size: 58, 137
+  orig: 58, 137
+  offset: 0, 0
+  index: -1
+yous
+  rotate: true
+  xy: 207, 169
+  size: 43, 44
+  orig: 43, 44
+  offset: 0, 0
+  index: -1
+youtui
+  rotate: false
+  xy: 121, 169
+  size: 84, 203
+  orig: 84, 203
+  offset: 0, 0
+  index: -1
+youxb
+  rotate: false
+  xy: 398, 739
+  size: 156, 283
+  orig: 156, 283
+  offset: 0, 0
+  index: -1
+zuodb
+  rotate: false
+  xy: 338, 433
+  size: 73, 79
+  orig: 73, 79
+  offset: 0, 0
+  index: -1
+zuoj
+  rotate: true
+  xy: 48, 12
+  size: 42, 64
+  orig: 42, 64
+  offset: 0, 0
+  index: -1
+zuopiao
+  rotate: false
+  xy: 207, 287
+  size: 55, 85
+  orig: 55, 85
+  offset: 0, 0
+  index: -1
+zuos
+  rotate: false
+  xy: 207, 214
+  size: 54, 71
+  orig: 54, 71
+  offset: 0, 0
+  index: -1
+zuotui
+  rotate: false
+  xy: 267, 382
+  size: 69, 226
+  orig: 69, 226
+  offset: 0, 0
+  index: -1
+zuoxb
+  rotate: false
+  xy: 556, 772
+  size: 128, 250
+  orig: 128, 250
+  offset: 0, 0
+  index: -1
+

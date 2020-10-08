@@ -1,0 +1,224 @@
+
+Hero_XiWangMu.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+aida
+  rotate: false
+  xy: 846, 822
+  size: 44, 43
+  orig: 44, 43
+  offset: 0, 0
+  index: -1
+bozi
+  rotate: false
+  xy: 295, 431
+  size: 28, 50
+  orig: 28, 50
+  offset: 0, 0
+  index: -1
+fazan
+  rotate: false
+  xy: 113, 296
+  size: 137, 116
+  orig: 137, 116
+  offset: 0, 0
+  index: -1
+gongji
+  rotate: false
+  xy: 325, 442
+  size: 37, 39
+  orig: 37, 39
+  offset: 0, 0
+  index: -1
+huizhang
+  rotate: false
+  xy: 260, 421
+  size: 33, 60
+  orig: 33, 60
+  offset: 0, 0
+  index: -1
+jias
+  rotate: false
+  xy: 779, 778
+  size: 50, 25
+  orig: 50, 25
+  offset: 0, 0
+  index: -1
+jias1
+  rotate: false
+  xy: 907, 876
+  size: 42, 35
+  orig: 42, 35
+  offset: 0, 0
+  index: -1
+quan
+  rotate: false
+  xy: 412, 779
+  size: 285, 234
+  orig: 285, 234
+  offset: 0, 0
+  index: -1
+siwang
+  rotate: false
+  xy: 953, 914
+  size: 50, 19
+  orig: 50, 19
+  offset: 0, 0
+  index: -1
+tou
+  rotate: false
+  xy: 699, 805
+  size: 145, 106
+  orig: 145, 106
+  offset: 0, 0
+  index: -1
+toufa
+  rotate: false
+  xy: 846, 867
+  size: 59, 44
+  orig: 59, 44
+  offset: 0, 0
+  index: -1
+wuqi
+  rotate: false
+  xy: 2, 236
+  size: 109, 472
+  orig: 109, 472
+  offset: 0, 0
+  index: -1
+xiaqun
+  rotate: false
+  xy: 2, 710
+  size: 408, 303
+  orig: 408, 303
+  offset: 0, 0
+  index: -1
+xiong
+  rotate: true
+  xy: 260, 510
+  size: 198, 108
+  orig: 198, 108
+  offset: 0, 0
+  index: -1
+xiong2
+  rotate: false
+  xy: 615, 729
+  size: 64, 48
+  orig: 64, 48
+  offset: 0, 0
+  index: -1
+yaodai
+  rotate: true
+  xy: 211, 176
+  size: 58, 37
+  orig: 58, 37
+  offset: 0, 0
+  index: -1
+youbie
+  rotate: false
+  xy: 260, 483
+  size: 109, 25
+  orig: 109, 25
+  offset: 0, 0
+  index: -1
+youdb
+  rotate: false
+  xy: 93, 153
+  size: 116, 81
+  orig: 116, 81
+  offset: 0, 0
+  index: -1
+yous
+  rotate: true
+  xy: 370, 527
+  size: 54, 34
+  orig: 54, 34
+  offset: 0, 0
+  index: -1
+youxb1
+  rotate: false
+  xy: 113, 414
+  size: 145, 294
+  orig: 145, 294
+  offset: 0, 0
+  index: -1
+youxb11
+  rotate: true
+  xy: 113, 236
+  size: 58, 139
+  orig: 58, 139
+  offset: 0, 0
+  index: -1
+youxb2
+  rotate: false
+  xy: 2, 5
+  size: 89, 229
+  orig: 89, 229
+  offset: 0, 0
+  index: -1
+youxb22
+  rotate: false
+  xy: 93, 19
+  size: 48, 132
+  orig: 48, 132
+  offset: 0, 0
+  index: -1
+zuobie
+  rotate: false
+  xy: 699, 782
+  size: 78, 21
+  orig: 78, 21
+  offset: 0, 0
+  index: -1
+zuodb
+  rotate: true
+  xy: 953, 935
+  size: 78, 62
+  orig: 78, 62
+  offset: 0, 0
+  index: -1
+zuos
+  rotate: false
+  xy: 197, 124
+  size: 27, 27
+  orig: 27, 27
+  offset: 0, 0
+  index: -1
+zuoxb1
+  rotate: true
+  xy: 699, 913
+  size: 100, 252
+  orig: 100, 252
+  offset: 0, 0
+  index: -1
+zuoxb11
+  rotate: true
+  xy: 412, 725
+  size: 52, 201
+  orig: 52, 201
+  offset: 0, 0
+  index: -1
+zuoxb2
+  rotate: false
+  xy: 143, 25
+  size: 52, 126
+  orig: 52, 126
+  offset: 0, 0
+  index: -1
+zuoxb22
+  rotate: false
+  xy: 370, 583
+  size: 44, 125
+  orig: 44, 125
+  offset: 0, 0
+  index: -1
+zuoxbli
+  rotate: false
+  xy: 211, 153
+  size: 31, 21
+  orig: 31, 21
+  offset: 0, 0
+  index: -1
+

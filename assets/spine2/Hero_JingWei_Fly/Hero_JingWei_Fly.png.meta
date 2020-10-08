@@ -1,0 +1,34 @@
+{
+  "ver": "2.3.3",
+  "uuid": "0d620121-45a2-4c54-92d9-ff29b9d0e7f3",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "platformSettings": {},
+  "subMetas": {
+    "Hero_JingWei_Fly": {
+      "ver": "1.0.4",
+      "uuid": "17f568e0-ed2b-45cc-9875-6e2401a9659e",
+      "rawTextureUuid": "0d620121-45a2-4c54-92d9-ff29b9d0e7f3",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -25.5,
+      "offsetY": 22.5,
+      "trimX": 2,
+      "trimY": 10,
+      "width": 201,
+      "height": 191,
+      "rawWidth": 256,
+      "rawHeight": 256,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

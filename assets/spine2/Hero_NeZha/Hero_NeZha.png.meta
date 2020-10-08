@@ -1,0 +1,34 @@
+{
+  "ver": "2.3.3",
+  "uuid": "2bdeecdf-25a9-42b5-8a20-9b0cd4368579",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "platformSettings": {},
+  "subMetas": {
+    "Hero_NeZha": {
+      "ver": "1.0.4",
+      "uuid": "01fe9d41-d0dd-4b2d-b7f7-1b1009200e12",
+      "rawTextureUuid": "2bdeecdf-25a9-42b5-8a20-9b0cd4368579",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -75.5,
+      "offsetY": 6.5,
+      "trimX": 2,
+      "trimY": 2,
+      "width": 869,
+      "height": 1007,
+      "rawWidth": 1024,
+      "rawHeight": 1024,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

@@ -1,0 +1,84 @@
+
+Hero_MenShen_Hitted.png
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+dc/a_hit/hit_20
+  rotate: false
+  xy: 2, 340
+  size: 112, 160
+  orig: 120, 160
+  offset: 0, 0
+  index: -1
+dc/a_hit/hit_21
+  rotate: false
+  xy: 2, 196
+  size: 96, 142
+  orig: 120, 160
+  offset: 7, 16
+  index: -1
+dc/a_hit/hit_22
+  rotate: false
+  xy: 116, 373
+  size: 92, 127
+  orig: 120, 160
+  offset: 11, 14
+  index: -1
+dc/a_hit/hit_23
+  rotate: false
+  xy: 2, 67
+  size: 92, 127
+  orig: 120, 160
+  offset: 12, 13
+  index: -1
+dc/a_hit/hit_24
+  rotate: false
+  xy: 210, 375
+  size: 93, 125
+  orig: 120, 160
+  offset: 12, 13
+  index: -1
+dc/a_hit/hit_25
+  rotate: false
+  xy: 305, 380
+  size: 93, 120
+  orig: 120, 160
+  offset: 14, 17
+  index: -1
+dc/a_hit/hit_26
+  rotate: false
+  xy: 400, 383
+  size: 83, 117
+  orig: 120, 160
+  offset: 21, 19
+  index: -1
+dc/a_hit/hit_27
+  rotate: false
+  xy: 100, 225
+  size: 82, 113
+  orig: 120, 160
+  offset: 22, 22
+  index: -1
+dc/a_hit/hit_28
+  rotate: false
+  xy: 96, 83
+  size: 80, 111
+  orig: 120, 160
+  offset: 23, 22
+  index: -1
+dc/a_hit/hit_29
+  rotate: true
+  xy: 96, 2
+  size: 79, 90
+  orig: 120, 160
+  offset: 24, 42
+  index: -1
+dc/a_hit/hit_30
+  rotate: true
+  xy: 305, 300
+  size: 78, 90
+  orig: 120, 160
+  offset: 24, 42
+  index: -1
+

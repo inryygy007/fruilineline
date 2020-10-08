@@ -1,0 +1,34 @@
+{
+  "ver": "2.3.3",
+  "uuid": "f27cdb1d-87c8-40b2-a2d0-f0a824f3d32d",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "platformSettings": {},
+  "subMetas": {
+    "Hero_DaoDeTianZun": {
+      "ver": "1.0.4",
+      "uuid": "fbbce720-a279-42d5-a225-4f5441f9b404",
+      "rawTextureUuid": "f27cdb1d-87c8-40b2-a2d0-f0a824f3d32d",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -0.5,
+      "offsetY": -6.5,
+      "trimX": 1,
+      "trimY": 17,
+      "width": 1021,
+      "height": 1003,
+      "rawWidth": 1024,
+      "rawHeight": 1024,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

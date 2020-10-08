@@ -1,0 +1,42 @@
+
+Hero_HengJiangZhengLun_Hitted.png
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+effect/eft00013
+  rotate: false
+  xy: 2, 272
+  size: 180, 196
+  orig: 300, 300
+  offset: 59, 47
+  index: -1
+effect/eft00014
+  rotate: false
+  xy: 2, 128
+  size: 148, 142
+  orig: 300, 300
+  offset: 77, 74
+  index: -1
+effect/eft00016
+  rotate: false
+  xy: 184, 329
+  size: 142, 139
+  orig: 300, 300
+  offset: 78, 74
+  index: -1
+effect/eft00018
+  rotate: false
+  xy: 2, 2
+  size: 123, 124
+  orig: 300, 300
+  offset: 94, 80
+  index: -1
+effect/eft00020
+  rotate: false
+  xy: 328, 367
+  size: 125, 101
+  orig: 300, 300
+  offset: 95, 98
+  index: -1
+

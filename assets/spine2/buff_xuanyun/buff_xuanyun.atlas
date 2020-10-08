@@ -1,0 +1,77 @@
+
+buff_xuanyun.png
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+yun_00001
+  rotate: false
+  xy: 307, 412
+  size: 134, 61
+  orig: 240, 240
+  offset: 42, 110
+  index: -1
+yun_00003
+  rotate: true
+  xy: 57, 150
+  size: 136, 64
+  orig: 240, 240
+  offset: 40, 107
+  index: -1
+yun_00005
+  rotate: true
+  xy: 64, 15
+  size: 133, 64
+  orig: 240, 240
+  offset: 49, 108
+  index: -1
+yun_00007
+  rotate: false
+  xy: 2, 415
+  size: 155, 58
+  orig: 240, 240
+  offset: 29, 112
+  index: -1
+yun_00009
+  rotate: false
+  xy: 2, 354
+  size: 153, 59
+  orig: 240, 240
+  offset: 30, 107
+  index: -1
+yun_00011
+  rotate: false
+  xy: 2, 288
+  size: 141, 64
+  orig: 240, 240
+  offset: 41, 108
+  index: -1
+yun_00013
+  rotate: true
+  xy: 123, 154
+  size: 132, 60
+  orig: 240, 240
+  offset: 48, 112
+  index: -1
+yun_00015
+  rotate: true
+  xy: 2, 2
+  size: 134, 60
+  orig: 240, 240
+  offset: 41, 111
+  index: -1
+yun_00017
+  rotate: false
+  xy: 159, 417
+  size: 146, 56
+  orig: 240, 240
+  offset: 37, 112
+  index: -1
+yun_00019
+  rotate: true
+  xy: 2, 138
+  size: 148, 53
+  orig: 240, 240
+  offset: 31, 115
+  index: -1
+

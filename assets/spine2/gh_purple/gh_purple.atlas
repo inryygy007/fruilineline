@@ -1,0 +1,154 @@
+
+gh_purple.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+zi/zi_00000
+  rotate: false
+  xy: 218, 710
+  size: 188, 70
+  orig: 360, 427
+  offset: 83, 108
+  index: -1
+zi/zi_00002
+  rotate: true
+  xy: 211, 500
+  size: 193, 71
+  orig: 360, 427
+  offset: 81, 107
+  index: -1
+zi/zi_00004
+  rotate: false
+  xy: 2, 2
+  size: 197, 72
+  orig: 360, 427
+  offset: 78, 106
+  index: -1
+zi/zi_00006
+  rotate: false
+  xy: 2, 384
+  size: 204, 74
+  orig: 360, 427
+  offset: 75, 105
+  index: -1
+zi/zi_00008
+  rotate: false
+  xy: 2, 538
+  size: 207, 76
+  orig: 360, 427
+  offset: 73, 103
+  index: -1
+zi/zi_00010
+  rotate: false
+  xy: 2, 695
+  size: 214, 77
+  orig: 360, 427
+  offset: 70, 102
+  index: -1
+zi/zi_00012
+  rotate: false
+  xy: 2, 774
+  size: 214, 78
+  orig: 360, 427
+  offset: 68, 101
+  index: -1
+zi/zi_00014
+  rotate: false
+  xy: 2, 935
+  size: 218, 79
+  orig: 360, 427
+  offset: 66, 100
+  index: -1
+zi/zi_00016
+  rotate: false
+  xy: 2, 616
+  size: 207, 77
+  orig: 360, 427
+  offset: 73, 102
+  index: -1
+zi/zi_00018
+  rotate: false
+  xy: 438, 857
+  size: 214, 77
+  orig: 360, 427
+  offset: 70, 102
+  index: -1
+zi/zi_00020
+  rotate: false
+  xy: 222, 856
+  size: 214, 78
+  orig: 360, 427
+  offset: 68, 101
+  index: -1
+zi/zi_00022
+  rotate: false
+  xy: 2, 854
+  size: 218, 79
+  orig: 360, 427
+  offset: 66, 100
+  index: -1
+zi/zi_00024
+  rotate: false
+  xy: 2, 229
+  size: 200, 77
+  orig: 360, 427
+  offset: 79, 102
+  index: -1
+zi/zi_00026
+  rotate: false
+  xy: 222, 782
+  size: 193, 72
+  orig: 360, 427
+  offset: 81, 107
+  index: -1
+zi/zi_00028
+  rotate: false
+  xy: 2, 76
+  size: 197, 73
+  orig: 360, 427
+  offset: 78, 106
+  index: -1
+zi/zi_00030
+  rotate: false
+  xy: 2, 308
+  size: 204, 74
+  orig: 360, 427
+  offset: 75, 105
+  index: -1
+zi/zi_00032
+  rotate: false
+  xy: 2, 460
+  size: 207, 76
+  orig: 360, 427
+  offset: 73, 103
+  index: -1
+zi/zi_00034
+  rotate: false
+  xy: 658, 937
+  size: 214, 77
+  orig: 360, 427
+  offset: 70, 102
+  index: -1
+zi/zi_00036
+  rotate: false
+  xy: 442, 936
+  size: 214, 78
+  orig: 360, 427
+  offset: 68, 101
+  index: -1
+zi/zi_00038
+  rotate: false
+  xy: 222, 936
+  size: 218, 78
+  orig: 360, 427
+  offset: 66, 100
+  index: -1
+zi/zi_00040
+  rotate: false
+  xy: 2, 151
+  size: 200, 76
+  orig: 360, 427
+  offset: 79, 102
+  index: -1
+

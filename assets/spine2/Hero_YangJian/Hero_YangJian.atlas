@@ -1,0 +1,203 @@
+
+Hero_YangJian.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+gongji
+  rotate: false
+  xy: 2, 3
+  size: 62, 51
+  orig: 62, 51
+  offset: 0, 0
+  index: -1
+houbai
+  rotate: true
+  xy: 814, 811
+  size: 211, 141
+  orig: 211, 141
+  offset: 0, 0
+  index: -1
+houshui
+  rotate: false
+  xy: 2, 212
+  size: 184, 313
+  orig: 184, 313
+  offset: 0, 0
+  index: -1
+pifeng
+  rotate: false
+  xy: 377, 648
+  size: 435, 374
+  orig: 435, 374
+  offset: 0, 0
+  index: -1
+shenti
+  rotate: false
+  xy: 188, 374
+  size: 129, 151
+  orig: 129, 151
+  offset: 0, 0
+  index: -1
+shouji
+  rotate: false
+  xy: 66, 3
+  size: 62, 51
+  orig: 62, 51
+  offset: 0, 0
+  index: -1
+siwang
+  rotate: true
+  xy: 130, 2
+  size: 52, 14
+  orig: 52, 14
+  offset: 0, 0
+  index: -1
+tou
+  rotate: false
+  xy: 377, 528
+  size: 135, 118
+  orig: 135, 118
+  offset: 0, 0
+  index: -1
+wuqi
+  rotate: false
+  xy: 2, 527
+  size: 373, 495
+  orig: 373, 495
+  offset: 0, 0
+  index: -1
+yaofneg
+  rotate: true
+  xy: 416, 413
+  size: 113, 106
+  orig: 113, 106
+  offset: 0, 0
+  index: -1
+youbai
+  rotate: true
+  xy: 514, 566
+  size: 80, 157
+  orig: 80, 157
+  offset: 0, 0
+  index: -1
+yougebo
+  rotate: false
+  xy: 355, 324
+  size: 64, 66
+  orig: 64, 66
+  offset: 0, 0
+  index: -1
+youjian
+  rotate: false
+  xy: 284, 227
+  size: 64, 69
+  orig: 64, 69
+  offset: 0, 0
+  index: -1
+yourtui
+  rotate: false
+  xy: 188, 224
+  size: 94, 148
+  orig: 94, 148
+  offset: 0, 0
+  index: -1
+yousdhou
+  rotate: false
+  xy: 203, 183
+  size: 40, 39
+  orig: 40, 39
+  offset: 0, 0
+  index: -1
+youshou1
+  rotate: false
+  xy: 160, 78
+  size: 38, 42
+  orig: 38, 42
+  offset: 0, 0
+  index: -1
+youxiaobi
+  rotate: true
+  xy: 924, 732
+  size: 77, 98
+  orig: 77, 98
+  offset: 0, 0
+  index: -1
+youxiaotui
+  rotate: false
+  xy: 319, 392
+  size: 95, 133
+  orig: 95, 133
+  offset: 0, 0
+  index: -1
+zhongbai
+  rotate: false
+  xy: 957, 849
+  size: 54, 173
+  orig: 54, 173
+  offset: 0, 0
+  index: -1
+zuobai
+  rotate: false
+  xy: 2, 56
+  size: 156, 154
+  orig: 156, 154
+  offset: 0, 0
+  index: -1
+zuogebo
+  rotate: true
+  xy: 822, 594
+  size: 70, 99
+  orig: 70, 99
+  offset: 0, 0
+  index: -1
+zuojian
+  rotate: false
+  xy: 924, 652
+  size: 91, 78
+  orig: 91, 78
+  offset: 0, 0
+  index: -1
+zuolingzi
+  rotate: false
+  xy: 923, 592
+  size: 74, 58
+  orig: 74, 58
+  offset: 0, 0
+  index: -1
+zuoshou
+  rotate: false
+  xy: 160, 167
+  size: 41, 43
+  orig: 41, 43
+  offset: 0, 0
+  index: -1
+zuoshou1
+  rotate: false
+  xy: 160, 122
+  size: 40, 43
+  orig: 40, 43
+  offset: 0, 0
+  index: -1
+zuotui
+  rotate: false
+  xy: 814, 666
+  size: 108, 143
+  orig: 108, 143
+  offset: 0, 0
+  index: -1
+zuoxiaobi
+  rotate: false
+  xy: 284, 298
+  size: 69, 74
+  orig: 69, 74
+  offset: 0, 0
+  index: -1
+zuoxiaotui
+  rotate: true
+  xy: 673, 568
+  size: 78, 147
+  orig: 78, 147
+  offset: 0, 0
+  index: -1
+

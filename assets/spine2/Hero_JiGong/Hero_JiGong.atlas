@@ -1,0 +1,168 @@
+
+Hero_JiGong.png
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Lshanzi
+  rotate: true
+  xy: 98, 295
+  size: 92, 168
+  orig: 92, 168
+  offset: 0, 0
+  index: -1
+Lshoubi
+  rotate: true
+  xy: 396, 253
+  size: 35, 79
+  orig: 35, 79
+  offset: 0, 0
+  index: -1
+Ltui
+  rotate: true
+  xy: 70, 95
+  size: 72, 184
+  orig: 72, 184
+  offset: 0, 0
+  index: -1
+Lxiuzi
+  rotate: true
+  xy: 266, 414
+  size: 96, 186
+  orig: 96, 186
+  offset: 0, 0
+  index: -1
+Rgebo
+  rotate: false
+  xy: 454, 432
+  size: 38, 78
+  orig: 38, 78
+  offset: 0, 0
+  index: -1
+Rshou
+  rotate: false
+  xy: 70, 71
+  size: 26, 22
+  orig: 26, 22
+  offset: 0, 0
+  index: -1
+Rshoubi
+  rotate: false
+  xy: 2, 296
+  size: 94, 214
+  orig: 94, 214
+  offset: 0, 0
+  index: -1
+Rtui
+  rotate: false
+  xy: 2, 70
+  size: 66, 224
+  orig: 66, 224
+  offset: 0, 0
+  index: -1
+att
+  rotate: true
+  xy: 220, 50
+  size: 43, 38
+  orig: 43, 38
+  offset: 0, 0
+  index: -1
+body
+  rotate: false
+  xy: 396, 290
+  size: 79, 122
+  orig: 79, 122
+  offset: 0, 0
+  index: -1
+die
+  rotate: true
+  xy: 189, 6
+  size: 38, 30
+  orig: 38, 30
+  offset: 0, 0
+  index: -1
+fuozhu01
+  rotate: true
+  xy: 268, 248
+  size: 61, 126
+  orig: 61, 126
+  offset: 0, 0
+  index: -1
+fuozhu02
+  rotate: false
+  xy: 454, 419
+  size: 11, 11
+  orig: 11, 11
+  offset: 0, 0
+  index: -1
+hit
+  rotate: true
+  xy: 233, 194
+  size: 43, 39
+  orig: 43, 39
+  offset: 0, 0
+  index: -1
+hu
+  rotate: false
+  xy: 2, 5
+  size: 96, 63
+  orig: 96, 63
+  offset: 0, 0
+  index: -1
+hudai
+  rotate: false
+  xy: 100, 13
+  size: 34, 80
+  orig: 34, 80
+  offset: 0, 0
+  index: -1
+qunzi01
+  rotate: false
+  xy: 70, 169
+  size: 161, 124
+  orig: 161, 124
+  offset: 0, 0
+  index: -1
+qunzi02
+  rotate: false
+  xy: 98, 389
+  size: 166, 121
+  orig: 166, 121
+  offset: 0, 0
+  index: -1
+tou
+  rotate: true
+  xy: 268, 311
+  size: 101, 126
+  orig: 101, 126
+  offset: 0, 0
+  index: -1
+toufa01
+  rotate: false
+  xy: 180, 46
+  size: 38, 47
+  orig: 38, 47
+  offset: 0, 0
+  index: -1
+toufa02
+  rotate: false
+  xy: 136, 42
+  size: 42, 51
+  orig: 42, 51
+  offset: 0, 0
+  index: -1
+toufa03
+  rotate: false
+  xy: 233, 239
+  size: 30, 54
+  orig: 30, 54
+  offset: 0, 0
+  index: -1
+toufa04
+  rotate: true
+  xy: 136, 2
+  size: 38, 51
+  orig: 38, 51
+  offset: 0, 0
+  index: -1
+

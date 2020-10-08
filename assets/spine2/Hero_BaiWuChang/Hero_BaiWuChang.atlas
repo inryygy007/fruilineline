@@ -1,0 +1,266 @@
+
+Hero_BaiWuChang.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+attack
+  rotate: true
+  xy: 988, 853
+  size: 38, 34
+  orig: 38, 34
+  offset: 0, 0
+  index: -1
+clothes_01
+  rotate: false
+  xy: 585, 860
+  size: 146, 161
+  orig: 146, 161
+  offset: 0, 0
+  index: -1
+clothes_010
+  rotate: false
+  xy: 294, 484
+  size: 66, 127
+  orig: 66, 127
+  offset: 0, 0
+  index: -1
+clothes_012
+  rotate: false
+  xy: 900, 893
+  size: 114, 128
+  orig: 114, 128
+  offset: 0, 0
+  index: -1
+clothes_015
+  rotate: true
+  xy: 195, 324
+  size: 70, 107
+  orig: 70, 107
+  offset: 0, 0
+  index: -1
+clothes_016
+  rotate: false
+  xy: 412, 626
+  size: 64, 161
+  orig: 64, 161
+  offset: 0, 0
+  index: -1
+clothes_017
+  rotate: true
+  xy: 585, 791
+  size: 67, 147
+  orig: 67, 147
+  offset: 0, 0
+  index: -1
+clothes_02
+  rotate: false
+  xy: 160, 116
+  size: 24, 82
+  orig: 24, 82
+  offset: 0, 0
+  index: -1
+clothes_03
+  rotate: false
+  xy: 284, 237
+  size: 21, 85
+  orig: 21, 85
+  offset: 0, 0
+  index: -1
+clothes_13
+  rotate: true
+  xy: 872, 827
+  size: 52, 34
+  orig: 52, 34
+  offset: 0, 0
+  index: -1
+die
+  rotate: true
+  xy: 150, 37
+  size: 37, 31
+  orig: 37, 31
+  offset: 0, 0
+  index: -1
+ear
+  rotate: false
+  xy: 186, 182
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+hair_01
+  rotate: false
+  xy: 204, 228
+  size: 46, 94
+  orig: 46, 94
+  offset: 0, 0
+  index: -1
+hair_02
+  rotate: false
+  xy: 252, 231
+  size: 30, 91
+  orig: 30, 91
+  offset: 0, 0
+  index: -1
+hair_03
+  rotate: false
+  xy: 2, 122
+  size: 156, 189
+  orig: 156, 189
+  offset: 0, 0
+  index: -1
+hair_04
+  rotate: false
+  xy: 733, 881
+  size: 165, 140
+  orig: 165, 140
+  offset: 0, 0
+  index: -1
+head
+  rotate: false
+  xy: 294, 415
+  size: 56, 67
+  orig: 56, 67
+  offset: 0, 0
+  index: -1
+hitted
+  rotate: false
+  xy: 204, 192
+  size: 38, 34
+  orig: 38, 34
+  offset: 0, 0
+  index: -1
+l_foot
+  rotate: false
+  xy: 845, 815
+  size: 25, 64
+  orig: 25, 64
+  offset: 0, 0
+  index: -1
+l_hand
+  rotate: true
+  xy: 478, 751
+  size: 36, 32
+  orig: 36, 32
+  offset: 0, 0
+  index: -1
+l_thigh
+  rotate: false
+  xy: 160, 200
+  size: 42, 111
+  orig: 42, 111
+  offset: 0, 0
+  index: -1
+l_upper_arm
+  rotate: false
+  xy: 195, 396
+  size: 97, 200
+  orig: 97, 200
+  offset: 0, 0
+  index: -1
+r_foot
+  rotate: false
+  xy: 908, 841
+  size: 38, 50
+  orig: 38, 50
+  offset: 0, 0
+  index: -1
+r_forearm
+  rotate: true
+  xy: 478, 682
+  size: 32, 25
+  orig: 32, 25
+  offset: 0, 0
+  index: -1
+r_hand
+  rotate: true
+  xy: 478, 716
+  size: 33, 30
+  orig: 33, 30
+  offset: 0, 0
+  index: -1
+r_hand1
+  rotate: false
+  xy: 478, 649
+  size: 25, 31
+  orig: 25, 31
+  offset: 0, 0
+  index: -1
+r_hand2
+  rotate: false
+  xy: 2, 2
+  size: 16, 10
+  orig: 16, 10
+  offset: 0, 0
+  index: -1
+r_hand22
+  rotate: false
+  xy: 948, 856
+  size: 38, 35
+  orig: 38, 35
+  offset: 0, 0
+  index: -1
+r_thigh
+  rotate: false
+  xy: 362, 485
+  size: 39, 126
+  orig: 39, 126
+  offset: 0, 0
+  index: -1
+r_upper_arm (2)
+  rotate: true
+  xy: 734, 809
+  size: 70, 109
+  orig: 70, 109
+  offset: 0, 0
+  index: -1
+stand
+  rotate: true
+  xy: 150, 76
+  size: 38, 31
+  orig: 38, 31
+  offset: 0, 0
+  index: -1
+torso
+  rotate: true
+  xy: 2, 14
+  size: 106, 146
+  orig: 106, 146
+  offset: 0, 0
+  index: -1
+weapon_01
+  rotate: false
+  xy: 2, 598
+  size: 252, 423
+  orig: 252, 423
+  offset: 0, 0
+  index: -1
+weapon_010
+  rotate: false
+  xy: 497, 791
+  size: 86, 230
+  orig: 86, 230
+  offset: 0, 0
+  index: -1
+weapon_02
+  rotate: false
+  xy: 256, 789
+  size: 239, 232
+  orig: 239, 232
+  offset: 0, 0
+  index: -1
+weapon_03
+  rotate: false
+  xy: 2, 313
+  size: 191, 283
+  orig: 191, 283
+  offset: 0, 0
+  index: -1
+weapon_06
+  rotate: false
+  xy: 256, 613
+  size: 154, 174
+  orig: 154, 174
+  offset: 0, 0
+  index: -1
+

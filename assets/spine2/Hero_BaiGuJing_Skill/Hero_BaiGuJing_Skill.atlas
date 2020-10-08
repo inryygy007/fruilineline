@@ -1,0 +1,336 @@
+
+Hero_BaiGuJing_Skill.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+atk/shifa_00000
+  rotate: true
+  xy: 493, 363
+  size: 72, 36
+  orig: 228, 300
+  offset: 86, 94
+  index: -1
+atk/shifa_00003
+  rotate: false
+  xy: 2, 4
+  size: 82, 69
+  orig: 228, 300
+  offset: 81, 87
+  index: -1
+atk/shifa_00006
+  rotate: true
+  xy: 189, 4
+  size: 88, 81
+  orig: 228, 300
+  offset: 78, 82
+  index: -1
+atk/shifa_00009
+  rotate: false
+  xy: 912, 840
+  size: 102, 91
+  orig: 228, 300
+  offset: 71, 78
+  index: -1
+atk/shifa_00012
+  rotate: false
+  xy: 559, 752
+  size: 116, 100
+  orig: 228, 300
+  offset: 64, 76
+  index: -1
+atk/shifa_00015
+  rotate: false
+  xy: 423, 674
+  size: 127, 108
+  orig: 228, 300
+  offset: 58, 74
+  index: -1
+atk/shifa_00018
+  rotate: false
+  xy: 421, 437
+  size: 123, 117
+  orig: 228, 300
+  offset: 60, 71
+  index: -1
+atk/shifa_00021
+  rotate: false
+  xy: 302, 465
+  size: 117, 125
+  orig: 228, 300
+  offset: 63, 70
+  index: -1
+atk/shifa_00024
+  rotate: false
+  xy: 275, 93
+  size: 124, 129
+  orig: 228, 300
+  offset: 60, 72
+  index: -1
+atk/shifa_00027
+  rotate: true
+  xy: 423, 784
+  size: 127, 134
+  orig: 228, 300
+  offset: 59, 75
+  index: -1
+atk/shifa_00030
+  rotate: true
+  xy: 155, 461
+  size: 125, 145
+  orig: 228, 300
+  offset: 60, 72
+  index: -1
+atk/shifa_00033
+  rotate: false
+  xy: 2, 75
+  size: 134, 160
+  orig: 228, 300
+  offset: 56, 64
+  index: -1
+atk/shifa_00036
+  rotate: false
+  xy: 2, 565
+  size: 151, 170
+  orig: 228, 300
+  offset: 46, 58
+  index: -1
+atk/shifa_00039
+  rotate: false
+  xy: 832, 933
+  size: 172, 89
+  orig: 228, 300
+  offset: 35, 57
+  index: -1
+skill/eft_00015
+  rotate: false
+  xy: 152, 332
+  size: 138, 127
+  orig: 228, 495
+  offset: 40, 186
+  index: -1
+skill/eft_00017
+  rotate: false
+  xy: 138, 94
+  size: 135, 128
+  orig: 228, 495
+  offset: 46, 192
+  index: -1
+skill/eft_00019
+  rotate: true
+  xy: 300, 674
+  size: 133, 121
+  orig: 228, 495
+  offset: 48, 197
+  index: -1
+skill/eft_00021
+  rotate: false
+  xy: 426, 556
+  size: 124, 116
+  orig: 228, 495
+  offset: 57, 202
+  index: -1
+skill/eft_00023
+  rotate: false
+  xy: 799, 849
+  size: 111, 82
+  orig: 228, 495
+  offset: 70, 208
+  index: -1
+skill/eft_00025
+  rotate: false
+  xy: 552, 664
+  size: 111, 86
+  orig: 228, 495
+  offset: 68, 206
+  index: -1
+skill/eft_00027
+  rotate: false
+  xy: 552, 570
+  size: 105, 92
+  orig: 228, 495
+  offset: 71, 205
+  index: -1
+skill/eft_00029
+  rotate: true
+  xy: 374, 9
+  size: 82, 77
+  orig: 228, 495
+  offset: 78, 210
+  index: -1
+skill/eft_00031
+  rotate: false
+  xy: 531, 360
+  size: 66, 59
+  orig: 228, 495
+  offset: 86, 216
+  index: -1
+skill/jiguang_00014
+  rotate: false
+  xy: 300, 592
+  size: 124, 80
+  orig: 300, 105
+  offset: 40, 16
+  index: -1
+skill/jiguang_00015
+  rotate: false
+  xy: 2, 794
+  size: 270, 54
+  orig: 300, 105
+  offset: 16, 31
+  index: -1
+skill/jiguang_00016
+  rotate: false
+  xy: 2, 737
+  size: 269, 55
+  orig: 300, 105
+  offset: 16, 30
+  index: -1
+skill/jiguang_00017
+  rotate: false
+  xy: 2, 850
+  size: 272, 56
+  orig: 300, 105
+  offset: 15, 28
+  index: -1
+skill/jiguang_00018
+  rotate: false
+  xy: 556, 970
+  size: 274, 52
+  orig: 300, 105
+  offset: 15, 31
+  index: -1
+skill/jiguang_00019
+  rotate: false
+  xy: 278, 969
+  size: 276, 53
+  orig: 300, 105
+  offset: 14, 30
+  index: -1
+skill/jiguang_00020
+  rotate: false
+  xy: 2, 966
+  size: 274, 56
+  orig: 300, 105
+  offset: 14, 27
+  index: -1
+skill/jiguang_00021
+  rotate: false
+  xy: 2, 908
+  size: 274, 56
+  orig: 300, 105
+  offset: 14, 27
+  index: -1
+skill/jiguang_00022
+  rotate: false
+  xy: 278, 913
+  size: 274, 54
+  orig: 300, 105
+  offset: 15, 27
+  index: -1
+skill/shifa_00000
+  rotate: true
+  xy: 138, 2
+  size: 90, 49
+  orig: 228, 495
+  offset: 41, 190
+  index: -1
+skill/shifa_00003
+  rotate: false
+  xy: 272, 11
+  size: 100, 80
+  orig: 228, 495
+  offset: 37, 183
+  index: -1
+skill/shifa_00006
+  rotate: false
+  xy: 552, 473
+  size: 102, 95
+  orig: 228, 495
+  offset: 38, 183
+  index: -1
+skill/shifa_00009
+  rotate: false
+  xy: 684, 857
+  size: 113, 111
+  orig: 228, 495
+  offset: 36, 182
+  index: -1
+skill/shifa_00012
+  rotate: false
+  xy: 559, 854
+  size: 123, 114
+  orig: 228, 495
+  offset: 29, 182
+  index: -1
+skill/shifa_00015
+  rotate: true
+  xy: 2, 400
+  size: 163, 148
+  orig: 228, 495
+  offset: 41, 182
+  index: -1
+skill/shifa_00018
+  rotate: true
+  xy: 2, 237
+  size: 161, 148
+  orig: 228, 495
+  offset: 42, 182
+  index: -1
+skill/shifa_00021
+  rotate: true
+  xy: 155, 588
+  size: 147, 143
+  orig: 228, 495
+  offset: 42, 182
+  index: -1
+skill/shifa_00024
+  rotate: true
+  xy: 152, 224
+  size: 106, 143
+  orig: 228, 495
+  offset: 41, 182
+  index: -1
+skill/shifa_00027
+  rotate: true
+  xy: 278, 809
+  size: 102, 143
+  orig: 228, 495
+  offset: 42, 182
+  index: -1
+skill/shifa_00030
+  rotate: true
+  xy: 292, 363
+  size: 96, 50
+  orig: 228, 495
+  offset: 42, 182
+  index: -1
+skill/shifa_00033
+  rotate: false
+  xy: 546, 421
+  size: 97, 50
+  orig: 228, 495
+  offset: 41, 182
+  index: -1
+skill/shifa_00036
+  rotate: false
+  xy: 396, 385
+  size: 95, 50
+  orig: 228, 495
+  offset: 42, 182
+  index: -1
+skill/shifa_00039
+  rotate: true
+  xy: 344, 367
+  size: 96, 50
+  orig: 228, 495
+  offset: 42, 182
+  index: -1
+skill/shifa_00042
+  rotate: false
+  xy: 396, 335
+  size: 94, 48
+  orig: 228, 495
+  offset: 43, 183
+  index: -1
+

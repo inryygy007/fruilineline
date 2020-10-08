@@ -1,0 +1,133 @@
+
+Hero_JinJiaoDaWang_Skill.png
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+effect/atk/3df6a
+  rotate: true
+  xy: 370, 310
+  size: 30, 26
+  orig: 47, 42
+  offset: 8, 8
+  index: -1
+effect/atk/xuli_00006
+  rotate: false
+  xy: 2, 99
+  size: 194, 185
+  orig: 194, 185
+  offset: 0, 0
+  index: -1
+effect/atk/xuli_a_00000
+  rotate: false
+  xy: 198, 143
+  size: 20, 39
+  orig: 160, 160
+  offset: 51, 51
+  index: -1
+effect/atk/xuli_a_00002
+  rotate: true
+  xy: 59, 33
+  size: 23, 59
+  orig: 160, 160
+  offset: 49, 51
+  index: -1
+effect/atk/xuli_a_00004
+  rotate: true
+  xy: 59, 58
+  size: 39, 69
+  orig: 160, 160
+  offset: 47, 49
+  index: -1
+effect/atk/xuli_a_00006
+  rotate: false
+  xy: 2, 32
+  size: 55, 65
+  orig: 160, 160
+  offset: 46, 54
+  index: -1
+effect/atk/xuli_a_00008
+  rotate: false
+  xy: 399, 351
+  size: 61, 56
+  orig: 160, 160
+  offset: 46, 63
+  index: -1
+effect/atk/xuli_a_00010
+  rotate: true
+  xy: 462, 344
+  size: 63, 48
+  orig: 160, 160
+  offset: 46, 71
+  index: -1
+effect/atk/xuli_a_00012
+  rotate: false
+  xy: 305, 307
+  size: 63, 33
+  orig: 160, 160
+  offset: 46, 86
+  index: -1
+effect/skill/fazhen_00015
+  rotate: false
+  xy: 399, 409
+  size: 102, 101
+  orig: 102, 101
+  offset: 0, 0
+  index: -1
+effect/skill/glow_00020
+  rotate: false
+  xy: 2, 286
+  size: 224, 224
+  orig: 224, 224
+  offset: 0, 0
+  index: -1
+effect/skill/huiju_00013
+  rotate: false
+  xy: 228, 342
+  size: 169, 168
+  orig: 197, 194
+  offset: 28, 0
+  index: -1
+effect/skill/xuli_00010
+  rotate: false
+  xy: 29, 12
+  size: 16, 18
+  orig: 120, 120
+  offset: 88, 53
+  index: -1
+effect/skill/xuli_00012
+  rotate: true
+  xy: 198, 184
+  size: 38, 32
+  orig: 120, 120
+  offset: 68, 52
+  index: -1
+effect/skill/xuli_00014
+  rotate: true
+  xy: 198, 224
+  size: 60, 36
+  orig: 120, 120
+  offset: 44, 51
+  index: -1
+effect/skill/xuli_00016
+  rotate: false
+  xy: 228, 303
+  size: 75, 37
+  orig: 120, 120
+  offset: 25, 51
+  index: -1
+effect/skill/xuli_00018
+  rotate: false
+  xy: 130, 56
+  size: 59, 41
+  orig: 120, 120
+  offset: 19, 46
+  index: -1
+effect/skill/xuli_00020
+  rotate: true
+  xy: 2, 2
+  size: 28, 25
+  orig: 120, 120
+  offset: 21, 49
+  index: -1
+

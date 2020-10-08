@@ -1,0 +1,252 @@
+
+Hero_TangSanZang.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+back01
+  rotate: false
+  xy: 542, 453
+  size: 145, 155
+  orig: 145, 155
+  offset: 0, 0
+  index: -1
+back02
+  rotate: false
+  xy: 689, 470
+  size: 135, 145
+  orig: 135, 145
+  offset: 0, 0
+  index: -1
+body01
+  rotate: false
+  xy: 686, 617
+  size: 115, 163
+  orig: 115, 163
+  offset: 0, 0
+  index: -1
+body02
+  rotate: true
+  xy: 380, 492
+  size: 29, 87
+  orig: 29, 87
+  offset: 0, 0
+  index: -1
+druss01
+  rotate: false
+  xy: 2, 208
+  size: 110, 253
+  orig: 110, 253
+  offset: 0, 0
+  index: -1
+druss02
+  rotate: false
+  xy: 372, 744
+  size: 141, 273
+  orig: 141, 273
+  offset: 0, 0
+  index: -1
+druss03
+  rotate: false
+  xy: 480, 505
+  size: 60, 237
+  orig: 60, 237
+  offset: 0, 0
+  index: -1
+druss04
+  rotate: false
+  xy: 305, 488
+  size: 73, 241
+  orig: 73, 241
+  offset: 0, 0
+  index: -1
+druss05
+  rotate: false
+  xy: 108, 731
+  size: 262, 286
+  orig: 262, 286
+  offset: 0, 0
+  index: -1
+face_bhit
+  rotate: true
+  xy: 114, 232
+  size: 48, 46
+  orig: 48, 46
+  offset: 0, 0
+  index: -1
+face_dead
+  rotate: false
+  xy: 826, 545
+  size: 48, 46
+  orig: 48, 46
+  offset: 0, 0
+  index: -1
+face_idle
+  rotate: false
+  xy: 826, 497
+  size: 48, 46
+  orig: 48, 46
+  offset: 0, 0
+  index: -1
+face_skill
+  rotate: true
+  xy: 876, 593
+  size: 48, 46
+  orig: 48, 46
+  offset: 0, 0
+  index: -1
+hat03
+  rotate: false
+  xy: 799, 843
+  size: 188, 174
+  orig: 188, 174
+  offset: 0, 0
+  index: -1
+head01
+  rotate: false
+  xy: 803, 704
+  size: 117, 137
+  orig: 117, 137
+  offset: 0, 0
+  index: -1
+larm01_1
+  rotate: false
+  xy: 108, 532
+  size: 195, 197
+  orig: 195, 197
+  offset: 0, 0
+  index: -1
+larm01_2
+  rotate: false
+  xy: 2, 2
+  size: 126, 204
+  orig: 126, 204
+  offset: 0, 0
+  index: -1
+larm01_3
+  rotate: false
+  xy: 542, 610
+  size: 142, 169
+  orig: 142, 169
+  offset: 0, 0
+  index: -1
+lfoot01
+  rotate: false
+  xy: 989, 944
+  size: 29, 73
+  orig: 29, 73
+  offset: 0, 0
+  index: -1
+lhand01_1
+  rotate: true
+  xy: 305, 457
+  size: 29, 70
+  orig: 29, 70
+  offset: 0, 0
+  index: -1
+lhand01_2
+  rotate: false
+  xy: 826, 593
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: -1
+lhand02_1
+  rotate: true
+  xy: 803, 643
+  size: 59, 110
+  orig: 59, 110
+  offset: 0, 0
+  index: -1
+lhat01
+  rotate: false
+  xy: 515, 781
+  size: 140, 236
+  orig: 140, 236
+  offset: 0, 0
+  index: -1
+rarm01
+  rotate: false
+  xy: 380, 523
+  size: 98, 219
+  orig: 98, 219
+  offset: 0, 0
+  index: -1
+rarm02
+  rotate: false
+  xy: 114, 336
+  size: 38, 135
+  orig: 38, 135
+  offset: 0, 0
+  index: -1
+rarm03
+  rotate: false
+  xy: 922, 717
+  size: 71, 124
+  orig: 71, 124
+  offset: 0, 0
+  index: -1
+rfoot01
+  rotate: false
+  xy: 154, 415
+  size: 50, 56
+  orig: 50, 56
+  offset: 0, 0
+  index: -1
+rhand01
+  rotate: true
+  xy: 206, 444
+  size: 27, 26
+  orig: 27, 26
+  offset: 0, 0
+  index: -1
+rhand02
+  rotate: false
+  xy: 876, 561
+  size: 36, 30
+  orig: 36, 30
+  offset: 0, 0
+  index: -1
+rhand03
+  rotate: true
+  xy: 114, 282
+  size: 52, 39
+  orig: 52, 39
+  offset: 0, 0
+  index: -1
+rhat01
+  rotate: false
+  xy: 657, 782
+  size: 140, 235
+  orig: 140, 235
+  offset: 0, 0
+  index: -1
+weapon01
+  rotate: false
+  xy: 154, 362
+  size: 50, 51
+  orig: 50, 51
+  offset: 0, 0
+  index: -1
+weapon02
+  rotate: false
+  xy: 2, 463
+  size: 104, 554
+  orig: 104, 554
+  offset: 0, 0
+  index: -1
+xiongshi01
+  rotate: true
+  xy: 108, 473
+  size: 57, 124
+  orig: 57, 124
+  offset: 0, 0
+  index: -1
+xxianglian01
+  rotate: false
+  xy: 234, 457
+  size: 69, 73
+  orig: 69, 73
+  offset: 0, 0
+  index: -1
+
