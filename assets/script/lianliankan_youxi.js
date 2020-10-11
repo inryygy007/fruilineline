@@ -270,6 +270,7 @@ cc.Class({
                             this.shuiguo_arr[i][j].getComponent('shuiguo').wo_bei_dian_zhong_le = false;
                             //this.shuiguo1.getComponent('shuiguo').focus(false);
                             this.set_move_focus_with_fruit(this.shuiguo_arr[i][j], true);
+                            this.shuiguo1.getComponent('shuiguo').Stop_action();
                             this.shuiguo1 = this.shuiguo_focus;
                             // 如果两不同 那存的 shuiguo1 要清除掉
                             //如果两都消除了 不用找了
@@ -295,7 +296,6 @@ cc.Class({
             }
         }
     },
-
 
     //接下来处理 能删除的规则 是连线的转角最多两个 这样是不能删除的
 

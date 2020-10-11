@@ -62,10 +62,26 @@ cc.Class({
         this.wo_bei_dian_zhong_le = true;
         //调用脚本的方法
         this.lianliankan_jiao_ben.you_shuiguo_bei_dianzhongle();
-
+        this.Zooming();
         //点击的时候设置移动焦点到自己这个块上来
         //this.lianliankan_jiao_ben.set_move_focus_with_fruit(this.node, false);
         //this.lianliankan_jiao_ben.bei_dian_ji_de_hang_lie(this.hang, this.lie);
+    },
+    //放大缩小
+    Zooming() {
+        //this.scaling = cc.v2(fruit_node.width - 30, fruit_node.height - 30);
+        //let act = cc.scaleTo(0.5, cc.v2(fruit_node.width + 30, fruit_node.height + 30));
+        let act1 = cc.scaleTo(0.5, 0.7);
+        let act2 = cc.scaleBy(0.7, 1.3);
+        //fruit_node.runAction(act).repeatForever();
+        //let act3 = cc.sequence(act1, act2);
+        let act3 = cc.repeatForever(cc.sequence(act1, act2));
+
+        this.action = cc.find("iconRoot/tupian", this.node).runAction(act3);
+    },
+    //停止动作
+    Stop_action() {
+        this.node.stopAction(this.action);
     },
     //把连连看游戏的脚本传进来
     ba_lianlian_kan_youxi_jiaoben_chuanjinlai(jiao_ben, i, j) {
