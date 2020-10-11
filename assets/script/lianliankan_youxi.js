@@ -14,26 +14,16 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
-        // foo: {
-        //     // ATTRIBUTES:
-        //     default: null,        // The default value will be used only when the component attaching
-        //                           // to a node for the first time
-        //     type: cc.SpriteFrame, // optional, default is typeof default
-        //     serializable: true,   // optional, default is true
-        // },
-        // bar: {
-        //     get () {
-        //         return this._bar;
-        //     },
-        //     set (value) {
-        //         this._bar = value;
-        //     }
-        // },
 
         shuiguo: {
             type: cc.Prefab,
             default: null
+        },
+        focus: {
+            type: cc.Prefab,
+            default: null
         }
+
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -108,6 +98,8 @@ cc.Class({
             this.xing_jie_dian = null;
 
         }
+        //所有水果块都是放在这个新结点上的 
+        //所以如果需要放一个焦点 在 水果块上面 就需要把这个焦点放在这个结点上
         this.xing_jie_dian = new cc.Node();
         this.xing_jie_dian.parent = this.node;
         //let di_tu_arr = this.di_tu();
@@ -132,6 +124,49 @@ cc.Class({
                 }
             }
         }
+
+        //因为xin_jiedian 每次都是重新创建的 所以 这个焦点的位置要记录一下
+        //添加焦点
+
+        let focus_node = cc.instantiate(this.focus);
+        focus_node.zIndex = 1000;
+        this.xing_jie_dian.addChild(focus_node);
+        this.m_move_focus = focus_node;
+        if (this.m_move_focus_pos) {
+            this.m_move_focus.x = this.m_move_focus_pos.x;
+            this.m_move_focus.y = this.m_move_focus_pos.y;
+        } else {
+            this.m_move_focus_pos = cc.v2(this.m_move_focus.x, this.m_move_focus.y);
+        }
+        //设置它停在第一个水果块上
+        //this.set_move_focus_with_fruit(this.shuiguo_arr[0][1]);
+    },
+
+    //设置那个移动焦点在哪个水果块上
+    set_move_focus_with_fruit(fruit_node, use_act) {
+        //因为水果块和 移动焦点的 父结点都是一样的(this.xing_jie_dian) 即它们在同个坐标系下, 所以不需要做坐标转换
+        //换句话说, 设置移动焦点到 水果的位置 就会是 焦点到水果
+        //焦点原来的位置
+        // let prev_x = this.m_move_focus.x;
+        // let prev_y = this.m_move_focus.y;
+        this.m_move_focus_pos = cc.v2(fruit_node.x, fruit_node.y);
+        //如果使用动作慢慢移动
+        if (use_act) {
+            //移动 动作
+            //动作加上 ease(缓冲的意思)
+            let act = cc.moveTo(0.5, cc.v2(fruit_node.x, fruit_node.y));
+            act.easing(cc.easeOut(2.0));//创建 easeOut 缓动对象，由快到慢。
+            //act.easing(cc.easeIn(2.0));//创建 easeIn 缓动对象，由慢到快。
+            //让焦点 运行动作
+            this.m_move_focus.runAction(act);
+        }
+        else {//立即设置到指定点
+            this.m_move_focus.x = fruit_node.x;
+            this.m_move_focus.y = fruit_node.y;
+        }
+
+
+
     },
     //被点击的行列
     bei_dian_ji_de_hang_lie(hang, lie) {
@@ -186,20 +221,22 @@ cc.Class({
                      * 这个块被点中了,,   要处理是不是有两一样的块
                      */
 
-
                     //1.如果之前没有点击水果块, 那这次点击的水果块就记为 点击的水果块1
                     //如果是这种情况 拉下来就不用再循环了
                     if (this.shuiguo1 == null) {
                         this.shuiguo1 = this.shuiguo_arr[i][j];
                         buyong_zhaole = true;
+                        this.m_move_focus.active = true;
+                        this.set_move_focus_with_fruit(this.shuiguo1, false);
+                        // this.shuiguo_focus.getComponent('shuiguo').focus(false);
+                        // this.shuiguo_focus = null;
                         break;
                     }
-
-
                     //2.如果之前有点击水果块那么 在？
                     //这里有个问题 就是水果1 可能和 shuiguo_arr[i][j] 是同一个水果块
                     //所以在这里我们只判断跟水果1 不同的块 所以这里进来消除的 必然是第二个块引起的
                     else if (this.shuiguo_arr[i][j] !== this.shuiguo1) {
+                        this.shuiguo_focus = this.shuiguo_arr[i][j];
                         if (this.shuiguo1.getComponent('shuiguo').lei_xing === this.shuiguo_arr[i][j].getComponent('shuiguo').lei_xing) {
                             //先改数据 再通过数据刷新界面 不是直接操作水果块 水果块的显隐完全由地图数据控制
                             let i1 = this.shuiguo1.getComponent('shuiguo').hang;
@@ -212,10 +249,16 @@ cc.Class({
                                 this.di_tu_arr[i1][j1] = 0;
                                 //这只改了一个
                                 this.shua_xing_ditu(this.di_tu_arr);
+                                this.m_move_focus.active = false;
+                                this.shuiguo1 = null;
                             } else {
                                 //检测完不能消除 要把它们的状态置回来
                                 this.shuiguo1.getComponent('shuiguo').wo_bei_dian_zhong_le = false;
                                 this.shuiguo_arr[i][j].getComponent('shuiguo').wo_bei_dian_zhong_le = false;
+                                //this.set_move_focus_with_fruit(this.shuiguo_arr[i][j], true);
+                                this.set_move_focus_with_fruit(this.shuiguo_focus, true);
+                                this.shuiguo1 = this.shuiguo_focus;
+                                //this.shuiguo_arr[i][j].getComponent('shuiguo').focus(false);
                             }
 
                             //this.shuiguo1.getComponent('shuiguo').ying_chang();
@@ -225,33 +268,28 @@ cc.Class({
                         } else {
                             this.shuiguo1.getComponent('shuiguo').wo_bei_dian_zhong_le = false;
                             this.shuiguo_arr[i][j].getComponent('shuiguo').wo_bei_dian_zhong_le = false;
+                            //this.shuiguo1.getComponent('shuiguo').focus(false);
+                            this.set_move_focus_with_fruit(this.shuiguo_arr[i][j], true);
+                            this.shuiguo1 = this.shuiguo_focus;
                             // 如果两不同 那存的 shuiguo1 要清除掉
                             //如果两都消除了 不用找了
                         }
 
                         //所以 反正都要清除掉 shuiguo1 
 
-                        this.shuiguo1 = null;
+                        //this.shuiguo1 = null;
                         //2.1 如果两个水果块相同 消除掉
 
                         //2.2 如果两个水果块不同  那么取消两个水果块的点击状态
 
-
                         //所以 反正都是不要找了
                         buyong_zhaole = true;
                         break;
-
-
-
                     }
-
                     //不存在 else 3
                     //3. 点了两个水果块, 要么都消除了, 要么都取消了 , 不存在三个水果块被点中的情况
-
-
                 }
             }
-
             if (buyong_zhaole) {
                 break;
             }

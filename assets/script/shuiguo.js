@@ -55,13 +55,16 @@ cc.Class({
         cc.find("iconRoot/tupian", this.node).getComponent(cc.Sprite).spriteFrame = sf;
     },
     dian_ji_button() {
-        console.log(this.lei_xing);
-
+        //console.log(this.lei_xing);
+        //this.focus(true);
         //点击这个水果块就设置一个变量为true
         //要在这里能调用 lianliankan_youxi 的脚本 所以 要把 lianliankan_youxi 传进来
         this.wo_bei_dian_zhong_le = true;
         //调用脚本的方法
         this.lianliankan_jiao_ben.you_shuiguo_bei_dianzhongle();
+
+        //点击的时候设置移动焦点到自己这个块上来
+        //this.lianliankan_jiao_ben.set_move_focus_with_fruit(this.node, false);
         //this.lianliankan_jiao_ben.bei_dian_ji_de_hang_lie(this.hang, this.lie);
     },
     //把连连看游戏的脚本传进来
@@ -70,11 +73,16 @@ cc.Class({
         this.hang = i;
         this.lie = j;
     },
+    //外框显示与否
+    focus(no_off) {
+        cc.find("focus", this.node).active = no_off;
+    },
     //隐藏
     ying_chang() {
         //如果是隐藏了 自然 "我被点中了" 的标识就应该清除提
         this.wo_bei_dian_zhong_le = false;
         this.node.active = false;
+        this.focus = false;
     },
     // update (dt) {},
 });
