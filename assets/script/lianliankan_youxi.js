@@ -247,8 +247,14 @@ cc.Class({
                                 //第一个的行列
 
                                 this.di_tu_arr[i1][j1] = 0;
+                                let time = this.shuiguo1.getComponent('shuiguo').ying_chang();
+                                this.shuiguo_arr[i][j].getComponent('shuiguo').ying_chang();
+                                let slef = this;
+                                this.node.runAction(cc.sequence(cc.delayTime(time), cc.callFunc(function () {
+                                    slef.shua_xing_ditu(slef.di_tu_arr);
+                                })))
                                 //这只改了一个
-                                this.shua_xing_ditu(this.di_tu_arr);
+                                //this.shua_xing_ditu(this.di_tu_arr);
                                 this.m_move_focus.active = false;
                                 this.shuiguo1 = null;
                             } else {

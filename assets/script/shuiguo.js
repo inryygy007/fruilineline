@@ -111,10 +111,18 @@ cc.Class({
     },
     //隐藏
     ying_chang() {
-        //如果是隐藏了 自然 "我被点中了" 的标识就应该清除提
-        this.wo_bei_dian_zhong_le = false;
-        this.node.active = false;
-        this.focus = false;
+        //自定义一个时间
+        let time = 1;
+        //隐藏背景框
+        cc.find('New Button', this.node).active = false;
+        //旋转隐藏动作组合
+        let act1 = cc.sequence(cc.rotateBy(time, 300), cc.hide());
+        //缩小
+        let act2 = cc.scaleTo(time, 0.2);
+        //组合同时进行旋转隐藏,缩小动作
+        let zoom_act = cc.spawn(act1, act2);
+        this.node.runAction(zoom_act);
+        return time;
     },
     // update (dt) {},
 });
