@@ -257,7 +257,9 @@ cc.Class({
                                 this.shuiguo_arr[i][j].getComponent('shuiguo').wo_bei_dian_zhong_le = false;
                                 //this.set_move_focus_with_fruit(this.shuiguo_arr[i][j], true);
                                 this.set_move_focus_with_fruit(this.shuiguo_focus, true);
+                                this.shuiguo1.getComponent('shuiguo').Stop_action();
                                 this.shuiguo1 = this.shuiguo_focus;
+
                                 //this.shuiguo_arr[i][j].getComponent('shuiguo').focus(false);
                             }
 

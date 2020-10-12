@@ -71,17 +71,33 @@ cc.Class({
     Zooming() {
         //this.scaling = cc.v2(fruit_node.width - 30, fruit_node.height - 30);
         //let act = cc.scaleTo(0.5, cc.v2(fruit_node.width + 30, fruit_node.height + 30));
-        let act1 = cc.scaleTo(0.5, 0.7);
-        let act2 = cc.scaleBy(0.7, 1.3);
+        let act1 = cc.scaleTo(0.5, 0.7).easing(cc.easeElasticIn(3.0));
+        let act2 = cc.scaleBy(0.7, 1.3).easing(cc.easeElasticOut(2.0));
+
+        //旋转动画
+        let act1_1 = cc.rotateTo(0.25, 20).easing(cc.easeBounceIn());
+        let act2_1 = cc.rotateTo(0.35, 0).easing(cc.easeBounceOut());//
+
+        let zoom_act = cc.sequence(act1, act2);
+        let rotate_act = cc.repeat(cc.sequence(act1_1, act2_1), 2);
+        //同时播放
         //fruit_node.runAction(act).repeatForever();
         //let act3 = cc.sequence(act1, act2);
-        let act3 = cc.repeatForever(cc.sequence(act1, act2));
+        let act3 = cc.repeatForever(cc.spawn(zoom_act, rotate_act));
 
+        //谁执行的动作 谁去停止
         this.action = cc.find("iconRoot/tupian", this.node).runAction(act3);
     },
     //停止动作
     Stop_action() {
-        this.node.stopAction(this.action);
+        cc.find("iconRoot/tupian", this.node).stopAction(this.action);
+
+        //停止动作后要把 缩放,旋转 调成初始值, 不然动作执行了一半 改变的值不会个性回来
+        //我们执行了 缩放动作, 所以停止后把缩放调为1
+        //我们执行了 旋转动作, 所以停止后把旋转调为0
+        //
+        cc.find("iconRoot/tupian", this.node).scale = 1;
+        cc.find("iconRoot/tupian", this.node).angle = 0;
     },
     //把连连看游戏的脚本传进来
     ba_lianlian_kan_youxi_jiaoben_chuanjinlai(jiao_ben, i, j) {
