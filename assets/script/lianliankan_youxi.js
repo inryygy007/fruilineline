@@ -412,14 +412,12 @@ cc.Class({
         if (qidian.hang !== zhongdiang.hang) {
             return false;
         }
-
         let liangge_doubushi_guaidian = !qidian.shi_guai_dian && !zhongdiang.shi_guai_dian;
         //如果是不同的水果块 也不用看了
         if ((di_tu_arr[qidian.hang][qidian.lie] !==
             di_tu_arr[zhongdiang.hang][zhongdiang.lie]) && liangge_doubushi_guaidian) {
             return false;
         }
-
         //行相同 水果也相同  还要看它们中间有没有别的水果块
         //从小的列 到大的列看
         //两者中比较小的列
@@ -443,10 +441,6 @@ cc.Class({
                 return false;
             }
         }
-
-
-
-
         //所有其它情况都没有返回false  说明这个水平规则是成立的
         return true;
 
@@ -484,7 +478,6 @@ cc.Class({
                 return true;
             }
         }
-
         for (let i = liang_zhe_zhong_bijiao_xiao_de_hang + 1; i < liang_zhe_zhong_bijiao_da_de_hang; i++) {
             //只要有一个水果块就返回false 行在前 还是列在前? 行是变数 列是固定
             if (di_tu_arr[i][qidian.lie] !== 0) {
@@ -608,10 +601,27 @@ cc.Class({
         if (this.shui_ping_jiance(A, B, di_tu_arr, out_arr)) {
             if (out_arr.length === 1) {
                 //代表是边界上的两个水果块
-                let xia_bian_jie = out_arr[0] === true;
-                let dir = xia_bian_jie ? -1 : 1;//要么边界+ 1 要么 -1 所以那个超出元素总是为1
-                return [true, [A, { hang: A.hang + dir, lie: A.lie }, { hang: B.hang + dir, lie: B.lie }, B]];
+                //如果中间有水果块
+                //那只要处理好这个 zhong_jian_youshui_guo 就行
+                let zhong_jian_youshui_guo = false;
+                let min = A.lie > B.lie ? B.lie : A.lie;
+                let max = A.lie > B.lie ? A.lie : B.lie;
+                if (B.lie - A.lie > 1 || A.lie - B.lie > 1) {
+                    for (let i = min; i < max; i++) {
+                        if (di_tu_arr[A.hang][i] !== 0) {
+                            zhong_jian_youshui_guo = true;
+                            break;
+                        }
+                    }
+                }
+                if (zhong_jian_youshui_guo) {//中间有水果块才这么绕过去
+                    let xia_bian_jie = out_arr[0] === true;
+
+                    let dir = xia_bian_jie ? -1 : 1;//要么边界+ 1 要么 -1 所以那个超出元素总是为1
+                    return [true, [A, { hang: A.hang + dir, lie: A.lie }, { hang: B.hang + dir, lie: B.lie }, B]];
+                }
             }
+            //如果前面没有返回 那直接返回这个(A-B 之间连线 不管是不是边界都可以)
             return [true, [A, B]];
         }
 
@@ -619,9 +629,24 @@ cc.Class({
         if (this.shu_zhi_jiance(A, B, di_tu_arr, out_arr)) {
             if (out_arr.length === 1) {
                 //代表是边界上的两个水果块
-                let zuo_bian_jie = out_arr[0] === true;
-                let dir = zuo_bian_jie ? -1 : 1;
-                return [true, [A, { hang: A.hang, lie: A.lie + dir }, { hang: B.hang, lie: B.lie + dir }, B]];
+                //如果中间有水果块
+                //那只要处理好这个 zhong_jian_youshui_guo 就行
+                let zhong_jian_youshui_guo = false;
+                let min = A.hang > B.hang ? B.hang : A.hang;
+                let max = A.hang > B.hang ? A.hang : B.hang;
+                if (B.hang - A.hang > 1 || A.hang - B.hang > 1) {
+                    for (let i = min; i < max; i++) {
+                        if (di_tu_arr[i][A.hang] !== 0) {
+                            zhong_jian_youshui_guo = true;
+                            break;
+                        }
+                    }
+                }
+                if (zhong_jian_youshui_guo) {//中间有水果块才这么绕过去
+                    let zuo_bian_jie = out_arr[0] === true;
+                    let dir = zuo_bian_jie ? -1 : 1;
+                    return [true, [A, { hang: A.hang, lie: A.lie + dir }, { hang: B.hang, lie: B.lie + dir }, B]];
+                }
             }
             return [true, [A, B]];
         }
