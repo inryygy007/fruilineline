@@ -22,7 +22,11 @@ cc.Class({
         focus: {
             type: cc.Prefab,
             default: null
-        }
+        },
+        thread: {
+            type: cc.Prefab,
+            default: null
+        },
 
     },
 
@@ -31,19 +35,21 @@ cc.Class({
     // onLoad () {},
 
     start() {
+
         this.di_tu_arr = this.di_tu();
+        //this.line.getComponent('thread').set_line(this.di_tu_arr);
         // this.di_tu_arr = this.di_tu_arr[0][0] = 0;
         // let k = this.di_tu_arr.length;
         this.shua_xing_ditu(this.di_tu_arr);
 
 
-        //测试下函数好不好用
-        let qidian = { hang: 3, lie: 0 };
-        let zhongdian = { hang: 0, lie: 5 };
+        // //测试下函数好不好用
+        // let qidian = { hang: 3, lie: 0 };
+        // let zhongdian = { hang: 0, lie: 5 };
 
-        // let flag = this.shui_ping_jiance(qidian, zhongdian, this.di_tu_arr);
-        // let flag1 = this.shu_zhi_jiance(qidian, zhongdian, this.di_tu_arr);
-        let flag2 = this.yige_guaidian_jiance(qidian, zhongdian, this.di_tu_arr);
+        // // let flag = this.shui_ping_jiance(qidian, zhongdian, this.di_tu_arr);
+        // // let flag1 = this.shu_zhi_jiance(qidian, zhongdian, this.di_tu_arr);
+        // let flag2 = this.yige_guaidian_jiance(qidian, zhongdian, this.di_tu_arr);
     }
     ,
     di_tu() {
@@ -57,7 +63,11 @@ cc.Class({
         //0,1
         //0,1 ????位置什么的
         //0,0
-        let di_tu_arr = ditu_shengchengqi.gen_rand2_arr(9, 4, 3);
+        let di_tu_arr = ditu_shengchengqi.gen_rand2_arr(9, 8, 6);
+        // ditu_shengchengqi.gen_rand2_arr(9, 4, 3);
+        // [[5, 0, 5], [5, 0, 6], [5, 4, 4], [6, 5, 5]];
+        //
+        //console.log(JSON.stringify(di_tu_arr));
         // let di_tu_arr = [
         //     [1, 0, 0, 0, 0, 1],
         //     [2, 0, 4, 8, 5, 0],
@@ -138,6 +148,14 @@ cc.Class({
         } else {
             this.m_move_focus_pos = cc.v2(this.m_move_focus.x, this.m_move_focus.y);
         }
+
+        //添加一条线
+        //创建线 测试用 一会儿要删除
+        let line = cc.instantiate(this.thread);
+        focus_node.zIndex = 1000;
+        this.xing_jie_dian.addChild(line);
+        this.m_line_node = line;
+        // this.m_line_node.getComponent('thread').set_line(this.di_tu_arr);
         //设置它停在第一个水果块上
         //this.set_move_focus_with_fruit(this.shuiguo_arr[0][1]);
     },
@@ -196,6 +214,71 @@ cc.Class({
             }
         }
     },
+    get_arr(arr, hang, lie) {
+        //如果同是行超出了和列超出了 这个不考虑 因为我们只考虑边界方向的延伸
+        //不考虑对角线上的延伸
+
+        if ((hang < 0 || hang > arr.length - 1) && (lie < 0 || lie > arr[0].length - 1)) {
+            return 0;
+        }
+        // if (hang < 0 && lie < 0) {
+        //     return 0;
+        // }
+        let lie_zuo_bian = 0;
+        let lie_you_bian = arr[0].length - 1;
+        let hang_shang_bian = 0;
+        let hang_xia_bian = arr.length - 1;
+
+        //如果lie 超出(右边) 范围
+        if (lie > lie_you_bian) {
+            //返回边界上的元素+ 超出多少
+            //这里的超出多少个总是为1  因为我们在添加虚拟的拐点时就只是加1 
+            let chao_chu_duo_shao = lie - lie_you_bian;
+            //边界元素是多少
+            let you_bianjie_yuanshu = arr[hang][lie_you_bian];
+            //这个结果变为 边界元素的位置
+            let jie_guo = cc.v2(you_bianjie_yuanshu.x + chao_chu_duo_shao * 70, you_bianjie_yuanshu.y);
+            //you_bianjie_yuanshu + chao_chu_duo_shao;
+
+            return jie_guo;
+        }
+        //如果lie 超出(左边) 范围
+        if (lie < lie_zuo_bian) {
+            //返回边界上的元素+ 超出多少
+            let chao_chu_duo_shao = lie - lie_zuo_bian;
+            //边界元素是多少
+            let zuo_bianjie_yuanshu = arr[hang][lie_zuo_bian];
+            let jie_guo = cc.v2(zuo_bianjie_yuanshu.x + chao_chu_duo_shao * 70, zuo_bianjie_yuanshu.y);
+            // zuo_bianjie_yuanshu + chao_chu_duo_shao;
+
+            return jie_guo;
+        }
+        //如果hang 超出(下边) 范围
+        if (hang > hang_xia_bian) {
+            //返回边界上的元素+ 超出多少
+            let chao_chu_duo_shao = hang - hang_xia_bian;
+            //边界元素是多少
+            let xia_bianjie_yuanshu = arr[hang_xia_bian][lie];
+            let jie_guo = cc.v2(xia_bianjie_yuanshu.x, xia_bianjie_yuanshu.y + chao_chu_duo_shao * 70);
+            //xia_bianjie_yuanshu + chao_chu_duo_shao;
+
+
+            return jie_guo;
+        }
+        //如果hang 超出(上边) 范围
+        if (hang < hang_shang_bian) {
+            //返回边界上的元素+ 超出多少
+            let chao_chu_duo_shao = hang - hang_shang_bian;
+            //边界元素是多少
+            let shang_bianjie_yuanshu = arr[hang_shang_bian][lie];
+            let jie_guo = cc.v2(shang_bianjie_yuanshu.x, shang_bianjie_yuanshu.y + chao_chu_duo_shao * 70);
+            //shang_bianjie_yuanshu + chao_chu_duo_shao;
+
+            return jie_guo;
+        }
+
+        return cc.v2(arr[hang][lie].x, arr[hang][lie].y);
+    },
     //删除节点
     shan_chu_jie_dian() {
         this.xing_jie_dian.removeFromParent(false);
@@ -242,11 +325,19 @@ cc.Class({
                             let i1 = this.shuiguo1.getComponent('shuiguo').hang;
                             let j1 = this.shuiguo1.getComponent('shuiguo').lie;
                             //要检测能否消除后再消除
-                            if (this.jiance({ hang: i, lie: j }, { hang: i1, lie: j1 }, this.di_tu_arr)) {
-                                this.di_tu_arr[i][j] = 0;
+                            let check_result = this.jiance({ hang: i1, lie: j1 }, { hang: i, lie: j }, this.di_tu_arr);
+                            if (check_result[0]) {
                                 //第一个的行列
-
-                                this.di_tu_arr[i1][j1] = 0;
+                                let pos_arr = [];
+                                for (let k = 0; k < check_result[1].length; k++) {
+                                    let hang_lie = check_result[1][k];
+                                    //获取任意位置(哪怕超出数组范围)
+                                    let t_pos = this.get_arr(this.shuiguo_arr, hang_lie.hang, hang_lie.lie);
+                                    pos_arr.push(t_pos);
+                                }
+                                this.m_line_node.getComponent('thread').set_line(pos_arr);
+                                this.di_tu_arr[i][j] = 0;//消除的水果位置置为空
+                                this.di_tu_arr[i1][j1] = 0;//消除的水果位置置为空
                                 let time = this.shuiguo1.getComponent('shuiguo').ying_chang();
                                 this.shuiguo_arr[i][j].getComponent('shuiguo').ying_chang();
                                 let slef = this;
@@ -316,7 +407,7 @@ cc.Class({
     //水平 就是行相同, 列不相同
     //返回为true 表示 可以消除,成立
     //再加个边界检测
-    shui_ping_jiance(qidian, zhongdiang, di_tu_arr) {
+    shui_ping_jiance(qidian, zhongdiang, di_tu_arr, out_arr) {
         //如果行不相同就不用看了 直接返回false
         if (qidian.hang !== zhongdiang.hang) {
             return false;
@@ -339,6 +430,9 @@ cc.Class({
         if (liangge_doubushi_guaidian) {
             //是边界
             if (qidian.hang === 0 || qidian.hang === di_tu_arr.length - 1) {
+                if (out_arr) {
+                    out_arr[0] = qidian.hang === 0;
+                }
                 return true;
             }
         }
@@ -358,7 +452,7 @@ cc.Class({
 
     },
 
-    shu_zhi_jiance(qidian, zhongdiang, di_tu_arr) {
+    shu_zhi_jiance(qidian, zhongdiang, di_tu_arr, out_arr) {
         //如果列不相同就不用看了 直接返回false
         if (qidian.lie !== zhongdiang.lie) {
             return false;
@@ -384,6 +478,9 @@ cc.Class({
         if (liangge_doubushi_guaidian) {
             //是边界
             if (qidian.lie === 0 || qidian.lie === di_tu_arr[0].length - 1) {
+                if (out_arr) {
+                    out_arr[0] = qidian.lie === 0;
+                }
                 return true;
             }
         }
@@ -414,8 +511,10 @@ cc.Class({
         let C = { lie: A.lie, hang: B.hang };
         //只有是空格的时候才能是拐点
         C.shi_guai_dian = di_tu_arr[C.hang][C.lie] === 0;
-        if (this.shu_zhi_jiance(A, C, di_tu_arr) && this.shui_ping_jiance(C, B, di_tu_arr)) {
-            return true;
+        if (C.shi_guai_dian) {
+            if (this.shu_zhi_jiance(A, C, di_tu_arr) && this.shui_ping_jiance(C, B, di_tu_arr)) {
+                return [true, C];
+            }
         }
 
         //如果上面的没返回true 出去
@@ -427,12 +526,14 @@ cc.Class({
         //如果满足A->D 的检测 且满足 D->B 的竖直检测 则通过
         let D = { hang: A.hang, lie: B.lie };
         D.shi_guai_dian = di_tu_arr[D.hang][D.lie] === 0;
-        if (this.shu_zhi_jiance(B, D, di_tu_arr) && this.shui_ping_jiance(A, D, di_tu_arr)) {
-            return true;
+        if (D.shi_guai_dian) {
+            if (this.shu_zhi_jiance(B, D, di_tu_arr) && this.shui_ping_jiance(A, D, di_tu_arr)) {
+                return [true, D];
+            }
         }
 
         //如果 C,D 都不通过 那么 这个拐点不通过
-        return false;
+        return [false];
     },
 
     //两个拐点的检测
@@ -480,8 +581,8 @@ cc.Class({
             let A_C_shuzhi = this.shu_zhi_jiance(A, C, di_tu_arr);
             if (A_C_shuiping || A_C_shuzhi) {
                 let C_B_guaidian = this.yige_guaidian_jiance(C, B, di_tu_arr)
-                if (C_B_guaidian) {
-                    return true;
+                if (C_B_guaidian[0]) {
+                    return [true, [C, C_B_guaidian[1]]];
                 }
             }
 
@@ -490,40 +591,55 @@ cc.Class({
             let C_B_shuzhi = this.shu_zhi_jiance(C, B, di_tu_arr);
             if (C_B_shuiping || C_B_shuzhi) {
                 let A_C_guaidian = this.yige_guaidian_jiance(A, C, di_tu_arr);
-                if (A_C_guaidian) {
-                    return true;
+                if (A_C_guaidian[0]) {
+                    return [true, [A_C_guaidian[1], C]];
                 }
             }
         }
 
-        return false;
+        return [false];
     },
 
 
     //完整的检测算法
     jiance(A, B, di_tu_arr) {
         //水平检测成功返回
-        if (this.shui_ping_jiance(A, B, di_tu_arr)) {
-            return true;
+        let out_arr = [];
+        if (this.shui_ping_jiance(A, B, di_tu_arr, out_arr)) {
+            if (out_arr.length === 1) {
+                //代表是边界上的两个水果块
+                let xia_bian_jie = out_arr[0] === true;
+                let dir = xia_bian_jie ? -1 : 1;//要么边界+ 1 要么 -1 所以那个超出元素总是为1
+                return [true, [A, { hang: A.hang + dir, lie: A.lie }, { hang: B.hang + dir, lie: B.lie }, B]];
+            }
+            return [true, [A, B]];
         }
 
         //竖直检测成功返回
-        if (this.shu_zhi_jiance(A, B, di_tu_arr)) {
-            return true;
+        if (this.shu_zhi_jiance(A, B, di_tu_arr, out_arr)) {
+            if (out_arr.length === 1) {
+                //代表是边界上的两个水果块
+                let zuo_bian_jie = out_arr[0] === true;
+                let dir = zuo_bian_jie ? -1 : 1;
+                return [true, [A, { hang: A.hang, lie: A.lie + dir }, { hang: B.hang, lie: B.lie + dir }, B]];
+            }
+            return [true, [A, B]];
         }
 
         //有一个拐点
-        if (this.yige_guaidian_jiance(A, B, di_tu_arr)) {
-            return true;
+        let yige_res = this.yige_guaidian_jiance(A, B, di_tu_arr);
+        if (yige_res[0]) {
+            return [true, [A, yige_res[1], B]];
         }
 
 
         //有两个拐点
-        if (this.liangge_guaidian_jiance(A, B, di_tu_arr)) {
-            return true;
+        let two_res = this.liangge_guaidian_jiance(A, B, di_tu_arr);
+        if (two_res[0]) {
+            return [true, [A, two_res[1][0], two_res[1][1], B]];
         }
 
-        return false;
+        return [false];
     }
     // update (dt) {},
 });
