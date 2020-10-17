@@ -593,6 +593,102 @@ cc.Class({
         return [false];
     },
 
+    //到边界上一否有水果的方法
+    // dri: {hang: 1,lie: 0} 方向 是向上
+    // dri: {hang: 0,lie: 1} 方向 是向右
+    // dri: {hang: -1,lie: 0} 方向 是向下
+    // dri: {hang: 0,lie: -1} 方向 是向左
+    has_fruit_to_edge(A, dir_str, di_tu_arr) {
+        let lie_zuo_bian = 0;
+        let lie_you_bian = di_tu_arr[0].length - 1;
+        let hang_shang_bian = di_tu_arr.length - 1;
+        let hang_xia_bian = 0;
+        //找到边界点
+        let edge_point = null;
+        if (dir_str == "up") {
+            if (A.hang === hang_shang_bian) {
+                return false;//没有水果
+            } else {
+                edge_point = { hang: hang_shang_bian, lie: A.lie };
+            }
+        }
+        else if (dir_str == "right") {
+            if (A.lie === lie_you_bian) {
+                return false;//没有水果
+            } else {
+                edge_point = { lie: lie_you_bian, hang: A.hang };
+            }
+        } else if (dir_str == "down") {
+            if (A.hang === hang_xia_bian) {
+                return false;//没有水果
+            } else {
+                edge_point = { hang: hang_xia_bian, lie: A.lie };
+            }
+        }
+        else if (dir_str == "left") {
+            if (A.lie === lie_zuo_bian) {
+                return false;//没有水果
+            } else {
+                edge_point = { lie: lie_zuo_bian, hang: A.hang };
+            }
+        }
+        //连界是不是就是一个水果块
+        if (di_tu_arr[edge_point.hang][edge_point.lie] !== 0) {
+            return true;//有水果
+        } else {
+            return this.has_fruit_between(A, edge_point, di_tu_arr);
+        }
+    },
+
+    //获取一个点 对应的边界范围之外的点
+    get_dot_outside_map(A, dir_str, di_tu_arr) {
+        let lie_zuo_bian = -1;
+        let lie_you_bian = di_tu_arr[0].length;
+        let hang_shang_bian = di_tu_arr.length;
+        let hang_xia_bian = -1;
+        //找到边界点
+        let edge_point = null;
+        if (dir_str == "up") {
+            edge_point = { hang: hang_shang_bian, lie: A.lie };
+        }
+        else if (dir_str == "right") {
+            edge_point = { lie: lie_you_bian, hang: A.hang };
+        } else if (dir_str == "down") {
+            edge_point = { hang: hang_xia_bian, hang: A.lie };
+        }
+        else if (dir_str == "left") {
+            edge_point = { lie: lie_zuo_bian, hang: A.hang };
+        }
+        return edge_point;
+    },
+
+    //两个点是否可以通过从外面绕 连能
+    can_two_dot_connect_outside(A, B, di_tu_arr) {
+        let arr = ["up", "right", "down", "left"];
+        for (var i = 0; i < arr.length; i++) {
+            if (arr[i] == "up" || arr[i] == "down") {
+                if (A.lie == B.lie) {
+                    continue;
+                }
+            } else if (arr[i] == "left" || arr[i] == "right") {
+                if (A.hang == B.hang) {
+                    continue;
+                }
+            }
+            let A_dao_bianjie_you_shuiguo = this.has_fruit_to_edge(A, arr[i], di_tu_arr);
+            if (A_dao_bianjie_you_shuiguo) {
+                continue;
+            }
+            let B_dao_bianjie_you_shuiguo = this.has_fruit_to_edge(B, arr[i], di_tu_arr);
+            if (!B_dao_bianjie_you_shuiguo) {
+                let A_duiying_bianjie_waidedian = this.get_dot_outside_map(A, arr[i], di_tu_arr);
+                let B_duiying_bianjie_waidedian = this.get_dot_outside_map(B, arr[i], di_tu_arr);
+                return [A_duiying_bianjie_waidedian, B_duiying_bianjie_waidedian];
+            }
+        }
+        return false;
+    },
+
     //抽出来作为一个方法, 方便下次可以再次用
     //一条直线上的两个点之间是否有水果
     has_fruit_between(A, B, di_tu_arr) {
@@ -617,6 +713,8 @@ cc.Class({
                     break;
                 }
             }
+        } else if (max - min == 1) {
+            return false;
         }
         return zhong_jian_youshui_guo;
     },
@@ -688,6 +786,12 @@ cc.Class({
         let two_res = this.liangge_guaidian_jiance(A, B, di_tu_arr);
         if (two_res[0]) {
             return [true, [A, two_res[1][0], two_res[1][1], B]];
+        }
+
+        //要加上地图范围外的点组成两个拐点的情况
+        let connect_jieguo = this.can_two_dot_connect_outside(A, B, di_tu_arr);
+        if (connect_jieguo !== false) {
+            return [true, [A, connect_jieguo[0], connect_jieguo[1], B]];
         }
 
         return [false];
