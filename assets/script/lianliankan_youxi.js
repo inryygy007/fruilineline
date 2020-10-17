@@ -593,7 +593,33 @@ cc.Class({
         return [false];
     },
 
+    //抽出来作为一个方法, 方便下次可以再次用
+    //一条直线上的两个点之间是否有水果
+    has_fruit_between(A, B, di_tu_arr) {
+        let zhong_jian_youshui_guo = false;
+        //先判断是水平还是竖直
+        //水平就看两者之间的各列是否有水果
+        //竖直就看两者之间的各行是否有水果
+        //行相同就是水平
+        let is_shuiping = A.hang === B.hang;
+        let dir = is_shuiping ? "lie" : "hang";
 
+        //注意对于js的object 而言 A.lie === A["lie"]
+        let min = A[dir] > B[dir] ? B[dir] : A[dir];
+        let max = A[dir] > B[dir] ? A[dir] : B[dir];
+        if (max - min > 1) {
+            //min 这个地方必然有水果啊
+            for (let i = min + 1; i < max; i++) {
+                //水平就行不动 i代表列是动的
+                //竖直就列不动 i代表行是动的
+                if (di_tu_arr[is_shuiping ? A.hang : i][is_shuiping ? i : A.lie] !== 0) {
+                    zhong_jian_youshui_guo = true;
+                    break;
+                }
+            }
+        }
+        return zhong_jian_youshui_guo;
+    },
     //完整的检测算法
     jiance(A, B, di_tu_arr) {
         //水平检测成功返回
@@ -603,17 +629,17 @@ cc.Class({
                 //代表是边界上的两个水果块
                 //如果中间有水果块
                 //那只要处理好这个 zhong_jian_youshui_guo 就行
-                let zhong_jian_youshui_guo = false;
-                let min = A.lie > B.lie ? B.lie : A.lie;
-                let max = A.lie > B.lie ? A.lie : B.lie;
-                if (B.lie - A.lie > 1 || A.lie - B.lie > 1) {
-                    for (let i = min; i < max; i++) {
-                        if (di_tu_arr[A.hang][i] !== 0) {
-                            zhong_jian_youshui_guo = true;
-                            break;
-                        }
-                    }
-                }
+                let zhong_jian_youshui_guo = this.has_fruit_between(A, B, di_tu_arr);
+                // let min = A.lie > B.lie ? B.lie : A.lie;
+                // let max = A.lie > B.lie ? A.lie : B.lie;
+                // if (max - min > 1) {
+                //     for (let i = min; i < max; i++) {
+                //         if (di_tu_arr[A.hang][i] !== 0) {
+                //             zhong_jian_youshui_guo = true;
+                //             break;
+                //         }
+                //     }
+                // }
                 if (zhong_jian_youshui_guo) {//中间有水果块才这么绕过去
                     let xia_bian_jie = out_arr[0] === true;
 
@@ -631,17 +657,17 @@ cc.Class({
                 //代表是边界上的两个水果块
                 //如果中间有水果块
                 //那只要处理好这个 zhong_jian_youshui_guo 就行
-                let zhong_jian_youshui_guo = false;
-                let min = A.hang > B.hang ? B.hang : A.hang;
-                let max = A.hang > B.hang ? A.hang : B.hang;
-                if (B.hang - A.hang > 1 || A.hang - B.hang > 1) {
-                    for (let i = min; i < max; i++) {
-                        if (di_tu_arr[i][A.hang] !== 0) {
-                            zhong_jian_youshui_guo = true;
-                            break;
-                        }
-                    }
-                }
+                let zhong_jian_youshui_guo = this.has_fruit_between(A, B, di_tu_arr);
+                // let min = A.hang > B.hang ? B.hang : A.hang;
+                // let max = A.hang > B.hang ? A.hang : B.hang;
+                // if (B.hang - A.hang > 1 || A.hang - B.hang > 1) {
+                //     for (let i = min; i < max; i++) {
+                //         if (di_tu_arr[i][A.hang] !== 0) {
+                //             zhong_jian_youshui_guo = true;
+                //             break;
+                //         }
+                //     }
+                // }
                 if (zhong_jian_youshui_guo) {//中间有水果块才这么绕过去
                     let zuo_bian_jie = out_arr[0] === true;
                     let dir = zuo_bian_jie ? -1 : 1;
