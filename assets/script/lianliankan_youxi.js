@@ -63,7 +63,10 @@ cc.Class({
         //0,1
         //0,1 ????位置什么的
         //0,0
-        let di_tu_arr = ditu_shengchengqi.gen_rand2_arr(9, 8, 6);
+        let di_tu_arr = ditu_shengchengqi.gen_rand2_arr(7, 8, 6);
+        //let di_tu_arr = [[2, 3, 7, 5, 7, 4], [5, 4, 4, 4, 6, 3], [3, 0, 1, 4, 7, 5], [4, 4, 1, 1, 8, 6], [4, 4, 6, 8, 4, 8], [6, 7, 2, 5, 5, 8], [2, 5, 8, 0, 3, 5], [0, 0, 5, 1, 2, 8]]
+
+        //ditu_shengchengqi.gen_rand2_arr(9, 8, 6);
         // ditu_shengchengqi.gen_rand2_arr(9, 4, 3);
         // [[5, 0, 5], [5, 0, 6], [5, 4, 4], [6, 5, 5]];
         //
@@ -276,7 +279,7 @@ cc.Class({
 
             return jie_guo;
         }
-
+        //这里取数组对应位置的水果(超出范围的会处理成边界水果)
         return cc.v2(arr[hang][lie].x, arr[hang][lie].y);
     },
     //删除节点
@@ -650,14 +653,12 @@ cc.Class({
         let edge_point = null;
         if (dir_str == "up") {
             edge_point = { hang: hang_shang_bian, lie: A.lie };
-        }
-        else if (dir_str == "right") {
-            edge_point = { lie: lie_you_bian, hang: A.hang };
+        } else if (dir_str == "right") {
+            edge_point = { hang: A.hang, lie: lie_you_bian };
         } else if (dir_str == "down") {
-            edge_point = { hang: hang_xia_bian, hang: A.lie };
-        }
-        else if (dir_str == "left") {
-            edge_point = { lie: lie_zuo_bian, hang: A.hang };
+            edge_point = { hang: hang_xia_bian, lie: A.lie };//lie?
+        } else if (dir_str == "left") {
+            edge_point = { hang: A.hang, lie: lie_zuo_bian };
         }
         return edge_point;
     },
@@ -728,16 +729,6 @@ cc.Class({
                 //如果中间有水果块
                 //那只要处理好这个 zhong_jian_youshui_guo 就行
                 let zhong_jian_youshui_guo = this.has_fruit_between(A, B, di_tu_arr);
-                // let min = A.lie > B.lie ? B.lie : A.lie;
-                // let max = A.lie > B.lie ? A.lie : B.lie;
-                // if (max - min > 1) {
-                //     for (let i = min; i < max; i++) {
-                //         if (di_tu_arr[A.hang][i] !== 0) {
-                //             zhong_jian_youshui_guo = true;
-                //             break;
-                //         }
-                //     }
-                // }
                 if (zhong_jian_youshui_guo) {//中间有水果块才这么绕过去
                     let xia_bian_jie = out_arr[0] === true;
 
@@ -756,16 +747,6 @@ cc.Class({
                 //如果中间有水果块
                 //那只要处理好这个 zhong_jian_youshui_guo 就行
                 let zhong_jian_youshui_guo = this.has_fruit_between(A, B, di_tu_arr);
-                // let min = A.hang > B.hang ? B.hang : A.hang;
-                // let max = A.hang > B.hang ? A.hang : B.hang;
-                // if (B.hang - A.hang > 1 || A.hang - B.hang > 1) {
-                //     for (let i = min; i < max; i++) {
-                //         if (di_tu_arr[i][A.hang] !== 0) {
-                //             zhong_jian_youshui_guo = true;
-                //             break;
-                //         }
-                //     }
-                // }
                 if (zhong_jian_youshui_guo) {//中间有水果块才这么绕过去
                     let zuo_bian_jie = out_arr[0] === true;
                     let dir = zuo_bian_jie ? -1 : 1;
