@@ -296,7 +296,9 @@
       "__id__": 2
     },
     "_enabled": true,
-    "_normalMaterial": null,
+    "_normalMaterial": {
+      "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
+    },
     "_grayMaterial": null,
     "duration": 0.1,
     "zoomScale": 1.2,
@@ -367,7 +369,7 @@
       "__uuid__": "160de2e4-a7ae-4771-ae26-603f01f77a27"
     },
     "_N$disabledSprite": {
-      "__uuid__": "29158224-f8dd-4661-a796-1ffab537140e"
+      "__uuid__": "160de2e4-a7ae-4771-ae26-603f01f77a27"
     },
     "_N$target": {
       "__id__": 3
@@ -382,7 +384,7 @@
     "component": "",
     "_componentId": "5b02cXkr3JHmqLGABNPRald",
     "handler": "dian_ji_button",
-    "customEventData": ""
+    "customEventData": "0"
   },
   {
     "__type__": "cc.PrefabInfo",

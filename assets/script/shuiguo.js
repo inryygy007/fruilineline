@@ -39,11 +39,14 @@ cc.Class({
     // onLoad () {},
 
     start() {
-
     },
 
-    //对于这个水果类
 
+    //对于这个水果类
+    //禁止点击
+    forbid_click(state) {
+        this.node.getChildByName("New Button").getComponent('cc.Button').interactable = state;
+    },
     //有设置水果类型的方法 传进来1 就设置为西瓜 其它类似
     setType(number) {
         //根据传进来的number 拿到对应的sprite frame(精灵帧)
@@ -62,6 +65,7 @@ cc.Class({
         this.wo_bei_dian_zhong_le = true;
         //调用脚本的方法
         this.lianliankan_jiao_ben.you_shuiguo_bei_dianzhongle();
+        //那不是 因为多次点击 调用这个zooming 函数创建了多个动作吗
         this.Zooming();
         //点击的时候设置移动焦点到自己这个块上来
         //this.lianliankan_jiao_ben.set_move_focus_with_fruit(this.node, false);
@@ -69,8 +73,19 @@ cc.Class({
     },
     //放大缩小
     Zooming() {
+        //是空的就赋值 不是就不赋值? 我跟你说过的一个万能的方法是什么还记得吗?部 先清除 再创建!
+        //你tm 这种复制粘贴也会出错吗 多复制了一个 我以为我单词写错了
+        if (this.action != null) {
+            //先停止动作
+            this.Stop_action();
+
+            this.action = null;
+        }
         //this.scaling = cc.v2(fruit_node.width - 30, fruit_node.height - 30);
         //let act = cc.scaleTo(0.5, cc.v2(fruit_node.width + 30, fruit_node.height + 30));
+        //每进来一次就创建一个动作 并运行
+        //第一次进来, 创建动作并运行了 并且该动作保存在 this.action里
+        //再点一次进来, 又创建并运行了去拿 又保存在 this.action里(那之前那个动作呢,this.action 里存的是新的动作,旧动作呢?新的不会覆盖旧的吗,会, )
         let act1 = cc.scaleTo(0.5, 0.7).easing(cc.easeElasticIn(3.0));
         let act2 = cc.scaleBy(0.7, 1.3).easing(cc.easeElasticOut(2.0));
 

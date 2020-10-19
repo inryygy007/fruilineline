@@ -345,12 +345,19 @@ cc.Class({
                                 this.shuiguo_arr[i][j].getComponent('shuiguo').ying_chang();
                                 let slef = this;
                                 this.node.runAction(cc.sequence(cc.delayTime(time), cc.callFunc(function () {
-                                    slef.shua_xing_ditu(slef.di_tu_arr);
+                                    slef.shua_xing_ditu(slef.di_tu_arr);//这 为啥?刷新地图的时候是把节点删除掉之前做的都没用了啊
+
                                 })))
                                 //这只改了一个
                                 //this.shua_xing_ditu(this.di_tu_arr);
                                 this.m_move_focus.active = false;
                                 this.shuiguo1 = null;
+                                //不是有水果被点到了就禁用吧? 应该是开始消除的时候才禁用 就是这消除啊 哦, 那奇怪在哪儿?
+                                for (let i = 0; i < this.shuiguo_arr.length; i++) {
+                                    for (let j = 0; j < this.shuiguo_arr[i].length; j++) {
+                                        this.shuiguo_arr[i][j].getComponent('shuiguo').forbid_click(false);
+                                    }
+                                }
                             } else {
                                 //检测完不能消除 要把它们的状态置回来
                                 this.shuiguo1.getComponent('shuiguo').wo_bei_dian_zhong_le = false;
@@ -359,12 +366,7 @@ cc.Class({
                                 this.set_move_focus_with_fruit(this.shuiguo_focus, true);
                                 this.shuiguo1.getComponent('shuiguo').Stop_action();
                                 this.shuiguo1 = this.shuiguo_focus;
-
-                                //this.shuiguo_arr[i][j].getComponent('shuiguo').focus(false);
                             }
-
-                            //this.shuiguo1.getComponent('shuiguo').ying_chang();
-                            //this.shuiguo_arr[i][j].getComponent('shuiguo').ying_chang();
                             //如果消除了 那存的 shuiguo1 要清除掉
                             //如果消除了 就不用找了
                         } else {
