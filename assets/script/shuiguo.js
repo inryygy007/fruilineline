@@ -50,6 +50,7 @@ cc.Class({
     //有设置水果类型的方法 传进来1 就设置为西瓜 其它类似
     setType(number) {
         //根据传进来的number 拿到对应的sprite frame(精灵帧)
+        //如果传进来 1 number - 1 就是0 对应的就是数组里的0号元素哦
         let sf = this.tupian[number - 1];
         //this.sf = sf;
         this.lei_xing = number - 1;

@@ -1,6 +1,7 @@
 
 
-//获取[0~number] 不包含number 的随机数
+//获取[0~number) 不包含number 的随机数 明白了吗我要是想从1开始还包含最大的值了 那就是从0开始到最大值的左闭右开区间+ 1就行了
+//[1,100] = [0,100) + 1 [0,100)=>[0,99] [0,99] + 1=>[1,100] 明白? 哦
 function gen_random_number(number) {
     return Math.floor(Math.random() * number);
 }

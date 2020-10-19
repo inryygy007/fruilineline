@@ -27,7 +27,7 @@ cc.Class({
             type: cc.Prefab,
             default: null
         },
-
+        shui_guo_zhong_lei: 24
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -63,7 +63,8 @@ cc.Class({
         //0,1
         //0,1 ????位置什么的
         //0,0
-        let di_tu_arr = ditu_shengchengqi.gen_rand2_arr(7, 8, 6);
+        //所以这里的2 其它是[0,2) 左闭右开 也就是 [0,1] 不包含2
+        let di_tu_arr = ditu_shengchengqi.gen_rand2_arr(this.shui_guo_zhong_lei + 1, 8, 6);//2种水果,8行6列
         //let di_tu_arr = [[2, 3, 7, 5, 7, 4], [5, 4, 4, 4, 6, 3], [3, 0, 1, 4, 7, 5], [4, 4, 1, 1, 8, 6], [4, 4, 6, 8, 4, 8], [6, 7, 2, 5, 5, 8], [2, 5, 8, 0, 3, 5], [0, 0, 5, 1, 2, 8]]
 
         //ditu_shengchengqi.gen_rand2_arr(9, 8, 6);
@@ -126,12 +127,12 @@ cc.Class({
                 //每生成一个块的时候把连连看游戏的脚本传进去 this 就是指连连看游戏的脚本
                 shuiguo.getComponent('shuiguo').ba_lianlian_kan_youxi_jiaoben_chuanjinlai(this, i, j);
                 this.shuiguo_arr[i][j] = shuiguo;
-                if (di_tu_arr[i][j] != 0) {
+                if (di_tu_arr[i][j] != 0) {//如果 不等于0(也就是至少从1开始) 调用setType(假设是1)
                     shuiguo.getComponent('shuiguo').setType(di_tu_arr[i][j]);
                     this.xing_jie_dian.addChild(shuiguo);
                     shuiguo.y = origin_y + i * 120;
                     shuiguo.x = origin_x + j * 110;
-                } else {
+                } else {//为0 就走这里, 只设置了位置没有设置图片(那就是个空白块)
                     shuiguo.y = origin_y + i * 120;
                     shuiguo.x = origin_x + j * 110;
                 }
