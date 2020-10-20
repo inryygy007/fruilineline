@@ -33,9 +33,16 @@ cc.Class({
     // LIFE-CYCLE CALLBACKS:
 
     // onLoad () {},
+    //计时器, 我们想要的是什么? 调用一个函数 传进一个时间 进度条就可以在这个时间内从最大到最小值变动对不对?嗯
+    //期望的结果: 调用this.timer(6,1,0); 就能在 6秒内 进度条从1 到 0 缓慢变化
+    //6 秒从最大到最小 算出每一秒是多少
+    //结束之后调用一下传进来的回调函数
 
     start() {
-
+        this.m_progressBar = cc.find("bg/time_schedule_bg/time_schedule", this.node).getComponent(cc.ProgressBar);
+        this.timer(90, 1, 0, function () {
+            var a = 100;
+        }.bind(this));
         this.di_tu_arr = this.di_tu();
         //this.line.getComponent('thread').set_line(this.di_tu_arr);
         // this.di_tu_arr = this.di_tu_arr[0][0] = 0;
@@ -779,6 +786,43 @@ cc.Class({
         }
 
         return [false];
-    }
-    // update (dt) {},
+    },
+    timer(duration, max, min, call_back) {
+        max = max || 1;
+        min = min || 0;
+        //因为这个函数可以多次调用 所以还是那个思想  先清除 再操作
+        //清除部分
+        this.m_total_time = 0;
+        this.m_progress_duration = duration;
+        this.m_progress_max_val = max;
+        this.m_progress_min_val = min;
+        this.m_progressBar.progress = max;
+        this.m_unit_pro = (max - min) / duration;
+        this.m_current_pro = this.m_progress_max_val;
+        this.m_progress_callback = call_back;
+        //操作部分
+
+        //let progressbar = cc.find("bg/time_schedule_bg/time_schedule", this.node).getComponent(cc.ProgressBar).progress = 0;
+        //progressbar - 0.9;
+        //let a = 100;
+    },
+    update(dt) {
+        //每一都会调用这个函数 看到了吗?抽
+        //console.log("hhahahha");
+        if (this.m_current_pro !== undefined && this.m_progress_max_val !== undefined) {
+            if (this.m_total_time <= this.m_progress_duration && this.m_current_pro >= this.m_progress_min_val) {
+                //算出当前进度
+                let cur_pro = Math.max(this.m_progress_min_val, this.m_progress_max_val - this.m_unit_pro * this.m_total_time);
+                this.m_current_pro = cur_pro;
+                this.m_progressBar.progress = cur_pro;
+                this.m_total_time += dt;
+                //当减少到最小值时调用回调函数
+                if (this.m_total_time > this.m_progress_duration) {
+                    if (this.m_progress_callback) {
+                        this.m_progress_callback();
+                    }
+                }
+            }
+        }
+    },
 });
