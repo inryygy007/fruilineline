@@ -27,6 +27,13 @@ cc.Class({
             type: cc.Prefab,
             default: null
         },
+        fail: {
+            type: cc.Prefab,
+            default: null
+        }, fail_node: {
+            type: cc.Node,
+            default: null
+        },
         shui_guo_zhong_lei: 24
     },
 
@@ -37,18 +44,17 @@ cc.Class({
     //期望的结果: 调用this.timer(6,1,0); 就能在 6秒内 进度条从1 到 0 缓慢变化
     //6 秒从最大到最小 算出每一秒是多少
     //结束之后调用一下传进来的回调函数
-
-    start() {
+    //游戏开始
+    game_start() {
         this.m_progressBar = cc.find("bg/time_schedule_bg/time_schedule", this.node).getComponent(cc.ProgressBar);
-        this.timer(90, 1, 0, function () {
-            var a = 100;
+        this.timer(10, 1, 0, function () {
+            this.shi_bai = true;
         }.bind(this));
         this.di_tu_arr = this.di_tu();
         //this.line.getComponent('thread').set_line(this.di_tu_arr);
         // this.di_tu_arr = this.di_tu_arr[0][0] = 0;
         // let k = this.di_tu_arr.length;
         this.shua_xing_ditu(this.di_tu_arr);
-
 
         // //测试下函数好不好用
         // let qidian = { hang: 3, lie: 0 };
@@ -57,6 +63,9 @@ cc.Class({
         // // let flag = this.shui_ping_jiance(qidian, zhongdian, this.di_tu_arr);
         // // let flag1 = this.shu_zhi_jiance(qidian, zhongdian, this.di_tu_arr);
         // let flag2 = this.yige_guaidian_jiance(qidian, zhongdian, this.di_tu_arr);
+    },
+    start() {
+        this.game_start();
     }
     ,
     di_tu() {
@@ -293,6 +302,7 @@ cc.Class({
     //删除节点
     shan_chu_jie_dian() {
         this.xing_jie_dian.removeFromParent(false);
+        this.xing_jie_dian_fail.removeFromParent(false);
     },
     //写个方法 用于处理有水果块被点中了
     you_shuiguo_bei_dianzhongle() {
@@ -801,10 +811,26 @@ cc.Class({
         this.m_current_pro = this.m_progress_max_val;
         this.m_progress_callback = call_back;
         //操作部分
-
         //let progressbar = cc.find("bg/time_schedule_bg/time_schedule", this.node).getComponent(cc.ProgressBar).progress = 0;
         //progressbar - 0.9;
         //let a = 100;
+    },
+    //游戏结束
+    game_over() {
+        for (let i = 0; i < this.di_tu_arr.length; i++) {
+            for (let j = 0; j < this.di_tu_arr[i].length; j++) {
+                this.di_tu_arr[i][j] = 0;
+            }
+        }
+        this.shua_xing_ditu(this.di_tu_arr);
+        this.xing_jie_dian_fail = new cc.Node();
+        this.xing_jie_dian_fail.parent = this.node;
+        let fail = cc.instantiate(this.fail);
+        fail.getComponent('fail').ba_lianlian_kan_youxi_jiaoben_chuanjinlai(this);
+        //this.fail_node.zIndex = 1000000;
+
+
+        this.xing_jie_dian_fail.addChild(fail);
     },
     update(dt) {
         //每一都会调用这个函数 看到了吗?抽
@@ -820,6 +846,7 @@ cc.Class({
                 if (this.m_total_time > this.m_progress_duration) {
                     if (this.m_progress_callback) {
                         this.m_progress_callback();
+                        this.game_over();
                     }
                 }
             }
