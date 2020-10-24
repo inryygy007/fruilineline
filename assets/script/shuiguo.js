@@ -128,7 +128,7 @@ cc.Class({
     //隐藏
     ying_chang() {
         //自定义一个时间
-        let time = 1;
+        let time = 0.6;
         //隐藏背景框
         cc.find('New Button', this.node).active = false;
         //旋转隐藏动作组合

@@ -30,8 +30,9 @@ cc.Class({
         fail: {
             type: cc.Prefab,
             default: null
-        }, fail_node: {
-            type: cc.Node,
+        },
+        player: {
+            type: cc.Prefab,
             default: null
         },
         shui_guo_zhong_lei: 24
@@ -47,10 +48,11 @@ cc.Class({
     //游戏开始
     game_start() {
         this.m_progressBar = cc.find("bg/time_schedule_bg/time_schedule", this.node).getComponent(cc.ProgressBar);
-        this.timer(10, 1, 0, function () {
+        this.timer(90, 1, 0, function () {
             this.shi_bai = true;
         }.bind(this));
         this.di_tu_arr = this.di_tu();
+        //console.log(this.di_tu_arr);
         //this.line.getComponent('thread').set_line(this.di_tu_arr);
         // this.di_tu_arr = this.di_tu_arr[0][0] = 0;
         // let k = this.di_tu_arr.length;
@@ -370,12 +372,21 @@ cc.Class({
                                 //this.shua_xing_ditu(this.di_tu_arr);
                                 this.m_move_focus.active = false;
                                 this.shuiguo1 = null;
-                                //不是有水果被点到了就禁用吧? 应该是开始消除的时候才禁用 就是这消除啊 哦, 那奇怪在哪儿?
+                                let ji_shu = 0;
                                 for (let i = 0; i < this.shuiguo_arr.length; i++) {
                                     for (let j = 0; j < this.shuiguo_arr[i].length; j++) {
+                                        //禁用所有水果按钮
                                         this.shuiguo_arr[i][j].getComponent('shuiguo').forbid_click(false);
+                                        if (this.di_tu_arr[i][j] != 0) {
+                                            ji_shu++;
+                                        }
                                     }
                                 }
+                                if (ji_shu == 0) {
+                                    this.game_player();
+                                }
+
+
                             } else {
                                 //检测完不能消除 要把它们的状态置回来
                                 this.shuiguo1.getComponent('shuiguo').wo_bei_dian_zhong_le = false;
@@ -831,6 +842,15 @@ cc.Class({
 
 
         this.xing_jie_dian_fail.addChild(fail);
+    },
+    //游戏通关
+    game_player() {
+        this.xing_jie_dian_player = new cc.Node();
+        this.xing_jie_dian_player.parent = this.node;
+        let player = cc.instantiate(this.player);
+        player.getComponent('player').ba_lianlian_kan_youxi_jiaoben_chuanjinlai(this);
+        this.xing_jie_dian_player.addChild(player);
+        player.getComponent('player').game_time(this.m_total_time.toFixed(2));//四舍五入保留两位小数
     },
     update(dt) {
         //每一都会调用这个函数 看到了吗?抽
