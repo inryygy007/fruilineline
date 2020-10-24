@@ -366,26 +366,18 @@ cc.Class({
                                 let slef = this;
                                 this.node.runAction(cc.sequence(cc.delayTime(time), cc.callFunc(function () {
                                     slef.shua_xing_ditu(slef.di_tu_arr);//这 为啥?刷新地图的时候是把节点删除掉之前做的都没用了啊
-
+                                    slef.player_condition();//通关条件
                                 })))
                                 //这只改了一个
                                 //this.shua_xing_ditu(this.di_tu_arr);
                                 this.m_move_focus.active = false;
                                 this.shuiguo1 = null;
-                                let ji_shu = 0;
                                 for (let i = 0; i < this.shuiguo_arr.length; i++) {
                                     for (let j = 0; j < this.shuiguo_arr[i].length; j++) {
                                         //禁用所有水果按钮
                                         this.shuiguo_arr[i][j].getComponent('shuiguo').forbid_click(false);
-                                        if (this.di_tu_arr[i][j] != 0) {
-                                            ji_shu++;
-                                        }
                                     }
                                 }
-                                if (ji_shu == 0) {
-                                    this.game_player();
-                                }
-
 
                             } else {
                                 //检测完不能消除 要把它们的状态置回来
@@ -843,6 +835,22 @@ cc.Class({
 
         this.xing_jie_dian_fail.addChild(fail);
     },
+    //通关条件
+    player_condition() {
+
+        let ji_shu = 0;
+        for (let i = 0; i < this.di_tu_arr.length; i++) {
+            for (let j = 0; j < this.di_tu_arr[i].length; j++) {
+                if (this.di_tu_arr[i][j] != 0) {
+                    ji_shu++;
+                    break;
+                }
+            }
+        }
+        if (ji_shu == 0) {
+            this.game_player();
+        }
+    },
     //游戏通关
     game_player() {
         this.xing_jie_dian_player = new cc.Node();
@@ -850,7 +858,13 @@ cc.Class({
         let player = cc.instantiate(this.player);
         player.getComponent('player').ba_lianlian_kan_youxi_jiaoben_chuanjinlai(this);
         this.xing_jie_dian_player.addChild(player);
-        player.getComponent('player').game_time(this.m_total_time.toFixed(2));//四舍五入保留两位小数
+        let time = this.m_total_time.toFixed(2)
+        player.getComponent('player').game_time(time);//四舍五入保留两位小数
+        player.getComponent('player').score();
+        //通关了就存上通关次数+1
+        let guan_ka = cc.sys.localStorage.getItem('class');
+        guan_ka++;
+        cc.sys.localStorage.setItem('class', guan_ka);
     },
     update(dt) {
         //每一都会调用这个函数 看到了吗?抽

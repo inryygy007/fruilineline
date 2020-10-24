@@ -23,7 +23,12 @@ cc.Class({
     },
     //管卡锁
     guan_ka_lock(number) {
-        if (number > 1) {
+        let guan_ka = cc.sys.localStorage.getItem('class');
+        if (guan_ka === null) {
+            cc.sys.localStorage.setItem('class', 1);
+        }
+        let m_guan_ka = parseInt(guan_ka);
+        if (number > m_guan_ka) {
             this.node.getChildByName("lock").active = true;
             this.node.getChildByName("lock_button").getComponent('cc.Button').interactable = false;
         }

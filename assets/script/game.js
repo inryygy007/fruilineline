@@ -56,13 +56,13 @@ cc.Class({
         this.creation_relaxation_prefabs();
     },
     start() {
-        this.arr = [];
     },
     //创建休闲模式预制物
     creation_relaxation_prefabs() {
         cc.find('bg_node', this.node).active = false;
         let relaxation = cc.instantiate(this.relaxation_prefabs);
         this.relaxation_node.addChild(relaxation);
+        this.arr = [];
         for (let i = 0; i < 5; i++) {
             this.arr[i] = [];
             for (let j = 0; j < 5; j++) {
