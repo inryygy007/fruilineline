@@ -33,7 +33,7 @@ cc.Class({
     },
     //下一关按钮
     next() {
-
+        cc.director.loadScene("lianliankan");
     },
     //游戏时间
     game_time(time) {

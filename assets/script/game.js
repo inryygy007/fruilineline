@@ -50,6 +50,7 @@ cc.Class({
         this.ying_liang_node.active = true;
         this.kai_shi_node.active = true;
         this.fan_hui_node.active = false;
+        this.nan_du_node.active = false;
     },
     //休闲模式
     relaxation_pattern() {

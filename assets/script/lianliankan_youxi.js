@@ -858,7 +858,7 @@ cc.Class({
         let player = cc.instantiate(this.player);
         player.getComponent('player').ba_lianlian_kan_youxi_jiaoben_chuanjinlai(this);
         this.xing_jie_dian_player.addChild(player);
-        let time = this.m_total_time.toFixed(2)
+        let time = this.m_total_time.toFixed(2);
         player.getComponent('player').game_time(time);//四舍五入保留两位小数
         player.getComponent('player').score();
         //通关了就存上通关次数+1

@@ -21,7 +21,7 @@ cc.Class({
         this.node.getChildByName("label").getComponent('cc.Label').string = number;
         this.guan_ka_lock(number);
     },
-    //管卡锁
+    //关卡锁
     guan_ka_lock(number) {
         let guan_ka = cc.sys.localStorage.getItem('class');
         if (guan_ka === null) {
@@ -32,7 +32,10 @@ cc.Class({
             this.node.getChildByName("lock").active = true;
             this.node.getChildByName("lock_button").getComponent('cc.Button').interactable = false;
         }
-    }
+    },
+    //关卡成绩
+    guan_ka_chengji(cheng_ji) {
 
+    }
     // update (dt) {},
 });
