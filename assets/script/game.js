@@ -58,11 +58,20 @@ cc.Class({
     },
     start() {
     },
+    //游戏开始界面
+    star_interface(no_off) {
+        cc.find('bg_node', this.node).active = no_off;
+    },
     //创建休闲模式预制物
     creation_relaxation_prefabs() {
-        cc.find('bg_node', this.node).active = false;
-        let relaxation = cc.instantiate(this.relaxation_prefabs);
-        this.relaxation_node.addChild(relaxation);
+        this.star_interface(false);
+        if (!this.relaxation) {
+            this.relaxation = new cc.Node();
+            this.relaxation.parent = this.relaxation_node
+            let relaxation = cc.instantiate(this.relaxation_prefabs);
+            relaxation.getComponent('pattern').ba_game_jiaoben_chuanjinlai(this);
+            this.relaxation.addChild(relaxation);
+        }
         this.arr = [];
         for (let i = 0; i < 5; i++) {
             this.arr[i] = [];
@@ -76,7 +85,7 @@ cc.Class({
     creation_guan_ka() {
         if (!this.xing_jie_dian) {
             this.xing_jie_dian = new cc.Node();
-            this.xing_jie_dian.parent = this.node;
+            this.xing_jie_dian.parent = this.relaxation;
         }
         let guan_ka = cc.instantiate(this.guan_ka_prefabs);
         this.xing_jie_dian.addChild(guan_ka);
@@ -99,6 +108,11 @@ cc.Class({
                 this.arr[i][j].getComponent('guan_ka').guan_ka_label(++number);
             }
         }
-    }
+    },
+    //删除节点
+    shan_chu_jie_dian() {
+        this.xing_jie_dian.destroy();
+        this.relaxation.destroy();
+    },
     // update (dt) {},
 });
