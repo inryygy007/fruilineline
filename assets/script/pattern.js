@@ -17,6 +17,7 @@ cc.Class({
         this.node.active = false;
         //删除创建关卡的节点
         this.game_jiao_ben.getComponent('game').shan_chu_jie_dian();
+        this.game_jiao_ben.getComponent('game').hide_relaxation(false);
         //打开开始的界面
         cc.director.loadScene("game");
     },

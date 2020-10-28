@@ -3,6 +3,10 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
+        game_prefabs: {
+            type: cc.Prefab,
+            default: null
+        }
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -14,12 +18,18 @@ cc.Class({
     },
     //关卡按钮
     guan_ka_button() {
-        cc.director.loadScene("lianliankan");
+        //cc.director.loadScene("lianliankan");
+        this.game.hide_relaxation(false);
+        this.game.creation_game_prefabs(this.number, this.hang, this.lie);
     },
     //关卡上的数字
-    guan_ka_label(number) {
+    guan_ka_label(number, hang, lie, guan_ka_amount_arr) {
         //这
-        this.node.getChildByName("label").getComponent('cc.Label').string = number;
+        this.number = number;
+        this.hang = hang;
+        this.lie = lie;
+        this.guan_ka_amount_arr = guan_ka_amount_arr;
+        this.node.getChildByName("label").getComponent('cc.Label').string = this.number;
         this.guan_ka_lock(number);
     },
     //关卡锁
@@ -35,7 +45,6 @@ cc.Class({
             //显示锁
             this.node.getChildByName("lock").active = true;
             this.node.getChildByName("lock_button").getComponent('cc.Button').interactable = false;
-
             //隐藏数字
             this.node.getChildByName("label").active = false;
             //隐藏星星
@@ -54,7 +63,20 @@ cc.Class({
     },
     //关卡成绩
     guan_ka_chengji(cheng_ji) {
-
+        let grade = parseInt(cheng_ji);
+        if (grade <= 30) {
+            this.node.getChildByName('guan_ka_chengji').active = false;
+            this.node.getChildByName("A").active = true;
+        } else if (grade > 30 && grade <= 60) {
+            this.node.getChildByName('guan_ka_chengji').active = false;
+            this.node.getChildByName("B").active = true;
+        } else if (grade > 60 && grade <= 90) {
+            this.node.getChildByName('guan_ka_chengji').active = false;
+            this.node.getChildByName("C").active = true;
+        }
+    },
+    ba_game_jiaoben_chuanjinlai(jiao_ben) {
+        this.game = jiao_ben;
     }
     // update (dt) {},
 });

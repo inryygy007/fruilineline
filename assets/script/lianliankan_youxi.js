@@ -35,6 +35,10 @@ cc.Class({
             type: cc.Prefab,
             default: null
         },
+        stop_prefabs: {
+            type: cc.Prefab,
+            default: null
+        },
         shui_guo_zhong_lei: 24
     },
 
@@ -45,10 +49,21 @@ cc.Class({
     //期望的结果: 调用this.timer(6,1,0); 就能在 6秒内 进度条从1 到 0 缓慢变化
     //6 秒从最大到最小 算出每一秒是多少
     //结束之后调用一下传进来的回调函数
+    //把主脚本传进来
+    ba_game_jiaoben_chuanjinlai(jiao_ben) {
+        this.game = jiao_ben;
+    },
+
+    set_dangqian_guanka(guan_ka_shu, hang, lie, arr) {
+        this.guan_ka = guan_ka_shu;
+        this.hang = hang;
+        this.lie = lie;
+        this.guan_ka_amount_arr = arr;
+    },
     //游戏开始
     game_start() {
         this.m_progressBar = cc.find("bg/time_schedule_bg/time_schedule", this.node).getComponent(cc.ProgressBar);
-        this.timer(90, 1, 0, function () {
+        this.timer(10, 1, 0, function () {
             this.shi_bai = true;
         }.bind(this));
         this.di_tu_arr = this.di_tu();
@@ -68,8 +83,17 @@ cc.Class({
     },
     start() {
         this.game_start();
-    }
-    ,
+    },
+    //暂停按钮
+    stop_button() {
+        //暂停计时器
+        this.stop_timer(true);
+        this.hide_shui_guo(false);
+        let stop = cc.instantiate(this.stop_prefabs);
+        this.node.addChild(stop);
+        stop.getComponent('stop').ba_lianlian_kan_youxi_jiaoben_chuanjinlai(this);
+        stop.getComponent('stop').ba_game_youxi_jiaoben_chuanjinlai(this.game);
+    },
     di_tu() {
         //这个地图就代表 了水果的分布对不对?
         //要让这里生成  成双的水果
@@ -301,10 +325,26 @@ cc.Class({
         //这里取数组对应位置的水果(超出范围的会处理成边界水果)
         return cc.v2(arr[hang][lie].x, arr[hang][lie].y);
     },
+    //隐藏与否
+    hide() {
+        //this.shan_chu_jie_dian();
+        this.node.active = false;
+    },
+    //隐藏所有水果
+    hide_shui_guo(no_off) {
+        for (let i = 0; i < this.shuiguo_arr.length; i++) {
+            for (let j = 0; j < this.shuiguo_arr[i].length; j++) {
+                this.shuiguo_arr[i][j].active = no_off;
+            }
+        }
+    },
     //删除节点
     shan_chu_jie_dian() {
         this.xing_jie_dian.removeFromParent(false);
-        this.xing_jie_dian_fail.removeFromParent(false);
+        // if (this.xing_jie_dian_fail) {
+        //     this.xing_jie_dian_fail.removeFromParent(false);
+        //     this.xing_jie_dian_fail = null;
+        // }
     },
     //写个方法 用于处理有水果块被点中了
     you_shuiguo_bei_dianzhongle() {
@@ -818,6 +858,10 @@ cc.Class({
         //progressbar - 0.9;
         //let a = 100;
     },
+    //暂停时间
+    stop_timer(is_stop) {
+        this.m_pause = is_stop;
+    },
     //游戏结束
     game_over() {
         for (let i = 0; i < this.di_tu_arr.length; i++) {
@@ -826,13 +870,16 @@ cc.Class({
             }
         }
         this.shua_xing_ditu(this.di_tu_arr);
+        if (this.xing_jie_dian_fail) {
+            this.xing_jie_dian_fail.removeFromParent(false);
+            this.xing_jie_dian_fail = null;
+        }
         this.xing_jie_dian_fail = new cc.Node();
         this.xing_jie_dian_fail.parent = this.node;
         let fail = cc.instantiate(this.fail);
         fail.getComponent('fail').ba_lianlian_kan_youxi_jiaoben_chuanjinlai(this);
+        fail.getComponent('fail').ba_game_jiaoben_chuanjinlai(this.game);
         //this.fail_node.zIndex = 1000000;
-
-
         this.xing_jie_dian_fail.addChild(fail);
     },
     //通关条件
@@ -863,10 +910,23 @@ cc.Class({
         player.getComponent('player').score();
         //通关了就存上通关次数+1
         let guan_ka = cc.sys.localStorage.getItem('class');
-        guan_ka++;
-        cc.sys.localStorage.setItem('class', guan_ka);
+        //读取分数文件
+        //cc.sys.localStorage.setItem('score', t);
+        this.guan_ka_amount_arr[this.hang][this.lie] = time;
+        let jieguo = JSON.stringify(this.guan_ka_amount_arr);
+        cc.sys.localStorage.setItem('score', jieguo);
+        //this.calculate_score(this.guan_ka_amount_arr);
+        //判断当前关卡是否需呀解锁下一关
+        if (this.guan_ka == guan_ka) {
+            guan_ka++;
+            cc.sys.localStorage.setItem('class', guan_ka);
+        }
     },
     update(dt) {
+        //如果是停止的标识设置了这个函数 就直接返回就行了
+        if (this.m_pause) {
+            return;
+        }
         //每一都会调用这个函数 看到了吗?抽
         //console.log("hhahahha");
         if (this.m_current_pro !== undefined && this.m_progress_max_val !== undefined) {

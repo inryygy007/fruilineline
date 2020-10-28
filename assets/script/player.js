@@ -20,8 +20,6 @@ cc.Class({
     // onLoad () {},
 
     start() {
-        //cc.find("bg/score_c", this.node).active = false;
-        //this.node.getChildByName('bg').getChildByName('score_a').active = true;
     },
     //返回按钮
     backtrack() {
@@ -33,7 +31,9 @@ cc.Class({
     },
     //下一关按钮
     next() {
-        cc.director.loadScene("lianliankan");
+        //cc.director.loadScene("lianliankan");
+        this.lianliankan_jiao_ben.game_start();
+        this.node.active = false;//隐藏通关窗口
     },
     //游戏时间
     game_time(time) {
