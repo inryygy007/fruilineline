@@ -131,6 +131,7 @@ cc.Class({
         game_interface.getComponent('lianliankan_youxi').ba_game_jiaoben_chuanjinlai(this);
         game_interface.getComponent('lianliankan_youxi').set_dangqian_guanka(guan_ka_shu, hang, lie, this.guan_ka_amount_arr);
         this.game_interface.addChild(game_interface);
+        game_interface.getComponent('lianliankan_youxi').show_now_guan_ka();
 
 
 

@@ -60,10 +60,14 @@ cc.Class({
         this.lie = lie;
         this.guan_ka_amount_arr = arr;
     },
+    //显示当前关卡
+    show_now_guan_ka() {
+        this.node.getChildByName("bg").getChildByName("guan_ka_label").getComponent('cc.Label').string = '关卡   ' + this.guan_ka;
+    },
     //游戏开始
     game_start() {
         this.m_progressBar = cc.find("bg/time_schedule_bg/time_schedule", this.node).getComponent(cc.ProgressBar);
-        this.timer(10, 1, 0, function () {
+        this.timer(90, 1, 0, function () {
             this.shi_bai = true;
         }.bind(this));
         this.di_tu_arr = this.di_tu();
@@ -72,7 +76,6 @@ cc.Class({
         // this.di_tu_arr = this.di_tu_arr[0][0] = 0;
         // let k = this.di_tu_arr.length;
         this.shua_xing_ditu(this.di_tu_arr);
-
         // //测试下函数好不好用
         // let qidian = { hang: 3, lie: 0 };
         // let zhongdian = { hang: 0, lie: 5 };
