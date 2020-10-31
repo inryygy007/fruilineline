@@ -3,10 +3,10 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
-        game_prefabs: {
-            type: cc.Prefab,
-            default: null
-        }
+        // game_prefabs: {
+        //     type: cc.Prefab,
+        //     default: null
+        // }
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -30,7 +30,7 @@ cc.Class({
         this.lie = lie;
         this.guan_ka_amount_arr = guan_ka_amount_arr;
         this.node.getChildByName("label").getComponent('cc.Label').string = this.number;
-        this.guan_ka_lock(number);
+        this.guan_ka_lock(this.number);
     },
     //关卡锁
     guan_ka_lock(number) {

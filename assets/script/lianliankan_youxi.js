@@ -76,6 +76,7 @@ cc.Class({
         // this.di_tu_arr = this.di_tu_arr[0][0] = 0;
         // let k = this.di_tu_arr.length;
         this.shua_xing_ditu(this.di_tu_arr);
+        //this.show_now_guan_ka();
         // //测试下函数好不好用
         // let qidian = { hang: 3, lie: 0 };
         // let zhongdian = { hang: 0, lie: 5 };
@@ -907,9 +908,10 @@ cc.Class({
         this.xing_jie_dian_player.parent = this.node;
         let player = cc.instantiate(this.player);
         player.getComponent('player').ba_lianlian_kan_youxi_jiaoben_chuanjinlai(this);
-        this.xing_jie_dian_player.addChild(player);
-        let time = this.m_total_time.toFixed(2);
-        player.getComponent('player').game_time(time);//四舍五入保留两位小数
+        player.getComponent('player').ba_game_jiaoben_chuanjinlai(this.game, this.guan_ka, this.hang, this.lie, this.guan_ka_amount_arr);
+        this.stop_timer(true);
+        let time = this.m_total_time.toFixed(2);//四舍五入保留两位小数
+        player.getComponent('player').game_time(time);
         player.getComponent('player').score();
         //通关了就存上通关次数+1
         let guan_ka = cc.sys.localStorage.getItem('class');
@@ -924,6 +926,8 @@ cc.Class({
             guan_ka++;
             cc.sys.localStorage.setItem('class', guan_ka);
         }
+        this.xing_jie_dian_player.addChild(player);
+
     },
     update(dt) {
         //如果是停止的标识设置了这个函数 就直接返回就行了

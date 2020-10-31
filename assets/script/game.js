@@ -122,8 +122,8 @@ cc.Class({
     //创建游戏界面 附加一个关卡数
     creation_game_prefabs(guan_ka_shu, hang, lie) {
         if (this.game_interface) {
-            this.relaxation.removeFromParent(false);
-            this.relaxation = null;
+            this.game_interface.removeFromParent(false);
+            this.game_interface = null;
         }
         this.game_interface = new cc.Node();
         this.game_interface.parent = this.game_node;
@@ -150,17 +150,21 @@ cc.Class({
     //改变位置
     alter() {
         let beginning = -260;//上面的起点
-        let destination = -240;//下面的终点
-        let m_width = this.guan_ka_arr[0][0].getChildByName('guan_ka_bg').width;
-        let m_heigth = this.guan_ka_arr[0][0].getChildByName('guan_ka_bg').height;
+        let destination = 340;//下面的终点
+        let m_width = this.guan_ka_arr[0][0].getChildByName('guan_ka_bg').width;//110
+        let m_heigth = this.guan_ka_arr[0][0].getChildByName('guan_ka_bg').height;//110
         let right_interval = 20;//往右的间隔
         let down_interval = 50;//往下的间隔
-        let number = 0;
-        for (let i = this.guan_ka_arr.length - 1; i >= 0; i--) {
-            for (let j = this.guan_ka_arr[i].length - 1; j >= 0; j--) {
+        let number = 0;//cc.sys.localStorage.getItem('class');
+        // if (number === null) {
+        //     cc.sys.localStorage.setItem('class', 0);
+        // }
+        // parseInt(number);
+        for (let i = 0; i < this.guan_ka_arr.length; i++) {
+            for (let j = 0; j < this.guan_ka_arr[i].length; j++) {
                 let x = beginning + j * (m_width + right_interval);
-                let y = destination + i * (m_heigth + down_interval);
-                this.guan_ka_arr[i][j].position = cc.v2(-x, y);
+                let y = destination - i * (m_heigth + down_interval);
+                this.guan_ka_arr[i][j].position = cc.v2(x, y);
                 let grade = cc.sys.localStorage.getItem('score');
                 let m_grade = JSON.parse(grade);
                 if (m_grade != null) {
@@ -170,6 +174,20 @@ cc.Class({
                 this.guan_ka_arr[i][j].getComponent('guan_ka').guan_ka_label(++number, i, j, this.guan_ka_amount_arr);
             }
         }
+        // for (let i = this.guan_ka_arr.length - 1; i >= 0; i--) {
+        //     for (let j = this.guan_ka_arr[i].length - 1; j >= 0; j--) {
+        //         let x = beginning + j * (m_width + right_interval);
+        //         let y = destination + i * (m_heigth + down_interval);
+        //         this.guan_ka_arr[i][j].position = cc.v2(-x, y);
+        //         let grade = cc.sys.localStorage.getItem('score');
+        //         let m_grade = JSON.parse(grade);
+        //         if (m_grade != null) {
+        //             let cheng_ji = m_grade[i][j];
+        //             this.guan_ka_arr[i][j].getComponent('guan_ka').guan_ka_chengji(cheng_ji);
+        //         }
+        //         this.guan_ka_arr[i][j].getComponent('guan_ka').guan_ka_label(++number, i, j, this.guan_ka_amount_arr);
+        //     }
+        // }
     },
     //隐藏休闲模式背景
     hide_relaxation(no_off) {

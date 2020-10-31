@@ -21,8 +21,18 @@ cc.Class({
 
     start() {
     },
+    //隐藏与否
+    hide(no_off) {
+        this.node.active = no_off;
+    },
     //返回按钮
     backtrack() {
+        this.hide(false);
+        this.lianliankan_jiao_ben.hide();
+        //删除节点
+        //this.game.getComponent('game').shan_chu_jie_dian();
+        //创造休闲模式预制物
+        this.game.getComponent('game').creation_relaxation_prefabs();
 
     },
     //炫耀一下按钮
@@ -32,6 +42,7 @@ cc.Class({
     //下一关按钮
     next() {
         //cc.director.loadScene("lianliankan");
+        this.game.getComponent('game').creation_game_prefabs(this.guan_ka, this.hang, this.lie);
         this.lianliankan_jiao_ben.game_start();
         this.node.active = false;//隐藏通关窗口
     },
@@ -54,8 +65,21 @@ cc.Class({
         }
 
     },
-    ba_lianlian_kan_youxi_jiaoben_chuanjinlai(jiao_ben) {
+    ba_lianlian_kan_youxi_jiaoben_chuanjinlai(jiao_ben, guan_ka_shu) {
         this.lianliankan_jiao_ben = jiao_ben;
+        this.guan_ka_shu = guan_ka_shu;
+    },
+    ba_game_jiaoben_chuanjinlai(jiao_ben, guan_ka_shu, hang, lie, guan_ka_amount_arr) {
+        this.game = jiao_ben;
+        this.guan_ka = ++guan_ka_shu;
+        this.guan_ka_amount_arr = guan_ka_amount_arr;
+        this.lie = ++lie;
+        this.hang = hang;
+        if (this.lie > this.guan_ka_amount_arr[0].length) {
+            //this.lie = 0;
+            this.hang = ++hang;//如果行大于最大的数的时候
+        }
+
     }
     // update (dt) {},
 });
