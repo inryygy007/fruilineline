@@ -42,7 +42,7 @@ cc.Class({
     //下一关按钮
     next() {
         //cc.director.loadScene("lianliankan");
-        this.game.getComponent('game').creation_game_prefabs(this.guan_ka, this.hang, this.lie);
+        this.game.getComponent('game').creation_game_prefabs(this.guan_ka, this.hang, this.lie, this.pageIndex);
         this.lianliankan_jiao_ben.game_start();
         this.node.active = false;//隐藏通关窗口
     },
@@ -65,9 +65,11 @@ cc.Class({
         }
 
     },
-    ba_lianlian_kan_youxi_jiaoben_chuanjinlai(jiao_ben, guan_ka_shu) {
+    ba_lianlian_kan_youxi_jiaoben_chuanjinlai(jiao_ben, guan_ka, pageIndex) {
         this.lianliankan_jiao_ben = jiao_ben;
-        this.guan_ka_shu = guan_ka_shu;
+        this.guan_ka = guan_ka;
+        this.pageIndex = pageIndex;
+        //this.
     },
     ba_game_jiaoben_chuanjinlai(jiao_ben, guan_ka_shu, hang, lie, guan_ka_amount_arr) {
         this.game = jiao_ben;

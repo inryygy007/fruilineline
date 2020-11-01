@@ -77,11 +77,13 @@ cc.Class({
     },
     //删除记录表
     shan_chu_ji_lv() {
-        cc.sys.localStorage.removeItem('score');
+        let score_str = 'score0';
+        cc.sys.localStorage.removeItem(score_str);
         cc.sys.localStorage.removeItem('class');
+        cc.sys.localStorage.removeItem('number');
     },
     start() {
-        //this.shan_chu_ji_lv();
+        // this.shan_chu_ji_lv();
     },
     //游戏开始界面
     star_interface(no_off) {
@@ -89,7 +91,7 @@ cc.Class({
     },
     //创建休闲模式预制物
     creation_relaxation_prefabs() {
-
+        this.guan_ka_amount_arr = [];
         if (this.relaxation) {
             this.relaxation.removeFromParent(false);
             this.relaxation = null;
@@ -105,7 +107,7 @@ cc.Class({
             t_page.getComponent('page').set_page_index(i);
             t_page.getComponent('page').setGamejs(this);
             t_page.x = i * 720;
-
+            this.guan_ka_amount_arr[i] = t_page.getComponent('page').deposit_score_arr();
         }
         this.relaxation_node.width = t_page_num * 720;
         this.relaxation_node.heigth = 1280;
@@ -124,7 +126,8 @@ cc.Class({
         // this.alter();
     },
     //创建游戏界面 附加一个关卡数
-    creation_game_prefabs(guan_ka_shu, hang, lie) {
+    creation_game_prefabs(guan_ka_shu, hang, lie, pageIndex) {
+        this.pageIndex = pageIndex;
         if (this.game_interface) {
             this.game_interface.removeFromParent(false);
             this.game_interface = null;
@@ -132,8 +135,8 @@ cc.Class({
         this.game_interface = new cc.Node();
         this.game_interface.parent = this.game_node;
         let game_interface = cc.instantiate(this.game_prefabs);
-        game_interface.getComponent('lianliankan_youxi').ba_game_jiaoben_chuanjinlai(this);
-        game_interface.getComponent('lianliankan_youxi').set_dangqian_guanka(guan_ka_shu, hang, lie, this.guan_ka_amount_arr);
+        game_interface.getComponent('lianliankan_youxi').ba_game_jiaoben_chuanjinlai(this, this.pageIndex);
+        game_interface.getComponent('lianliankan_youxi').set_dangqian_guanka(guan_ka_shu, hang, lie, this.guan_ka_amount_arr[this.pageIndex]);
         this.game_interface.addChild(game_interface);
         game_interface.getComponent('lianliankan_youxi').show_now_guan_ka();
 

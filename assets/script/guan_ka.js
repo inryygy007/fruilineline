@@ -20,7 +20,7 @@ cc.Class({
     guan_ka_button() {
         //cc.director.loadScene("lianliankan");
         this.game.hide_relaxation(false);
-        this.game.creation_game_prefabs(this.number, this.hang, this.lie);
+        this.game.creation_game_prefabs(this.number, this.hang, this.lie, this.pageIndex);
     },
     //关卡上的数字
     guan_ka_label(number, hang, lie, guan_ka_amount_arr) {
@@ -75,8 +75,9 @@ cc.Class({
             this.node.getChildByName("C").active = true;
         }
     },
-    ba_game_jiaoben_chuanjinlai(jiao_ben) {
+    ba_game_jiaoben_chuanjinlai(jiao_ben, pageIndex) {
         this.game = jiao_ben;
+        this.pageIndex = pageIndex;
     }
     // update (dt) {},
 });
