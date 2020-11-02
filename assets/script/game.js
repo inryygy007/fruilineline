@@ -83,7 +83,7 @@ cc.Class({
         cc.sys.localStorage.removeItem('number');
     },
     start() {
-        // this.shan_chu_ji_lv();
+        //this.shan_chu_ji_lv();
     },
     //游戏开始界面
     star_interface(no_off) {
@@ -93,15 +93,17 @@ cc.Class({
     creation_relaxation_prefabs() {
         this.guan_ka_amount_arr = [];
         if (this.relaxation) {
-            this.relaxation.removeFromParent(false);
+            //this.relaxation.removeFromParent(false);
+            this.relaxation.destroy();
             this.relaxation = null;
         }
         this.relaxation = new cc.Node();
         this.relaxation.parent = this.relaxation_node;
         let t_page_num = 10;
-        let t_pg = cc.find('page_node', this.node).getComponent(cc.PageView)
+        let t_pg = cc.find('page_node', this.node).getComponent(cc.PageView);
         for (let i = 0; i < t_page_num; i++) {
             let t_page = cc.instantiate(this.page_prefab);
+            t_page.zIndex = 1000;
             //t_page.parent = this.relaxation;
             t_pg.addPage(t_page);
             t_page.getComponent('page').set_page_index(i);
@@ -112,9 +114,10 @@ cc.Class({
         this.relaxation_node.width = t_page_num * 720;
         this.relaxation_node.heigth = 1280;
 
-        // this.relaxation_pattern = cc.instantiate(this.relaxation_prefabs);
-        // this.relaxation_pattern.getComponent('pattern').ba_game_jiaoben_chuanjinlai(this);
-        // this.relaxation.addChild(this.relaxation_pattern);
+        this.relaxation_pattern = cc.instantiate(this.relaxation_prefabs);
+        this.relaxation_pattern.getComponent('pattern').ba_game_jiaoben_chuanjinlai(this);
+        //t_pg.addPage(this.relaxation_pattern);
+        this.relaxation.addChild(this.relaxation_pattern);
         // this.guan_ka_arr = [];
         // for (let i = 0; i < 5; i++) {
         //     this.guan_ka_arr[i] = [];
@@ -129,7 +132,8 @@ cc.Class({
     creation_game_prefabs(guan_ka_shu, hang, lie, pageIndex) {
         this.pageIndex = pageIndex;
         if (this.game_interface) {
-            this.game_interface.removeFromParent(false);
+            //this.game_interface.removeFromParent(false);
+            this.game_interface.destroy();
             this.game_interface = null;
         }
         this.game_interface = new cc.Node();

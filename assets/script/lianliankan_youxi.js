@@ -111,7 +111,7 @@ cc.Class({
         //0,1 ????位置什么的
         //0,0
         //所以这里的2 其它是[0,2) 左闭右开 也就是 [0,1] 不包含2
-        let di_tu_arr = ditu_shengchengqi.gen_rand2_arr(this.shui_guo_zhong_lei + 1, 2, 2);//2种水果,8行6列
+        let di_tu_arr = ditu_shengchengqi.gen_rand2_arr(this.shui_guo_zhong_lei + 1, 7, 6);//2种水果,8行6列
         //let di_tu_arr = [[2, 3, 7, 5, 7, 4], [5, 4, 4, 4, 6, 3], [3, 0, 1, 4, 7, 5], [4, 4, 1, 1, 8, 6], [4, 4, 6, 8, 4, 8], [6, 7, 2, 5, 5, 8], [2, 5, 8, 0, 3, 5], [0, 0, 5, 1, 2, 8]]
 
         //ditu_shengchengqi.gen_rand2_arr(9, 8, 6);

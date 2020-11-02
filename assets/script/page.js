@@ -38,17 +38,22 @@ cc.Class({
                 this.guan_ka_arr[i][j] = this.creation_guan_ka();
             }
         }
-        this.deposit_score_arr();
+        //this.deposit_score_arr();
         this.alter_position();
     },
     //创建一个存分数的数组
     deposit_score_arr() {
+        this.creation_relaxation_prefabs();
+        //这个this.guan_ka_arr 如果没有先调用start->creation_relaxation_prefabs 就没有值
+        // if (!this.guan_ka_arr) {
+        //     this.guan_ka_arr = [];
+        // }//那就是这虽然声明了但是长度没有
         let score_str = 'score' + this.pageIndex;
         let grade = cc.sys.localStorage.getItem(score_str);
         if (grade === null) {
             this.guan_ka_amount_arr = [];
             for (let i = 0; i < this.guan_ka_arr.length; i++) {
-                this.guan_ka_amount_arr[i] = [];
+                this.guan_ka_amount_arr[i] = [];//这不是变成二维数组吗 会进来吗?进来就是, 不进来就不是
                 for (let j = 0; j < this.guan_ka_arr[i].length; j++) {
                     this.guan_ka_amount_arr[i][j] = null;
                 }
@@ -79,7 +84,7 @@ cc.Class({
         let m_heigth = this.guan_ka_arr[0][0].getChildByName('guan_ka_bg').height;//110
         let right_interval = 20;//往右的间隔
         let down_interval = 50;//往下的间隔
-        let number = this.pageIndex * (25 + 1);
+        let number = (this.pageIndex * 25) + 1;
         // let guan_ka = cc.sys.localStorage.getItem('number');
         // if (guan_ka === null) {  
         //     cc.sys.localStorage.setItem('number', 0);
@@ -99,9 +104,9 @@ cc.Class({
                     let cheng_ji = m_grade[i][j];
                     this.guan_ka_arr[i][j].getComponent('guan_ka').guan_ka_chengji(cheng_ji);
                 }
-                ++number;
+                //number;
                 //m_guan_ka++;
-                this.guan_ka_arr[i][j].getComponent('guan_ka').guan_ka_label(number, i, j, this.guan_ka_amount_arr);
+                this.guan_ka_arr[i][j].getComponent('guan_ka').guan_ka_label(number++, i, j, this.guan_ka_amount_arr);
                 //cc.sys.localStorage.setItem('number', m_guan_ka);
             }
         }
