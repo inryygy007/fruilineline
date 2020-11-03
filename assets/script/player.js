@@ -35,9 +35,15 @@ cc.Class({
         this.game.getComponent('game').creation_relaxation_prefabs();
 
     },
+    //金币
+    gold_label(gold) {
+        this.node.getChildByName('bg').getChildByName(' gold_label').getComponent('cc.Label').string = '金币 +' + gold;
+        let read_gold = cc.sys.localStorage.getItem('gold');
+        let m_gold = parseInt(read_gold);
+        cc.sys.localStorage.setItem('gold', m_gold + gold);
+    },
     //炫耀一下按钮
     flaunt() {
-
     },
     //下一关按钮
     next() {

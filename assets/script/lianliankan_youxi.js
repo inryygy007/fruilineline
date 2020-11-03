@@ -39,7 +39,7 @@ cc.Class({
             type: cc.Prefab,
             default: null
         },
-        shui_guo_zhong_lei: 24
+        //shui_guo_zhong_lei: 24
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -50,11 +50,16 @@ cc.Class({
     //6 秒从最大到最小 算出每一秒是多少
     //结束之后调用一下传进来的回调函数
     //把主脚本传进来
-    ba_game_jiaoben_chuanjinlai(jiao_ben, pageIndex) {
+    ba_game_jiaoben_chuanjinlai(jiao_ben, pageIndex, shui_guo_zhong_lei, gold) {
         this.game = jiao_ben;
         this.pageIndex = pageIndex;
+        this.shui_guo_zhong_lei = shui_guo_zhong_lei;
+        this.gold = gold;
     },
-
+    //设置初始金币
+    set_original_gold(m_gold) {
+        cc.find("bg/gold/gold_label", this.node).getComponent('cc.Label').string = m_gold;
+    },
     set_dangqian_guanka(guan_ka_shu, hang, lie, arr) {
         this.guan_ka = guan_ka_shu;
         this.hang = hang;
@@ -99,6 +104,21 @@ cc.Class({
         stop.getComponent('stop').ba_lianlian_kan_youxi_jiaoben_chuanjinlai(this);
         stop.getComponent('stop').ba_game_youxi_jiaoben_chuanjinlai(this.game);
     },
+    //花金币刷新当前关卡
+    shua_xin_buntton() {
+
+        let read_gold = cc.sys.localStorage.getItem('gold');
+        let m_gold = parseInt(read_gold);
+        if (m_gold < 300) {
+            return;
+        } else {
+            m_gold -= 300;
+            cc.sys.localStorage.setItem('gold', m_gold);
+            this.game.getComponent('game').creation_game_prefabs(this.guan_ka, this.hang, this.lie, this.pageIndex);
+            this.game_start();
+        }
+
+    },
     di_tu() {
         //这个地图就代表 了水果的分布对不对?
         //要让这里生成  成双的水果
@@ -111,7 +131,7 @@ cc.Class({
         //0,1 ????位置什么的
         //0,0
         //所以这里的2 其它是[0,2) 左闭右开 也就是 [0,1] 不包含2
-        let di_tu_arr = ditu_shengchengqi.gen_rand2_arr(this.shui_guo_zhong_lei + 1, 7, 6);//2种水果,8行6列
+        let di_tu_arr = ditu_shengchengqi.gen_rand2_arr(this.shui_guo_zhong_lei + 1, 4, 3);//2种水果,8行6列
         //let di_tu_arr = [[2, 3, 7, 5, 7, 4], [5, 4, 4, 4, 6, 3], [3, 0, 1, 4, 7, 5], [4, 4, 1, 1, 8, 6], [4, 4, 6, 8, 4, 8], [6, 7, 2, 5, 5, 8], [2, 5, 8, 0, 3, 5], [0, 0, 5, 1, 2, 8]]
 
         //ditu_shengchengqi.gen_rand2_arr(9, 8, 6);
@@ -345,7 +365,7 @@ cc.Class({
     },
     //删除节点
     shan_chu_jie_dian() {
-        this.xing_jie_dian.removeFromParent(false);
+        // this.xing_jie_dian.removeFromParent(false);
         // if (this.xing_jie_dian_fail) {
         //     this.xing_jie_dian_fail.removeFromParent(false);
         //     this.xing_jie_dian_fail = null;
@@ -910,6 +930,7 @@ cc.Class({
         let player = cc.instantiate(this.player);
         player.getComponent('player').ba_lianlian_kan_youxi_jiaoben_chuanjinlai(this, this.guan_ka, this.pageIndex);
         player.getComponent('player').ba_game_jiaoben_chuanjinlai(this.game, this.guan_ka, this.hang, this.lie, this.guan_ka_amount_arr);
+        player.getComponent('player').gold_label(this.gold);
         this.stop_timer(true);
         let time = this.m_total_time.toFixed(2);//四舍五入保留两位小数
         player.getComponent('player').game_time(time);

@@ -929,7 +929,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": " gold_coin",
+    "_name": " gold_label",
     "_objFlags": 0,
     "_parent": {
       "__id__": 2
@@ -954,7 +954,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 147.85,
+      "width": 0,
       "height": 50.4
     },
     "_anchorPoint": {
@@ -1005,8 +1005,8 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "金币+10",
-    "_N$string": "金币+10",
+    "_string": "",
+    "_N$string": "",
     "_fontSize": 40,
     "_lineHeight": 40,
     "_enableWrapText": true,
@@ -1059,7 +1059,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 200.2,
+      "width": 0,
       "height": 100.8
     },
     "_anchorPoint": {
@@ -1110,8 +1110,8 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "81.24",
-    "_N$string": "81.24",
+    "_string": "",
+    "_N$string": "",
     "_fontSize": 80,
     "_lineHeight": 80,
     "_enableWrapText": true,
