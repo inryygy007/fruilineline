@@ -89,7 +89,7 @@ cc.Class({
     //休闲模式
     relaxation_pattern() {
         // this.fan_hui_node.active = false;
-        // this.nan_du_node.active = false;
+        this.nan_du_node.active = false;
         this.star_interface(false);
         this.creation_relaxation_prefabs();
     },
@@ -202,7 +202,7 @@ cc.Class({
         let t_pg = cc.find('page_node', this.node).getComponent(cc.PageView);
         for (let i = 0; i < t_page_num; i++) {
             let t_page = cc.instantiate(this.page_prefab);
-            //t_page.zIndex = 1000;
+            t_page.zIndex = 1000;
             //t_page.parent = this.relaxation;
             t_pg.addPage(t_page);
             t_page.getComponent('page').set_page_index(i);
@@ -212,7 +212,6 @@ cc.Class({
         }
         this.relaxation_node.width = t_page_num * 720;
         this.relaxation_node.heigth = 1280;
-
         this.relaxation_pattern = cc.instantiate(this.relaxation_prefabs);
         this.relaxation_pattern.getComponent('pattern').ba_game_jiaoben_chuanjinlai(this);
         //t_pg.addPage(this.relaxation_pattern);
