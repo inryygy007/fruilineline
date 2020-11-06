@@ -45,7 +45,7 @@ cc.Class({
             default: null
         },
         //关卡页
-        page_prefabs: {
+        page_prefab: {
             type: cc.Prefab,
             default: null
         },
@@ -254,6 +254,23 @@ cc.Class({
         // }
         // this.deposit_score_arr();
         // this.alter();
+    },//创建金币预制物
+    m_gold() {
+        let m_gold = cc.sys.localStorage.getItem('gold');
+        if (m_gold === null) {
+            cc.sys.localStorage.setItem('gold', 1000);
+        }
+        m_gold = cc.sys.localStorage.getItem('gold');
+        if (this.jing_bi) {
+            //this.game_interface.removeFromParent(false);
+            this.jing_bi.destroy();
+            this.jing_bi = null;
+        }
+        this.jing_bi = new cc.Node();
+        this.jing_bi.parent = this.game_node;
+        let jing_bi = cc.instantiate(this.gold_prefabs);
+        jing_bi.getComponent('gold').set_original_gold(m_gold);
+        this.jing_bi.addChild(jing_bi);
     },
     //创建游戏界面 附加一个关卡数
     creation_game_prefabs(guan_ka_shu, hang, lie, pageIndex) {
@@ -266,21 +283,11 @@ cc.Class({
         this.game_interface = new cc.Node();
         this.game_interface.parent = this.game_node;
         let game_interface = cc.instantiate(this.game_prefabs);
-        let jing_bi = cc.instantiate(this.gold_prefabs);
-        let m_gold = cc.sys.localStorage.getItem('gold');
-        if (m_gold === null) {
-            cc.sys.localStorage.setItem('gold', 1000);
-        }
-        m_gold = cc.sys.localStorage.getItem('gold');
-        game_interface.getComponent('lianliankan_youxi').set_original_gold(m_gold);
+        this.m_gold();
         game_interface.getComponent('lianliankan_youxi').ba_game_jiaoben_chuanjinlai(this, this.pageIndex, this.shui_guo_zhong_lei, this.gold);
         game_interface.getComponent('lianliankan_youxi').set_dangqian_guanka(guan_ka_shu, hang, lie, this.guan_ka_amount_arr[this.pageIndex]);
         this.game_interface.addChild(game_interface);
-        this.game_interface.addChild(jing_bi);
         game_interface.getComponent('lianliankan_youxi').show_now_guan_ka();
-
-
-
     },
     //隐藏休闲模式背景
     hide_relaxation(no_off) {

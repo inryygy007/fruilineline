@@ -56,10 +56,6 @@ cc.Class({
         this.shui_guo_zhong_lei = shui_guo_zhong_lei;
         this.gold = gold;
     },
-    //设置初始金币
-    set_original_gold(m_gold) {
-        cc.find("bg/gold/gold_label", this.node).getComponent('cc.Label').string = m_gold;
-    },
     set_dangqian_guanka(guan_ka_shu, hang, lie, arr) {
         this.guan_ka = guan_ka_shu;
         this.hang = hang;
@@ -126,6 +122,7 @@ cc.Class({
                 this.shuffle(this.di_tu_arr[i]);
             }
             this.shua_xing_ditu(this.di_tu_arr);
+            this.game.getComponent('game').m_gold();
             // this.game.getComponent('game').creation_game_prefabs(this.guan_ka, this.hang, this.lie, this.pageIndex);
             //this.game_start();
         }
@@ -974,6 +971,7 @@ cc.Class({
             cc.sys.localStorage.setItem('class', guan_ka);
         }
         this.xing_jie_dian_player.addChild(player);
+        this.game.getComponent('game').m_gold();
 
     },
     update(dt) {

@@ -3594,7 +3594,7 @@
     "game_prefabs": {
       "__uuid__": "e6c64a76-f8d5-4d22-856f-b4529cc88afc"
     },
-    "page_prefabs": {
+    "page_prefab": {
       "__uuid__": "90343553-6167-448a-b65e-c3c5ab4bcca2"
     },
     "gold_prefabs": {
