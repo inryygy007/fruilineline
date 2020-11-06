@@ -64,6 +64,9 @@ cc.Class({
     //关卡成绩
     guan_ka_chengji(cheng_ji) {
         let grade = parseInt(cheng_ji);
+        // if (cheng_ji < guan_ka_amount_arr[this.hang][this.lie]) {
+        //     return;
+        // }
         if (grade <= 30) {
             this.node.getChildByName('guan_ka_chengji').active = false;
             this.node.getChildByName("A").active = true;
@@ -75,9 +78,10 @@ cc.Class({
             this.node.getChildByName("C").active = true;
         }
     },
+    //把主脚本传进来
     ba_game_jiaoben_chuanjinlai(jiao_ben, pageIndex) {
         this.game = jiao_ben;
         this.pageIndex = pageIndex;
-    }
+    },
     // update (dt) {},
 });

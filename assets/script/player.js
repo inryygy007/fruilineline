@@ -91,6 +91,10 @@ cc.Class({
             this.hang = 0;
             this.pageIndex++;
         }
+    },
+    //记录的显示与否
+    record_show(no_off) {
+        this.node.getChildByName('bg').getChildByName('record').active = no_off;
     }
     // update (dt) {},
 });

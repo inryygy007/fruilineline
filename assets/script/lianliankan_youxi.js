@@ -104,6 +104,13 @@ cc.Class({
         stop.getComponent('stop').ba_lianlian_kan_youxi_jiaoben_chuanjinlai(this);
         stop.getComponent('stop').ba_game_youxi_jiaoben_chuanjinlai(this.game);
     },
+    randomsort(a, b) {
+        return Math.random() > .5 ? -1 : 1;
+        //用Math.random()函数生成0~1之间的随机数与0.5比较，返回-1或1
+    },
+    shuffle(arr) {
+        arr.sort(this.randomsort);
+    },
     //花金币刷新当前关卡
     shua_xin_buntton() {
 
@@ -114,8 +121,13 @@ cc.Class({
         } else {
             m_gold -= 300;
             cc.sys.localStorage.setItem('gold', m_gold);
-            this.game.getComponent('game').creation_game_prefabs(this.guan_ka, this.hang, this.lie, this.pageIndex);
-            this.game_start();
+            let i = this.di_tu_arr;
+            for (let i = 0; i < this.di_tu_arr.length; i++) {
+                this.shuffle(this.di_tu_arr[i]);
+            }
+            this.shua_xing_ditu(this.di_tu_arr);
+            // this.game.getComponent('game').creation_game_prefabs(this.guan_ka, this.hang, this.lie, this.pageIndex);
+            //this.game_start();
         }
 
     },
@@ -938,9 +950,22 @@ cc.Class({
         //通关了就存上通关次数+1
         let guan_ka = cc.sys.localStorage.getItem('class');
         //读取分数文件
-        this.guan_ka_amount_arr[this.hang][this.lie] = time;
-        let jieguo = JSON.stringify(this.guan_ka_amount_arr);
         let score_str = 'score' + this.pageIndex;
+        if (!this.guan_ka_amount_arr[this.hang][this.lie]) {
+            this.guan_ka_amount_arr[this.hang][this.lie] = time;
+            player.getComponent('player').record_show(true);
+        } else {
+            let front_time = this.guan_ka_amount_arr[this.hang][this.lie];
+            front_time = parseInt(front_time);
+            time = parseInt(time);
+            if (time < front_time) {
+                this.guan_ka_amount_arr[this.hang][this.lie] = time;
+                player.getComponent('player').record_show(true);
+            } else {
+                player.getComponent('player').record_show(false);
+            }
+        }
+        let jieguo = JSON.stringify(this.guan_ka_amount_arr);
         cc.sys.localStorage.setItem(score_str, jieguo);
         //this.calculate_score(this.guan_ka_amount_arr);
         //判断当前关卡是否需呀解锁下一关

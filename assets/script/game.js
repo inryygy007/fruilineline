@@ -45,7 +45,12 @@ cc.Class({
             default: null
         },
         //关卡页
-        page_prefab: {
+        page_prefabs: {
+            type: cc.Prefab,
+            default: null
+        },
+        //金币
+        gold_prefabs: {
             type: cc.Prefab,
             default: null
         },
@@ -105,10 +110,28 @@ cc.Class({
         //this.shan_chu_ji_lv();
         this.star_button_motion();
         this.node_motion(this.ying_liang_node, 0, 500);
+        this.label_ecptoma_motion();
     },
     //游戏开始界面
     star_interface(no_off) {
         cc.find('bg_node', this.node).active = no_off;
+    },
+    //文字下落的动嘴
+    label_ecptoma_motion() {
+        let wen_zi = cc.find("bg_node/wen_zi", this.node);
+        if (!this.wen_zi_node_pos) {
+            this.wen_zi_node_pos = cc.v2(wen_zi.x, wen_zi.y - 300);
+        }
+        if (this.action_3) {
+            cc.find("bg_node/wen_zi", this.node).stopAction(this.action_3);
+            this.action = null;
+        }
+        this.action_3 = cc.moveTo(0.5, cc.v2(this.wen_zi_node_pos.x, this.wen_zi_node_pos.y));
+        this.action_3.easing(cc.easeOut(2.0));//创建 easeOut 缓动对象，由快到慢。
+        //act.easing(cc.easeIn(2.0));//创建 easeIn 缓动对象，由慢到快。
+        //让焦点 运行动作
+        cc.find("bg_node/wen_zi", this.node).runAction(this.action_3);
+
     },
     //开始按钮的移动动作
     star_button_move_motion() {
@@ -119,8 +142,13 @@ cc.Class({
         let act1 = cc.scaleTo(1, 0.8).easing(cc.easeElasticIn(100.0));
         let act2 = cc.scaleBy(2, 1.2).easing(cc.easeElasticOut(100.0));
         let combination = cc.sequence(act1, act2);//组合放大缩小动作
-        this.star_button_action = cc.find("bg_node/kai_shi_node/kai_shi", this.node).runAction(cc.repeatForever(combination));
-    },//音量的动作
+        if (this.star_button_action) {
+            cc.find("bg_node/kai_shi_node/kai_shi", this.node).stopAction(this.star_button_action);
+            this.star_button_action = null;
+        }
+        this.star_button_action = cc.repeatForever(combination);
+        cc.find("bg_node/kai_shi_node/kai_shi", this.node).runAction(this.star_button_action);
+    },//音量和模式的动作
     node_motion(name, x, y, no_off) {
         let node_name = name; //cc.find("bg_node/ying_linag_node", this.node);
         if (!this.m_node_pos) {
@@ -157,37 +185,37 @@ cc.Class({
             node_name.stopAction(this.action_2);
         }
     },
-    //模式的动作
-    pattern_motion(no_off) {
-        let pattern = cc.find("nan_du_node", this.node);
-        if (!this.m_pattern_pos) {
-            this.m_pattern_pos = cc.v2(pattern.x, pattern.y);
-        }
-        if (!this.m_pattern_start_pos) {
-            this.m_pattern_start_pos = cc.v2(0, 0);
-        }
-        let pattern_pos = null;
-        if (no_off) {//移到不可见
-            //先设置到0,0
-            pattern.x = this.m_pattern_start_pos.x;//这的位置应该是0
-            pattern.y = this.m_pattern_start_pos.y;
-            pattern_pos = cc.v2(this.m_pattern_pos.x + 500, this.m_pattern_pos.y);
-        } else {
-            pattern.x = this.m_pattern_pos.x;//这的位置应该是0
-            pattern.y = this.m_pattern_pos.y;
-            pattern_pos = cc.v2(this.m_pattern_pos.x - 500, this.m_pattern_pos.y);
-        }
-        if (this.act) {
-            //pattern.stopAction(this.act);
-            pattern.stopAction(this.act);
-            this.act = null;
-        }
-        this.act = cc.moveTo(0.8, cc.v2(pattern_pos.x, pattern_pos.y));
-        this.act.easing(cc.easeOut(2.0));//创建 easeOut 缓动对象，由快到慢。
-        //act.easing(cc.easeIn(2.0));//创建 easeIn 缓动对象，由慢到快。
-        //让焦点 运行动作
-        pattern.runAction(this.act);
-    },
+    // //模式的动作
+    // pattern_motion(no_off) {
+    //     let pattern = cc.find("nan_du_node", this.node);
+    //     if (!this.m_pattern_pos) {
+    //         this.m_pattern_pos = cc.v2(pattern.x, pattern.y);
+    //     }
+    //     if (!this.m_pattern_start_pos) {
+    //         this.m_pattern_start_pos = cc.v2(0, 0);
+    //     }
+    //     let pattern_pos = null;
+    //     if (no_off) {//移到不可见
+    //         //先设置到0,0
+    //         pattern.x = this.m_pattern_start_pos.x;//这的位置应该是0
+    //         pattern.y = this.m_pattern_start_pos.y;
+    //         pattern_pos = cc.v2(this.m_pattern_pos.x + 500, this.m_pattern_pos.y);
+    //     } else {
+    //         pattern.x = this.m_pattern_pos.x;//这的位置应该是0
+    //         pattern.y = this.m_pattern_pos.y;
+    //         pattern_pos = cc.v2(this.m_pattern_pos.x - 500, this.m_pattern_pos.y);
+    //     }
+    //     if (this.act) {
+    //         //pattern.stopAction(this.act);
+    //         pattern.stopAction(this.act);
+    //         this.act = null;
+    //     }
+    //     this.act = cc.moveTo(0.8, cc.v2(pattern_pos.x, pattern_pos.y));
+    //     this.act.easing(cc.easeOut(2.0));//创建 easeOut 缓动对象，由快到慢。
+    //     //act.easing(cc.easeIn(2.0));//创建 easeIn 缓动对象，由慢到快。
+    //     //让焦点 运行动作
+    //     pattern.runAction(this.act);
+    // },
     //创建休闲模式预制物
     creation_relaxation_prefabs() {
         this.guan_ka_amount_arr = [];
@@ -238,6 +266,7 @@ cc.Class({
         this.game_interface = new cc.Node();
         this.game_interface.parent = this.game_node;
         let game_interface = cc.instantiate(this.game_prefabs);
+        let jing_bi = cc.instantiate(this.gold_prefabs);
         let m_gold = cc.sys.localStorage.getItem('gold');
         if (m_gold === null) {
             cc.sys.localStorage.setItem('gold', 1000);
@@ -247,6 +276,7 @@ cc.Class({
         game_interface.getComponent('lianliankan_youxi').ba_game_jiaoben_chuanjinlai(this, this.pageIndex, this.shui_guo_zhong_lei, this.gold);
         game_interface.getComponent('lianliankan_youxi').set_dangqian_guanka(guan_ka_shu, hang, lie, this.guan_ka_amount_arr[this.pageIndex]);
         this.game_interface.addChild(game_interface);
+        this.game_interface.addChild(jing_bi);
         game_interface.getComponent('lianliankan_youxi').show_now_guan_ka();
 
 
@@ -257,10 +287,12 @@ cc.Class({
         this.relaxation_pattern.active = no_off;
         this.fan_hui_node.active = false;
         this.nan_du_node.active = false;
-        //this.shan_chu_jie_dian();
+        //删除创建关卡的节点
+        this.shan_chu_jie_dian();
     },
     //删除节点
     shan_chu_jie_dian() {
+        //this.guan_ka_amount_arr = null;
         if (this.xing_jie_dian) {
             this.xing_jie_dian.removeFromParent(false);
             this.xing_jie_dian = null;
