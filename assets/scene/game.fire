@@ -404,7 +404,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        -160,
+        -429.653,
         0,
         0,
         0,
@@ -442,15 +442,15 @@
     },
     "_indicators": [],
     "spriteFrame": {
-      "__uuid__": "c9fa51ff-3f01-4601-8f80-325d1b11dab7"
+      "__uuid__": "e7aba14b-f956-4480-b254-8d57832e273f"
     },
     "direction": 0,
     "cellSize": {
       "__type__": "cc.Size",
-      "width": 10,
-      "height": 10
+      "width": 30,
+      "height": 30
     },
-    "spacing": 10,
+    "spacing": 20,
     "_id": "acwfgMYnBBv4TyGaVjE17f"
   },
   {
