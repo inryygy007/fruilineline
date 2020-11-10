@@ -100,6 +100,7 @@ cc.Class({
         stop.getComponent('stop').ba_lianlian_kan_youxi_jiaoben_chuanjinlai(this);
         stop.getComponent('stop').ba_game_youxi_jiaoben_chuanjinlai(this.game);
     },
+    //
     randomsort(a, b) {
         return Math.random() > .5 ? -1 : 1;
         //用Math.random()函数生成0~1之间的随机数与0.5比较，返回-1或1
@@ -408,8 +409,6 @@ cc.Class({
                         buyong_zhaole = true;
                         this.m_move_focus.active = true;
                         this.set_move_focus_with_fruit(this.shuiguo1, false);
-                        // this.shuiguo_focus.getComponent('shuiguo').focus(false);
-                        // this.shuiguo_focus = null;
                         break;
                     }
                     //2.如果之前有点击水果块那么 在？
@@ -437,6 +436,11 @@ cc.Class({
                                 this.di_tu_arr[i1][j1] = 0;//消除的水果位置置为空
                                 let time = this.shuiguo1.getComponent('shuiguo').ying_chang();
                                 this.shuiguo_arr[i][j].getComponent('shuiguo').ying_chang();
+                                // if (this.a) {
+                                //     this.m_line_node.getComponent('thread').jiashu();
+                                //     this.shuiguo1.getComponent('shuiguo').jiashu();
+                                //     this.shuiguo_arr[i][j].getComponent('shuiguo').jiashu();
+                                // }
                                 let slef = this;
                                 this.node.runAction(cc.sequence(cc.delayTime(time), cc.callFunc(function () {
                                     slef.shua_xing_ditu(slef.di_tu_arr);//这 为啥?刷新地图的时候是把节点删除掉之前做的都没用了啊
@@ -495,7 +499,11 @@ cc.Class({
             }
         }
     },
-
+    //测试
+    // dian_ji(a) {
+    //     this.a = true;
+    //     console.log("被点击了");
+    // },
     //接下来处理 能删除的规则 是连线的转角最多两个 这样是不能删除的
 
 

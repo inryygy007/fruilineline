@@ -128,17 +128,43 @@ cc.Class({
     //隐藏
     ying_chang() {
         //自定义一个时间
-        let time = 0.6;
+        this.time = 0.4;
         //隐藏背景框
         cc.find('New Button', this.node).active = false;
         //旋转隐藏动作组合
-        let act1 = cc.sequence(cc.rotateBy(time, 300), cc.hide());
+        let act1 = cc.sequence(cc.rotateBy(this.time, 300), cc.hide());
         //缩小
-        let act2 = cc.scaleTo(time, 0.2);
+        let act2 = cc.scaleTo(this.time, 0.2);
         //组合同时进行旋转隐藏,缩小动作
-        let zoom_act = cc.spawn(act1, act2);
-        this.node.runAction(zoom_act);
-        return time;
+        this.zoom_act = cc.spawn(act1, act2);
+        this.node.runAction(this.zoom_act);
+        this.m_start_time = new Date().getTime();
+        return this.time;
     },
+    //加速
+    jiashu() {
+        //点击按钮的时候加速动作
+
+        //1.停止当前动作
+        this.node.stopAction(this.zoom_act);
+
+        //2.算出新的加速动作
+
+        //点击的时候再获取一下时间, 看看走了多少时间(也就是运行的时候) 毫秒是很小的, 一般人是不可能操作这么快的
+        var now = new Date().getTime();
+        // 已经运行了的时间
+        var passed_time = now - this.m_start_time;
+        //2.1 剩下多少时间 = 总时间 - 已经运行了的时间
+        var left_time = (this.time * 1000000 - passed_time) / 1000000;//换成毫秒计算
+        //判断一下剩下的时间是不是大于0 
+        if (left_time > 0) {
+            var action = this.node.runAction(this.zoom_act);
+            var newAction = cc.speed(action, 10);
+            this.m_action = action;
+            this.node.runAction(newAction);
+        }
+
+
+    }
     // update (dt) {},
 });

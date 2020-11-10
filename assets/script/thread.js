@@ -9,7 +9,7 @@ cc.Class({
         },
 
         interval: 30,
-        lineTime: 1.2
+        lineTime: 0.8
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -58,17 +58,42 @@ cc.Class({
             }
         }
 
-        let draw_line_dt = this.lineTime / this.m_whitedot_arr.length;
-        let seq = [];
+        this.draw_line_dt = this.lineTime / this.m_whitedot_arr.length;
+        this.seq = [];
         for (let i = 0; i < this.m_whitedot_arr.length; i++) {
-            seq.push(cc.callFunc(function () {
+            this.seq.push(cc.callFunc(function () {
                 this.m_whitedot_arr[i].active = true;
             }.bind(this)));
-            seq.push(cc.delayTime(draw_line_dt));
+            this.seq.push(cc.delayTime(this.draw_line_dt));
         }
-        this.node.runAction(cc.sequence(seq));
+        this.node.runAction(cc.sequence(this.seq));
+        this.m_start_time = new Date().getTime();
     },
+    //加速
+    jiashu() {
+        //点击按钮的时候加速动作
 
+        //1.停止当前动作
+        this.node.stopAction(this.m_action);
+
+        //2.算出新的加速动作
+
+        //点击的时候再获取一下时间, 看看走了多少时间(也就是运行的时候) 毫秒是很小的, 一般人是不可能操作这么快的
+        var now = new Date().getTime();
+        // 已经运行了的时间
+        var passed_time = now - this.m_start_time;
+        //2.1 剩下多少时间 = 总时间 - 已经运行了的时间
+        var left_time = (this.lineTime * 1000 - passed_time) / 1000;//换成毫秒计算
+        //判断一下剩下的时间是不是大于0 
+        if (left_time > 0) {
+            var action = this.node.runAction(cc.sequence(this.seq));
+            var newAction = cc.speed(action, 10);
+            this.m_action = action;
+            this.node.runAction(newAction);
+        }
+
+
+    },
     //设置起点和终点的方法
     set_start_and_end(start_p, end_p) {
         let distance = start_p.sub(end_p).mag();
