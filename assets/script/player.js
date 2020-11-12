@@ -32,8 +32,9 @@ cc.Class({
         //删除节点
         //this.game.getComponent('game').shan_chu_jie_dian();
         //创造休闲模式预制物
-        this.game.getComponent('game').creation_relaxation_prefabs();
-
+        this.game.creation_relaxation_prefabs();
+        this.game.guan_ka_hide(true);
+        this.game.gold_hide(false);
     },
     //金币
     gold_label(gold) {
@@ -50,6 +51,7 @@ cc.Class({
         //cc.director.loadScene("lianliankan");
         this.node.active = false;//隐藏通关窗口
         this.game.getComponent('game').creation_game_prefabs(this.guan_ka, this.hang, this.lie, this.pageIndex);
+        this.lianliankan_jiao_ben.shan_chu_jie_dian();
         this.lianliankan_jiao_ben.game_start();//重新计时
     },
     //游戏时间

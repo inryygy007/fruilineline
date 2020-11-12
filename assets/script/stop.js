@@ -20,6 +20,8 @@ cc.Class({
         //this.game.getComponent('game').shan_chu_jie_dian();
         //创造休闲模式预制物
         this.game.getComponent('game').creation_relaxation_prefabs();
+        this.game.guan_ka_hide(true);
+        this.game.gold_hide(false);
 
     },
     //继续按钮

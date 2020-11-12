@@ -59,7 +59,7 @@ cc.Class({
             default: null
         },
         shui_guo_zhong_lei: 24,//水果的种类
-        original_gold: 1000,//开始的金币
+        original_gold: 100000000000,//开始的金币
         gold: 50//通关后获得的金币
     },
 
@@ -74,8 +74,6 @@ cc.Class({
         this.fan_hui_node.active = true;
         this.nan_du_node.active = true;
         this.node_motion(this.ying_liang_node, 0, 550, true);
-        //this.node_motion(this.kai_shi_node, 500, 0);
-        // this.pattern_motion();
         this.node_motion(this.nan_du_node, 500, 0);
     },
     //返回,显示音量，分享，开始图标并且隐蔽返回图标
@@ -106,11 +104,15 @@ cc.Class({
         cc.sys.localStorage.removeItem('number');
         cc.sys.localStorage.removeItem('gold');
     },
-    start() {
-        //this.shan_chu_ji_lv();
+    //游戏开始
+    game_start() {
         this.star_button_motion();
+        this.ying_liang_node.active = true;
         this.node_motion(this.ying_liang_node, 0, 500);
         this.label_ecptoma_motion();
+    },
+    start() {
+        this.game_start();
     },
     //游戏开始界面
     star_interface(no_off) {
@@ -133,10 +135,6 @@ cc.Class({
         cc.find("bg_node/wen_zi", this.node).runAction(this.action_3);
 
     },
-    //开始按钮的移动动作
-    star_button_move_motion() {
-
-    },
     //开始按钮的动作
     star_button_motion() {
         let act1 = cc.scaleTo(1, 0.8).easing(cc.easeElasticIn(100.0));
@@ -148,7 +146,8 @@ cc.Class({
         }
         this.star_button_action = cc.repeatForever(combination);
         cc.find("bg_node/kai_shi_node/kai_shi", this.node).runAction(this.star_button_action);
-    },//音量和模式的动作
+    },
+    //音量和模式的动作
     node_motion(name, x, y, no_off) {
         let node_name = name; //cc.find("bg_node/ying_linag_node", this.node);
         if (!this.m_node_pos) {
@@ -229,14 +228,15 @@ cc.Class({
         let t_page_num = 10;
         let t_pg = cc.find('page_node', this.node).getComponent(cc.PageView);
         for (let i = 0; i < t_page_num; i++) {
-            let t_page = cc.instantiate(this.page_prefab);
-            t_page.zIndex = 1000;
+            //你这个this.t_page 被赋值了多少次? 它能指到所有的页吗? 把它隐藏能让所有的页隐藏吗
+            this.t_page = cc.instantiate(this.page_prefab);
+            this.t_page.zIndex = 1000;
             //t_page.parent = this.relaxation;
-            t_pg.addPage(t_page);
-            t_page.getComponent('page').set_page_index(i);
-            t_page.getComponent('page').setGamejs(this);
-            t_page.x = i * 720;
-            this.guan_ka_amount_arr[i] = t_page.getComponent('page').deposit_score_arr();
+            t_pg.addPage(this.t_page);
+            this.t_page.getComponent('page').set_page_index(i);
+            this.t_page.getComponent('page').setGamejs(this);
+            this.t_page.x = i * 720;
+            this.guan_ka_amount_arr[i] = this.t_page.getComponent('page').deposit_score_arr();
         }
         this.relaxation_node.width = t_page_num * 720;
         this.relaxation_node.heigth = 1280;
@@ -258,7 +258,7 @@ cc.Class({
     m_gold() {
         let m_gold = cc.sys.localStorage.getItem('gold');
         if (m_gold === null) {
-            cc.sys.localStorage.setItem('gold', 1000);
+            cc.sys.localStorage.setItem('gold', this.original_gold);
         }
         m_gold = cc.sys.localStorage.getItem('gold');
         if (this.jing_bi) {
@@ -271,6 +271,14 @@ cc.Class({
         let jing_bi = cc.instantiate(this.gold_prefabs);
         jing_bi.getComponent('gold').set_original_gold(m_gold);
         this.jing_bi.addChild(jing_bi);
+    },
+    gold_hide(no_off) {
+        this.jing_bi.active = no_off;
+    },
+    //关卡隐藏
+    guan_ka_hide(no_off) {
+        this.relaxation_node.active = no_off;
+        cc.find("page_node/indicator", this.node).active = no_off;
     },
     //创建游戏界面 附加一个关卡数
     creation_game_prefabs(guan_ka_shu, hang, lie, pageIndex) {

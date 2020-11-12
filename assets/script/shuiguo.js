@@ -1,32 +1,8 @@
-// Learn cc.Class:
-//  - [Chinese] https://docs.cocos.com/creator/manual/zh/scripting/class.html
-//  - [English] http://docs.cocos2d-x.org/creator/manual/en/scripting/class.html
-// Learn Attribute:
-//  - [Chinese] https://docs.cocos.com/creator/manual/zh/scripting/reference/attributes.html
-//  - [English] http://docs.cocos2d-x.org/creator/manual/en/scripting/reference/attributes.html
-// Learn life-cycle callbacks:
-//  - [Chinese] https://docs.cocos.com/creator/manual/zh/scripting/life-cycle-callbacks.html
-//  - [English] https://www.cocos2d-x.org/docs/creator/manual/en/scripting/life-cycle-callbacks.html
 
 cc.Class({
     extends: cc.Component,
 
     properties: {
-        // foo: {
-        //     // ATTRIBUTES:
-        //     default: null,        // The default value will be used only when the component attaching
-        //                           // to a node for the first time
-        //     type: cc.SpriteFrame, // optional, default is typeof default
-        //     serializable: true,   // optional, default is true
-        // },
-        // bar: {
-        //     get () {
-        //         return this._bar;
-        //     },
-        //     set (value) {
-        //         this._bar = value;
-        //     }
-        // },
 
         tupian: {
             type: cc.SpriteFrame,
@@ -49,20 +25,35 @@ cc.Class({
     },
     //有设置水果类型的方法 传进来1 就设置为西瓜 其它类似
     setType(number) {
+        //处理0 类型
+        let tupian = cc.find("iconRoot/tupian", this.node);
+        this.node.active = true;//下次不是0 先显示 如果那个位置本来就没东西了
+        if (number == 0) {//0就返回了啊
+            this.node.active = false;//0隐藏
+            //这个水果是不可见了, 但它身上的各种状态还存在
+            this.wo_bei_dian_zhong_le = false;
+            this.Stop_action();
+            //动作呢？怎么没处理
+            return;
+        }
+
         //根据传进来的number 拿到对应的sprite frame(精灵帧)
         //如果传进来 1 number - 1 就是0 对应的就是数组里的0号元素哦
-        let sf = this.tupian[number - 1];
+        let sf = this.tupian[number - 1];//这里如果传进来是个0会怎么样
         //this.sf = sf;
         this.lei_xing = number - 1;
         //设置类型 首先只设置一下相应 的图片就行
         //这里是node 上放的是Sprite 组件而不是SpriteFrame组件
-        cc.find("iconRoot/tupian", this.node).getComponent(cc.Sprite).spriteFrame = sf;
+        tupian.getComponent(cc.Sprite).spriteFrame = sf;
     },
     dian_ji_button() {
         //console.log(this.lei_xing);
         //this.focus(true);
         //点击这个水果块就设置一个变量为true
         //要在这里能调用 lianliankan_youxi 的脚本 所以 要把 lianliankan_youxi 传进来
+        if (this.wo_bei_dian_zhong_le) {
+            return;
+        }
         this.wo_bei_dian_zhong_le = true;
         //调用脚本的方法
         this.lianliankan_jiao_ben.you_shuiguo_bei_dianzhongle();
@@ -122,9 +113,9 @@ cc.Class({
         this.lie = j;
     },
     //外框显示与否
-    focus(no_off) {
-        cc.find("focus", this.node).active = no_off;
-    },
+    // focus(no_off) {
+    //     cc.find("focus", this.node).active = no_off;
+    // },
     //隐藏
     ying_chang() {
         //自定义一个时间

@@ -111,6 +111,15 @@ cc.Class({
 
         }
         let a = 100;
+    },
+    yin_cang() {
+        for (let i = 0; i < this.m_whitedot_arr.length; i++) {
+            this.seq.push(cc.callFunc(function () {
+                this.m_whitedot_arr[i].active = false;
+            }.bind(this)));
+            this.seq.push(cc.delayTime(this.draw_line_dt));
+        }
+        this.node.runAction(cc.sequence(this.seq));
     }
 
     // update (dt) {},

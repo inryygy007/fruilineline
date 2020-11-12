@@ -180,7 +180,7 @@
       "array": [
         0,
         0,
-        309.1710691510446,
+        262.4056973466849,
         0,
         0,
         0,
@@ -864,7 +864,7 @@
         "__id__": 28
       }
     ],
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 30
@@ -3604,7 +3604,7 @@
       "__id__": 5
     },
     "shui_guo_zhong_lei": 4,
-    "original_gold": 1000,
+    "original_gold": 10000000000000000,
     "gold": 50,
     "_id": "7b+jT9JfFOUJYjBLLY0Jm5"
   }

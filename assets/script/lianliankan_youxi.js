@@ -73,6 +73,7 @@ cc.Class({
             this.shi_bai = true;
         }.bind(this));
         this.di_tu_arr = this.di_tu();
+        this.a = '开始的时候';
         //console.log(this.di_tu_arr);
         //this.line.getComponent('thread').set_line(this.di_tu_arr);
         // this.di_tu_arr = this.di_tu_arr[0][0] = 0;
@@ -110,7 +111,7 @@ cc.Class({
     },
     //花金币刷新当前关卡
     shua_xin_buntton() {
-
+        this.a = '刷新后';
         let read_gold = cc.sys.localStorage.getItem('gold');
         let m_gold = parseInt(read_gold);
         if (m_gold < 300) {
@@ -118,7 +119,6 @@ cc.Class({
         } else {
             m_gold -= 300;
             cc.sys.localStorage.setItem('gold', m_gold);
-            let i = this.di_tu_arr;
             for (let i = 0; i < this.di_tu_arr.length; i++) {
                 this.shuffle(this.di_tu_arr[i]);
             }
@@ -176,6 +176,7 @@ cc.Class({
     },
     //刷新地图
     shua_xing_ditu(di_tu_arr) {
+        console.log(this.a, di_tu_arr);
         let origin_y = -400;
         let origin_x = -270;
         //别人只知道用这个方法就能显示地图, 你不能把删除原结点的任务交给别人 
@@ -184,61 +185,89 @@ cc.Class({
         //这条规则适用所有情况
         //1. 先清除
         //2. 再创建 永远都成立
-        if (this.xing_jie_dian) {
-            this.xing_jie_dian.destroy();
-            this.xing_jie_dian = null;
-
-        }
-        //所有水果块都是放在这个新结点上的 
-        //所以如果需要放一个焦点 在 水果块上面 就需要把这个焦点放在这个结点上
-        this.xing_jie_dian = new cc.Node();
-        this.xing_jie_dian.parent = this.node;
-        //let di_tu_arr = this.di_tu();
-        //this.di_tu_arr = di_tu_arr;
-        this.shuiguo_arr = [];
-        let a = di_tu_arr.length;
-        for (let i = 0; i < di_tu_arr.length; i++) {
-            this.shuiguo_arr[i] = [];
-            for (let j = 0; j < di_tu_arr[i].length; j++) {
-                let shuiguo = cc.instantiate(this.shuiguo);
-                //每生成一个块的时候把连连看游戏的脚本传进去 this 就是指连连看游戏的脚本
-                shuiguo.getComponent('shuiguo').ba_lianlian_kan_youxi_jiaoben_chuanjinlai(this, i, j);
-                this.shuiguo_arr[i][j] = shuiguo;
-                if (di_tu_arr[i][j] != 0) {//如果 不等于0(也就是至少从1开始) 调用setType(假设是1)
-                    shuiguo.getComponent('shuiguo').setType(di_tu_arr[i][j]);
+        //第二次进来要怎么处理？这里只生成一次啊
+        if (!this.xing_jie_dian) {
+            // this.xing_jie_dian.destroy();
+            // this.xing_jie_dian = null;
+            //所有水果块都是放在这个新结点上的 
+            //所以如果需要放一个焦点 在 水果块上面 就需要把这个焦点放在这个结点上
+            this.xing_jie_dian = new cc.Node();
+            this.xing_jie_dian.parent = this.node;
+            //let di_tu_arr = this.di_tu();
+            //this.di_tu_arr = di_tu_arr;
+            this.shuiguo_arr = [];
+            let a = di_tu_arr.length;
+            for (let i = 0; i < di_tu_arr.length; i++) {
+                this.shuiguo_arr[i] = [];
+                for (let j = 0; j < di_tu_arr[i].length; j++) {
+                    let shuiguo = cc.instantiate(this.shuiguo);
+                    //每生成一个块的时候把连连看游戏的脚本传进去 this 就是指连连看游戏的脚本
+                    shuiguo.getComponent('shuiguo').ba_lianlian_kan_youxi_jiaoben_chuanjinlai(this, i, j);
+                    this.shuiguo_arr[i][j] = shuiguo;
                     this.xing_jie_dian.addChild(shuiguo);
                     shuiguo.y = origin_y + i * 120;
                     shuiguo.x = origin_x + j * 110;
-                } else {//为0 就走这里, 只设置了位置没有设置图片(那就是个空白块)
-                    shuiguo.y = origin_y + i * 120;
-                    shuiguo.x = origin_x + j * 110;
+                    shuiguo.getComponent('shuiguo').setType(di_tu_arr[i][j]);
+                }
+            }
+
+        } else {
+            //创建之后调用刷新走else
+            for (let i = 0; i < di_tu_arr.length; i++) {
+                for (let j = 0; j < di_tu_arr[i].length; j++) {
+                    let shuiguo = this.shuiguo_arr[i][j];
+                    if (i == 1 && j == 1) {
+                        let a = 100;
+                        let b = 100;
+                    }
+                    shuiguo.getComponent('shuiguo').setType(di_tu_arr[i][j]);
                 }
             }
         }
 
+
         //因为xin_jiedian 每次都是重新创建的 所以 这个焦点的位置要记录一下
         //添加焦点
-
-        let focus_node = cc.instantiate(this.focus);
-        focus_node.zIndex = 1000;
-        this.xing_jie_dian.addChild(focus_node);
-        this.m_move_focus = focus_node;
-        if (this.m_move_focus_pos) {
-            this.m_move_focus.x = this.m_move_focus_pos.x;
-            this.m_move_focus.y = this.m_move_focus_pos.y;
-        } else {
-            this.m_move_focus_pos = cc.v2(this.m_move_focus.x, this.m_move_focus.y);
-        }
-
+        // if (this.xian_jie_dian) {
+        //     this.xian_jie_dian.destroy();
+        //     this.xian_jie_dian = null;
+        // }
+        // this.xian_jie_dian = new cc.Node();
+        // this.xian_jie_dian.parent = this.node;
         //添加一条线
+        this.create_focus();
+
         //创建线 测试用 一会儿要删除
         let line = cc.instantiate(this.thread);
-        focus_node.zIndex = 1000;
         this.xing_jie_dian.addChild(line);
         this.m_line_node = line;
         // this.m_line_node.getComponent('thread').set_line(this.di_tu_arr);
         //设置它停在第一个水果块上
         //this.set_move_focus_with_fruit(this.shuiguo_arr[0][1]);
+    },
+    //创建焦点
+    create_focus() {
+        //如果没有新结点 返回
+        if (!this.xing_jie_dian) {
+            return;
+        }
+
+        //已经有了返回
+        if (this.m_move_focus) {
+            return;
+        }
+        let focus_node = cc.instantiate(this.focus);//这不是进来一次进创建一次？所以弄成删除啊 要的是复用 不需要不断地删除创建
+        focus_node.zIndex = 1000;
+        this.xing_jie_dian.addChild(focus_node);
+        this.m_move_focus = focus_node;
+
+        //所以这个位置的传递就不再需要了
+        // if (this.m_move_focus_pos) {//因为焦点一直是这个焦点所以这个位置的传递(之前是删除旧焦点, 把旧焦点的位置用m_move_focus_pos 传给新创建的焦点)
+        //     this.m_move_focus.x = this.m_move_focus_pos.x;
+        //     this.m_move_focus.y = this.m_move_focus_pos.y;
+        // } else {
+        //     this.m_move_focus_pos = cc.v2(this.m_move_focus.x, this.m_move_focus.y);
+        // }
     },
 
     //设置那个移动焦点在哪个水果块上
@@ -250,10 +279,12 @@ cc.Class({
         // let prev_y = this.m_move_focus.y;
         this.m_move_focus_pos = cc.v2(fruit_node.x, fruit_node.y);
         //如果使用动作慢慢移动
+        //是不是这个动作没停止啊 差不多， 这个函数被调用， 前一次动作还在做
         if (use_act) {
             //移动 动作
             //动作加上 ease(缓冲的意思)
-            let act = cc.moveTo(0.5, cc.v2(fruit_node.x, fruit_node.y));
+            this.m_move_focus.stopAllActions();
+            let act = cc.moveTo(0.3, cc.v2(fruit_node.x, fruit_node.y));
             act.easing(cc.easeOut(2.0));//创建 easeOut 缓动对象，由快到慢。
             //act.easing(cc.easeIn(2.0));//创建 easeIn 缓动对象，由慢到快。
             //让焦点 运行动作
@@ -375,7 +406,7 @@ cc.Class({
     },
     //删除节点
     shan_chu_jie_dian() {
-        // this.xing_jie_dian.removeFromParent(false);
+        this.xing_jie_dian.removeFromParent(false);
         // if (this.xing_jie_dian_fail) {
         //     this.xing_jie_dian_fail.removeFromParent(false);
         //     this.xing_jie_dian_fail = null;
@@ -409,6 +440,7 @@ cc.Class({
                         buyong_zhaole = true;
                         this.m_move_focus.active = true;
                         this.set_move_focus_with_fruit(this.shuiguo1, false);
+                        cc.log("click fruit here,,,,,,,,");
                         break;
                     }
                     //2.如果之前有点击水果块那么 在？
@@ -446,16 +478,19 @@ cc.Class({
                                     slef.shua_xing_ditu(slef.di_tu_arr);//这 为啥?刷新地图的时候是把节点删除掉之前做的都没用了啊
                                     slef.player_condition();//通关条件
                                 })))
-                                //这只改了一个
+                                //这只改了一个s
                                 //this.shua_xing_ditu(this.di_tu_arr);
                                 this.m_move_focus.active = false;
+                                this.m_line_node.getComponent('thread').yin_cang();
+                                //消除的这一组水果的第一个水果 身上的 wo_bei_dian_zhong_le 要清除
+                                this.shuiguo1.getComponent('shuiguo').wo_bei_dian_zhong_le = false;
                                 this.shuiguo1 = null;
-                                for (let i = 0; i < this.shuiguo_arr.length; i++) {
-                                    for (let j = 0; j < this.shuiguo_arr[i].length; j++) {
-                                        //禁用所有水果按钮
-                                        this.shuiguo_arr[i][j].getComponent('shuiguo').forbid_click(false);
-                                    }
-                                }
+                                // for (let i = 0; i < this.shuiguo_arr.length; i++) {
+                                //     for (let j = 0; j < this.shuiguo_arr[i].length; j++) {
+                                //         //禁用所有水果按钮
+                                //         this.shuiguo_arr[i][j].getComponent('shuiguo').forbid_click(false);
+                                //     }
+                                // }
 
                             } else {
                                 //检测完不能消除 要把它们的状态置回来

@@ -16,7 +16,7 @@ cc.Class({
     // onLoad () {},
     start() {
         //this.shan_chu_ji_lv();
-        this.creation_relaxation_prefabs();
+        //this.creation_relaxation_prefabs();
     },
     set_page_index(idx) {
         this.pageIndex = idx;
@@ -38,6 +38,8 @@ cc.Class({
                 this.guan_ka_arr[i][j] = this.creation_guan_ka();
             }
         }
+        //在这测试了都能隐藏的
+        //this.guan_ka_hide();
         //this.deposit_score_arr();
         this.alter_position();
     },

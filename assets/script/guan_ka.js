@@ -16,10 +16,14 @@ cc.Class({
     start() {
 
     },
+    guan_ka_hide() {
+        this.node.active = false;
+    },
     //关卡按钮
     guan_ka_button() {
         //cc.director.loadScene("lianliankan");
         this.game.hide_relaxation(false);
+        this.game.guan_ka_hide(false);
         this.game.creation_game_prefabs(this.number, this.hang, this.lie, this.pageIndex);
     },
     //关卡上的数字
