@@ -27,7 +27,14 @@ cc.Class({
     setType(number) {
         //处理0 类型
         let tupian = cc.find("iconRoot/tupian", this.node);
+        //设置可见
         this.node.active = true;//下次不是0 先显示 如果那个位置本来就没东西了
+        cc.find('New Button', this.node).active = true;
+        //这就是一个坑 用动作隐藏的 竟然设置可见 不起作用 只能用相反的动作设置回来
+        this.node.runAction(cc.show());//明白了吗哦 这个在面试的时候可以说一说, 比如面试官会问你做项目的时候遇到哪些坑, 你可以把这个说上明白?
+        //设置缩放为1
+        this.node.scale = 1;
+        this.node.angle = 0;
         if (number == 0) {//0就返回了啊
             this.node.active = false;//0隐藏
             //这个水果是不可见了, 但它身上的各种状态还存在
@@ -97,14 +104,16 @@ cc.Class({
     },
     //停止动作
     Stop_action() {
-        cc.find("iconRoot/tupian", this.node).stopAction(this.action);
+        let tupian = cc.find("iconRoot/tupian", this.node);
+        tupian.stopAction(this.action);
+        this.action = null;
 
         //停止动作后要把 缩放,旋转 调成初始值, 不然动作执行了一半 改变的值不会个性回来
         //我们执行了 缩放动作, 所以停止后把缩放调为1
         //我们执行了 旋转动作, 所以停止后把旋转调为0
         //
-        cc.find("iconRoot/tupian", this.node).scale = 1;
-        cc.find("iconRoot/tupian", this.node).angle = 0;
+        tupian.scale = 1;
+        tupian.angle = 0;
     },
     //把连连看游戏的脚本传进来
     ba_lianlian_kan_youxi_jiaoben_chuanjinlai(jiao_ben, i, j) {
@@ -122,15 +131,15 @@ cc.Class({
         this.time = 0.4;
         //隐藏背景框
         cc.find('New Button', this.node).active = false;
-        //旋转隐藏动作组合
+        //旋转隐藏动作组合 原因在node 使用 cc.hide()动作后 单纯地使node 的active = true 并不能把结点设置为可见, 要用相反的动作cc.show 才能设置可见
         let act1 = cc.sequence(cc.rotateBy(this.time, 300), cc.hide());
-        //缩小
+        //缩小 
         let act2 = cc.scaleTo(this.time, 0.2);
         //组合同时进行旋转隐藏,缩小动作
         this.zoom_act = cc.spawn(act1, act2);
         this.node.runAction(this.zoom_act);
         this.m_start_time = new Date().getTime();
-        return this.time;
+        return this.time + 0.01;
     },
     //加速
     jiashu() {

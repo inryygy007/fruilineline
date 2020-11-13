@@ -106,8 +106,45 @@ cc.Class({
         return Math.random() > .5 ? -1 : 1;
         //用Math.random()函数生成0~1之间的随机数与0.5比较，返回-1或1
     },
-    shuffle(arr) {
-        arr.sort(this.randomsort);
+    shuffle(arr) {//arr 是一个二维数组
+        let arr_new = [];
+        for (let i = 0; i < arr.length; i++) {
+            arr_new[i] = [];
+            for (let j = 0; j < arr[i].length; j++) {
+                arr_new[i][j] = {
+                    p1: cc.v2(i, j),
+                    e: arr[i][j]
+                }
+            }
+        }
+
+        let arr1 = [];
+        for (let i = 0; i < arr_new.length; i++) {
+            for (let j = 0; j < arr_new[i].length; j++) {
+                arr1.push(arr_new[i][j]);
+            }
+        }
+        arr1.sort(this.randomsort);
+
+        //放回二维数组
+        // let yihang_youduoshaoge = arr[0].length;
+        // for (let i = 0; i < arr1.length; i++) {
+        //     let hang = Math.floor(i / yihang_youduoshaoge);
+        //     let lie = i % yihang_youduoshaoge;
+        //     arr[hang][lie] = arr1[i];
+        // }
+
+        let k = 0;
+        for (let i = 0; i < arr.length; i++) {
+            for (let j = 0; j < arr[i].length; j++) {
+                arr1[k].p2 = cc.v2(i, j);
+                arr[i][j] = arr1[k].e;
+                k++;
+            }
+        }
+
+        //
+        return arr1;
     },
     //花金币刷新当前关卡
     shua_xin_buntton() {
@@ -119,15 +156,64 @@ cc.Class({
         } else {
             m_gold -= 300;
             cc.sys.localStorage.setItem('gold', m_gold);
-            for (let i = 0; i < this.di_tu_arr.length; i++) {
-                this.shuffle(this.di_tu_arr[i]);
-            }
-            this.shua_xing_ditu(this.di_tu_arr);
+            let yidong_guocheng = this.shuffle(this.di_tu_arr);
+            //
             this.game.getComponent('game').m_gold();
+            let yidong_time = 1;
+            //
+
+            //这里不移动
+            for (let i = 0; i < yidong_guocheng.length; i++) {
+                this.move_fruit(yidong_guocheng[i].p1, yidong_guocheng[i].p2, yidong_time);
+            }
+
+            this.node.runAction(cc.sequence(cc.delayTime(yidong_time + 0.01), cc.callFunc(function () {
+                for (let i = 0; i < this.shuiguo_arr.length; i++) {
+                    for (let j = 0; j < this.shuiguo_arr[i].length; j++) {
+                        if (this.shuiguo_arr[i][j].m_init_pos) {
+                            this.shuiguo_arr[i][j].x = this.shuiguo_arr[i][j].m_init_pos.x;
+                            this.shuiguo_arr[i][j].y = this.shuiguo_arr[i][j].m_init_pos.y;
+                        }
+                    }
+                }
+                this.shua_xing_ditu(this.di_tu_arr);
+
+            }.bind(this))))
+
             // this.game.getComponent('game').creation_game_prefabs(this.guan_ka, this.hang, this.lie, this.pageIndex);
             //this.game_start();
         }
 
+    },
+    //水果(x行,y列)对应的具体在面板的坐标(node 的位置)
+    convert_hanglie_to_zuobian(hang, lie) {
+        let shuiguo = this.shuiguo_arr[hang][lie];
+        return cc.v2(shuiguo.x, shuiguo.y);
+    },
+    //移动水果的方法 (0,0) => (1,1)
+    move_fruit(kaishi, jieshu, dt) {
+        let kaishi_hang = kaishi.x;
+        let kaishi_lie = kaishi.y;
+        let jieshu_hang = jieshu.x;
+        let jieshu_lie = jieshu.y;
+
+        let shuiguo = this.shuiguo_arr[kaishi_hang][kaishi_lie];
+        if (!shuiguo) {
+            console.error('这个水果不存在', kaishi_hang, kaishi_lie);
+            return;
+        }
+
+        if (kaishi_hang == jieshu_hang && kaishi_lie == jieshu_lie) {
+
+            return;
+        }
+
+        let zhong_dian = this.convert_hanglie_to_zuobian(jieshu_hang, jieshu_lie);
+
+        if (!shuiguo.m_init_pos) {
+            shuiguo.m_init_pos = cc.v2(shuiguo.x, shuiguo.y);
+        }
+        shuiguo.runAction(cc.moveTo(dt, zhong_dian));
     },
     di_tu() {
         //这个地图就代表 了水果的分布对不对?
@@ -216,10 +302,6 @@ cc.Class({
             for (let i = 0; i < di_tu_arr.length; i++) {
                 for (let j = 0; j < di_tu_arr[i].length; j++) {
                     let shuiguo = this.shuiguo_arr[i][j];
-                    if (i == 1 && j == 1) {
-                        let a = 100;
-                        let b = 100;
-                    }
                     shuiguo.getComponent('shuiguo').setType(di_tu_arr[i][j]);
                 }
             }
