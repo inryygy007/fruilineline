@@ -69,7 +69,7 @@ cc.Class({
     //游戏开始
     game_start() {
         this.m_progressBar = cc.find("bg/time_schedule_bg/time_schedule", this.node).getComponent(cc.ProgressBar);
-        this.timer(90, 1, 0, function () {
+        this.timer(9000000, 1, 0, function () {
             this.shi_bai = true;
         }.bind(this));
         this.di_tu_arr = this.di_tu();
@@ -143,7 +143,7 @@ cc.Class({
             }
         }
 
-        //
+        //6
         return arr1;
     },
     //花金币刷新当前关卡
@@ -151,9 +151,7 @@ cc.Class({
         this.a = '刷新后';
         let read_gold = cc.sys.localStorage.getItem('gold');
         let m_gold = parseInt(read_gold);
-        if (m_gold < 300) {
-            return;
-        } else {
+        if (m_gold >= 300) {//一般这样的结构 if 里是不会带return 的因为这个if 里的return 没有用 < 的反面是 >= 
             m_gold -= 300;
             cc.sys.localStorage.setItem('gold', m_gold);
             let yidong_guocheng = this.shuffle(this.di_tu_arr);
@@ -179,11 +177,16 @@ cc.Class({
                 this.shua_xing_ditu(this.di_tu_arr);
 
             }.bind(this))))
+            if (this.shuiguo1) {
+                this.m_move_focus.active = false;
 
-            // this.game.getComponent('game').creation_game_prefabs(this.guan_ka, this.hang, this.lie, this.pageIndex);
-            //this.game_start();
+                //没有点击水果也就没有焦点, 所以你这儿要判断下有没有 this.shuiguo1
+                this.shuiguo1.getComponent('shuiguo').Stop_action();//read property 'getComponent' of undefined //这句话的间断是 从一个undefined变量身上读取getComponent方法
+                //所以谁是 undefine d?是不是 this.shuiguo1, 而this.shuiguo1 为什么会是个空的, 注意我的操作
+                this.shuiguo1.getComponent('shuiguo').wo_bei_dian_zhong_le = false;
+                this.shuiguo1 = null;
+            }
         }
-
     },
     //水果(x行,y列)对应的具体在面板的坐标(node 的位置)
     convert_hanglie_to_zuobian(hang, lie) {
@@ -399,7 +402,7 @@ cc.Class({
                     // }
                     this.di_tu_arr[this.hang][this.lie] = 0;
                     this.di_tu_arr[hang][lie] = 0;
-                    this.shan_chu_jie_dian();
+                    //this.shan_chu_jie_dian();
                     this.shua_xing_ditu(this.di_tu_arr);
                 }
                 this.shuiguo_arr[this.hang][this.lie].getComponent('shuiguo').wo_bei_dian_zhong_le = false;
@@ -489,10 +492,6 @@ cc.Class({
     //删除节点
     shan_chu_jie_dian() {
         this.xing_jie_dian.removeFromParent(false);
-        // if (this.xing_jie_dian_fail) {
-        //     this.xing_jie_dian_fail.removeFromParent(false);
-        //     this.xing_jie_dian_fail = null;
-        // }
     },
     //写个方法 用于处理有水果块被点中了
     you_shuiguo_bei_dianzhongle() {
@@ -503,8 +502,6 @@ cc.Class({
          */
 
         //所以 只需要处理两个水果块的情况
-        let shuiguo1 = this.shuiguo1;
-
         //不用找了
         let buyong_zhaole = false;
         for (let i = 0; i < this.shuiguo_arr.length; i++) {
@@ -522,7 +519,6 @@ cc.Class({
                         buyong_zhaole = true;
                         this.m_move_focus.active = true;
                         this.set_move_focus_with_fruit(this.shuiguo1, false);
-                        cc.log("click fruit here,,,,,,,,");
                         break;
                     }
                     //2.如果之前有点击水果块那么 在？
