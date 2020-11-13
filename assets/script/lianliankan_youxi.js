@@ -148,10 +148,14 @@ cc.Class({
     },
     //花金币刷新当前关卡
     shua_xin_buntton() {
+        if (this.shuaxin_zhong) {//如果正处于刷新中, 点击按钮就直接返回
+            return;
+        }
         this.a = '刷新后';
         let read_gold = cc.sys.localStorage.getItem('gold');
         let m_gold = parseInt(read_gold);
         if (m_gold >= 300) {//一般这样的结构 if 里是不会带return 的因为这个if 里的return 没有用 < 的反面是 >= 
+            this.shuaxin_zhong = true;
             m_gold -= 300;
             cc.sys.localStorage.setItem('gold', m_gold);
             let yidong_guocheng = this.shuffle(this.di_tu_arr);
@@ -175,6 +179,8 @@ cc.Class({
                     }
                 }
                 this.shua_xing_ditu(this.di_tu_arr);
+                //刷新完了把状态重置回来
+                this.shuaxin_zhong = false;
 
             }.bind(this))))
             if (this.shuiguo1) {
