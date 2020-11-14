@@ -257,7 +257,7 @@ cc.Class({
     },//创建金币预制物
     m_gold(game_interface) {
         let m_gold = cc.sys.localStorage.getItem('gold');
-        if (m_gold === null) {
+        if (!m_gold) {
             cc.sys.localStorage.setItem('gold', this.original_gold);
         }
         m_gold = cc.sys.localStorage.getItem('gold');
@@ -281,7 +281,7 @@ cc.Class({
         cc.find("page_node/indicator", this.node).active = no_off;
     },
     tianzhengGoldZorder() {
-        let m_gold = cc.sys.localStorage.getItem('gold');
+        let m_gold = parseInt(cc.sys.localStorage.getItem('gold'));
         this.jing_bi.getComponent('gold').set_original_gold(m_gold);
     },
     //创建游戏界面 附加一个关卡数

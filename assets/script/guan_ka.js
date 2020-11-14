@@ -39,7 +39,7 @@ cc.Class({
     //关卡锁
     guan_ka_lock(number) {
         let guan_ka = cc.sys.localStorage.getItem('class');
-        if (guan_ka === null) {
+        if (!guan_ka) {
             cc.sys.localStorage.setItem('class', 1);
         }
         let m_guan_ka = parseInt(guan_ka);

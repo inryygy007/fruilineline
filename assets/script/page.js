@@ -52,7 +52,7 @@ cc.Class({
         // }//那就是这虽然声明了但是长度没有
         let score_str = 'score' + this.pageIndex;
         let grade = cc.sys.localStorage.getItem(score_str);
-        if (grade === null) {
+        if (!grade) {
             this.guan_ka_amount_arr = [];
             for (let i = 0; i < this.guan_ka_arr.length; i++) {
                 this.guan_ka_amount_arr[i] = [];//这不是变成二维数组吗 会进来吗?进来就是, 不进来就不是
@@ -64,7 +64,9 @@ cc.Class({
             cc.sys.localStorage.setItem(score_str, jieguo);
         } else {
             let m_grade = cc.sys.localStorage.getItem(score_str);
-            this.guan_ka_amount_arr = JSON.parse(m_grade);
+            if (m_grade && m_grade != '') {
+                this.guan_ka_amount_arr = JSON.parse(m_grade);
+            }
         }
         return this.guan_ka_amount_arr;
     },
@@ -101,11 +103,14 @@ cc.Class({
                 this.guan_ka_arr[i][j].position = cc.v2(x, y);
                 let score_str = 'score' + this.pageIndex;
                 let grade = cc.sys.localStorage.getItem(score_str);
-                let m_grade = JSON.parse(grade);
-                if (m_grade != null) {
-                    let cheng_ji = m_grade[i][j];
-                    this.guan_ka_arr[i][j].getComponent('guan_ka').guan_ka_chengji(cheng_ji);
+                if (grade && grade != '') {
+                    let m_grade = JSON.parse(grade);
+                    if (m_grade != null) {
+                        let cheng_ji = m_grade[i][j];
+                        this.guan_ka_arr[i][j].getComponent('guan_ka').guan_ka_chengji(cheng_ji);
+                    }
                 }
+
                 //number;
                 //m_guan_ka++;
                 this.guan_ka_arr[i][j].getComponent('guan_ka').guan_ka_label(number++, i, j, this.guan_ka_amount_arr);
