@@ -59,7 +59,7 @@ cc.Class({
             default: null
         },
         shui_guo_zhong_lei: 24,//水果的种类
-        original_gold: 100000000000,//开始的金币
+        original_gold: 1000,//开始的金币
         gold: 50//通关后获得的金币
     },
 
@@ -255,7 +255,7 @@ cc.Class({
         // this.deposit_score_arr();
         // this.alter();
     },//创建金币预制物
-    m_gold() {
+    m_gold(game_interface) {
         let m_gold = cc.sys.localStorage.getItem('gold');
         if (m_gold === null) {
             cc.sys.localStorage.setItem('gold', this.original_gold);
@@ -263,14 +263,14 @@ cc.Class({
         m_gold = cc.sys.localStorage.getItem('gold');
         if (this.jing_bi) {
             //this.game_interface.removeFromParent(false);
-            this.jing_bi.destroy();
-            this.jing_bi = null;
+            this.jing_bi_node.destroy();
+            this.jing_bi_node = null;
         }
-        this.jing_bi = new cc.Node();
-        this.jing_bi.parent = this.game_node;
-        let jing_bi = cc.instantiate(this.gold_prefabs);
-        jing_bi.getComponent('gold').set_original_gold(m_gold);
-        this.jing_bi.addChild(jing_bi);
+        this.jing_bi_node = new cc.Node();
+        this.jing_bi_node.parent = game_interface;
+        this.jing_bi = cc.instantiate(this.gold_prefabs);
+        this.jing_bi.getComponent('gold').set_original_gold(m_gold);
+        this.jing_bi_node.addChild(this.jing_bi);
     },
     gold_hide(no_off) {
         this.jing_bi.active = no_off;
@@ -281,7 +281,8 @@ cc.Class({
         cc.find("page_node/indicator", this.node).active = no_off;
     },
     tianzhengGoldZorder() {
-        this.jing_bi.zIndex = -1;
+        let m_gold = cc.sys.localStorage.getItem('gold');
+        this.jing_bi.getComponent('gold').set_original_gold(m_gold);
     },
     //创建游戏界面 附加一个关卡数
     creation_game_prefabs(guan_ka_shu, hang, lie, pageIndex) {
@@ -294,7 +295,7 @@ cc.Class({
         this.game_interface = new cc.Node();
         this.game_interface.parent = this.game_node;
         let game_interface = cc.instantiate(this.game_prefabs);
-        this.m_gold();
+        this.m_gold(game_interface);
         game_interface.getComponent('lianliankan_youxi').ba_game_jiaoben_chuanjinlai(this, this.pageIndex, this.shui_guo_zhong_lei, this.gold);
         game_interface.getComponent('lianliankan_youxi').set_dangqian_guanka(guan_ka_shu, hang, lie, this.guan_ka_amount_arr[this.pageIndex]);
         this.game_interface.addChild(game_interface);

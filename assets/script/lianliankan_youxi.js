@@ -176,7 +176,7 @@ cc.Class({
             cc.sys.localStorage.setItem('gold', m_gold);
             let yidong_guocheng = this.shuffle(this.di_tu_arr);
             //
-            this.game.getComponent('game').m_gold();
+            this.game.getComponent('game').tianzhengGoldZorder();
             this.yidong_shuiguo(yidong_guocheng, 1, function () {
                 this.shuaxin_zhong = false;
             }.bind(this));
@@ -1146,7 +1146,7 @@ cc.Class({
             cc.sys.localStorage.setItem('class', guan_ka);
         }
         this.xing_jie_dian_player.addChild(player);
-        //this.game.getComponent('game').tianzhengGoldZorder();
+        this.game.getComponent('game').tianzhengGoldZorder();
 
     },
     update(dt) {
