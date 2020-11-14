@@ -113,6 +113,9 @@ cc.Class({
         let a = 100;
     },
     yin_cang() {
+        if (!this.m_whitedot_arr) {
+            return;
+        }
         for (let i = 0; i < this.m_whitedot_arr.length; i++) {
             this.seq.push(cc.callFunc(function () {
                 this.m_whitedot_arr[i].active = false;

@@ -280,6 +280,9 @@ cc.Class({
         this.relaxation_node.active = no_off;
         cc.find("page_node/indicator", this.node).active = no_off;
     },
+    tianzhengGoldZorder() {
+        this.jing_bi.zIndex = -1;
+    },
     //创建游戏界面 附加一个关卡数
     creation_game_prefabs(guan_ka_shu, hang, lie, pageIndex) {
         this.pageIndex = pageIndex;

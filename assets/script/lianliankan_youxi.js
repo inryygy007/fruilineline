@@ -9,6 +9,15 @@
 //  - [English] https://www.cocos2d-x.org/docs/creator/manual/en/scripting/life-cycle-callbacks.html
 
 const ditu_shengchengqi = require("./ditu_shengchengqi");
+const arrayUtil = require("./arrayUtil");
+
+const Fang_Xiang = {
+    None: 0,    //无方向
+    Left: 1,    //左
+    Right: 2,   //右
+    Up: 3,      //上
+    Down: 4,    //下
+}
 
 cc.Class({
     extends: cc.Component,
@@ -68,25 +77,13 @@ cc.Class({
     },
     //游戏开始
     game_start() {
+        this.xiaochu_fangxiang = ditu_shengchengqi.gen_random_number(5);//  Fang_Xiang.None;
         this.m_progressBar = cc.find("bg/time_schedule_bg/time_schedule", this.node).getComponent(cc.ProgressBar);
         this.timer(9000000, 1, 0, function () {
             this.shi_bai = true;
         }.bind(this));
         this.di_tu_arr = this.di_tu();
-        this.a = '开始的时候';
-        //console.log(this.di_tu_arr);
-        //this.line.getComponent('thread').set_line(this.di_tu_arr);
-        // this.di_tu_arr = this.di_tu_arr[0][0] = 0;
-        // let k = this.di_tu_arr.length;
         this.shua_xing_ditu(this.di_tu_arr);
-        //this.show_now_guan_ka();
-        // //测试下函数好不好用
-        // let qidian = { hang: 3, lie: 0 };
-        // let zhongdian = { hang: 0, lie: 5 };
-
-        // // let flag = this.shui_ping_jiance(qidian, zhongdian, this.di_tu_arr);
-        // // let flag1 = this.shu_zhi_jiance(qidian, zhongdian, this.di_tu_arr);
-        // let flag2 = this.yige_guaidian_jiance(qidian, zhongdian, this.di_tu_arr);
     },
     start() {
         this.game_start();
@@ -146,12 +143,31 @@ cc.Class({
         //6
         return arr1;
     },
+    yidong_shuiguo(yidong_guocheng, yidong_time, call_func) {
+        if (!yidong_guocheng || yidong_guocheng.length == 0) {
+            if (call_func) {
+                call_func();
+            }
+            return;
+        }
+        //这里不移动
+        for (let i = 0; i < yidong_guocheng.length; i++) {
+            this.move_fruit(yidong_guocheng[i].p1, yidong_guocheng[i].p2, yidong_time);
+        }
+
+        this.node.runAction(cc.sequence(cc.delayTime(yidong_time + 0.01), cc.callFunc(function () {
+            this.shua_xing_ditu(this.di_tu_arr);
+
+            if (call_func) {
+                call_func();
+            }
+        }.bind(this))))
+    },
     //花金币刷新当前关卡
     shua_xin_buntton() {
         if (this.shuaxin_zhong) {//如果正处于刷新中, 点击按钮就直接返回
             return;
         }
-        this.a = '刷新后';
         let read_gold = cc.sys.localStorage.getItem('gold');
         let m_gold = parseInt(read_gold);
         if (m_gold >= 300) {//一般这样的结构 if 里是不会带return 的因为这个if 里的return 没有用 < 的反面是 >= 
@@ -161,28 +177,31 @@ cc.Class({
             let yidong_guocheng = this.shuffle(this.di_tu_arr);
             //
             this.game.getComponent('game').m_gold();
-            let yidong_time = 1;
-            //
-
-            //这里不移动
-            for (let i = 0; i < yidong_guocheng.length; i++) {
-                this.move_fruit(yidong_guocheng[i].p1, yidong_guocheng[i].p2, yidong_time);
-            }
-
-            this.node.runAction(cc.sequence(cc.delayTime(yidong_time + 0.01), cc.callFunc(function () {
-                for (let i = 0; i < this.shuiguo_arr.length; i++) {
-                    for (let j = 0; j < this.shuiguo_arr[i].length; j++) {
-                        if (this.shuiguo_arr[i][j].m_init_pos) {
-                            this.shuiguo_arr[i][j].x = this.shuiguo_arr[i][j].m_init_pos.x;
-                            this.shuiguo_arr[i][j].y = this.shuiguo_arr[i][j].m_init_pos.y;
-                        }
-                    }
-                }
-                this.shua_xing_ditu(this.di_tu_arr);
-                //刷新完了把状态重置回来
+            this.yidong_shuiguo(yidong_guocheng, 1, function () {
                 this.shuaxin_zhong = false;
+            }.bind(this));
+            // let yidong_time = 1;
+            // //
 
-            }.bind(this))))
+            // //这里不移动
+            // for (let i = 0; i < yidong_guocheng.length; i++) {
+            //     this.move_fruit(yidong_guocheng[i].p1, yidong_guocheng[i].p2, yidong_time);
+            // }
+
+            // this.node.runAction(cc.sequence(cc.delayTime(yidong_time + 0.01), cc.callFunc(function () {
+            //     for (let i = 0; i < this.shuiguo_arr.length; i++) {
+            //         for (let j = 0; j < this.shuiguo_arr[i].length; j++) {
+            //             if (this.shuiguo_arr[i][j].m_init_pos) {
+            //                 this.shuiguo_arr[i][j].x = this.shuiguo_arr[i][j].m_init_pos.x;
+            //                 this.shuiguo_arr[i][j].y = this.shuiguo_arr[i][j].m_init_pos.y;
+            //             }
+            //         }
+            //     }
+            //     this.shua_xing_ditu(this.di_tu_arr);
+            //     //刷新完了把状态重置回来
+            //     this.shuaxin_zhong = false;
+
+            // }.bind(this))))
             if (this.shuiguo1) {
                 this.m_move_focus.active = false;
 
@@ -222,7 +241,7 @@ cc.Class({
         if (!shuiguo.m_init_pos) {
             shuiguo.m_init_pos = cc.v2(shuiguo.x, shuiguo.y);
         }
-        shuiguo.runAction(cc.moveTo(dt, zhong_dian));
+        shuiguo.runAction(cc.moveTo(dt, zhong_dian).easing(cc.easeOut(2.0)));
     },
     di_tu() {
         //这个地图就代表 了水果的分布对不对?
@@ -271,7 +290,6 @@ cc.Class({
     },
     //刷新地图
     shua_xing_ditu(di_tu_arr) {
-        console.log(this.a, di_tu_arr);
         let origin_y = -400;
         let origin_x = -270;
         //别人只知道用这个方法就能显示地图, 你不能把删除原结点的任务交给别人 
@@ -311,6 +329,8 @@ cc.Class({
             for (let i = 0; i < di_tu_arr.length; i++) {
                 for (let j = 0; j < di_tu_arr[i].length; j++) {
                     let shuiguo = this.shuiguo_arr[i][j];
+                    shuiguo.y = origin_y + i * 120;
+                    shuiguo.x = origin_x + j * 110;
                     shuiguo.getComponent('shuiguo').setType(di_tu_arr[i][j]);
                 }
             }
@@ -399,16 +419,8 @@ cc.Class({
                 return;
             } else if (this.shuiguo_arr[hang][lie] !== this.shuiguo1) {
                 if (this.shuiguo1.getComponent('shuiguo').lei_xing === this.shuiguo_arr[hang][lie].getComponent('shuiguo').lei_xing) {
-                    // for (let i = 0; i < this.di_tu_arr.length; i++) {
-                    //     for (let j = 0; j < this.di_tu_arr[i].length; j++) {
-                    //         if ((i == hang || i == this.hang) && (j == lie || j == this.lie)) {
-                    //             this.di_tu_arr[i][j] = 0;
-                    //         }
-                    //     }
-                    // }
                     this.di_tu_arr[this.hang][this.lie] = 0;
                     this.di_tu_arr[hang][lie] = 0;
-                    //this.shan_chu_jie_dian();
                     this.shua_xing_ditu(this.di_tu_arr);
                 }
                 this.shuiguo_arr[this.hang][this.lie].getComponent('shuiguo').wo_bei_dian_zhong_le = false;
@@ -424,9 +436,6 @@ cc.Class({
         if ((hang < 0 || hang > arr.length - 1) && (lie < 0 || lie > arr[0].length - 1)) {
             return 0;
         }
-        // if (hang < 0 && lie < 0) {
-        //     return 0;
-        // }
         let lie_zuo_bian = 0;
         let lie_you_bian = arr[0].length - 1;
         let hang_shang_bian = 0;
@@ -552,29 +561,68 @@ cc.Class({
                                 this.di_tu_arr[i1][j1] = 0;//消除的水果位置置为空
                                 let time = this.shuiguo1.getComponent('shuiguo').ying_chang();
                                 this.shuiguo_arr[i][j].getComponent('shuiguo').ying_chang();
-                                // if (this.a) {
-                                //     this.m_line_node.getComponent('thread').jiashu();
-                                //     this.shuiguo1.getComponent('shuiguo').jiashu();
-                                //     this.shuiguo_arr[i][j].getComponent('shuiguo').jiashu();
-                                // }
+
+                                //如果消除后 有移动方向 就来移动
+                                if (this.xiaochu_fangxiang != Fang_Xiang.None) {
+                                    let yidong_arr = [];
+                                    let shi_yizhi = false;
+                                    //1. 消除的两个方块是不是处于一条直线上
+                                    let shi_zhixian = i == i1 || j == j1;
+                                    if (shi_zhixian) {
+                                        let shi_shuiping = i == i1;//左右两个消除方向
+                                        shi_yizhi = shi_shuiping ? (this.xiaochu_fangxiang == Fang_Xiang.Left || this.xiaochu_fangxiang == Fang_Xiang.Right) :
+                                            (this.xiaochu_fangxiang == Fang_Xiang.Up || this.xiaochu_fangxiang == Fang_Xiang.Down)
+
+                                        if (shi_yizhi) {
+                                            //只需要处理一行/一列的移动
+                                            yidong_arr.push({
+                                                hang: shi_shuiping,
+                                                number: shi_shuiping ? i : j,
+                                                fangxiang: shi_shuiping ? this.xiaochu_fangxiang == Fang_Xiang.Left : this.xiaochu_fangxiang == Fang_Xiang.Up
+                                            });
+                                        }
+                                    }
+
+                                    if (!shi_yizhi) {
+                                        let shi_shuiping = this.xiaochu_fangxiang == Fang_Xiang.Left || this.xiaochu_fangxiang == Fang_Xiang.Right;
+                                        //处理两行/两列的移动
+                                        yidong_arr.push({
+                                            hang: shi_shuiping,
+                                            number: shi_shuiping ? i : j,
+                                            fangxiang: shi_shuiping ? this.xiaochu_fangxiang == Fang_Xiang.Left : this.xiaochu_fangxiang == Fang_Xiang.Up
+                                        });
+
+                                        yidong_arr.push({
+                                            hang: shi_shuiping,
+                                            number: shi_shuiping ? i1 : j1,
+                                            fangxiang: shi_shuiping ? this.xiaochu_fangxiang == Fang_Xiang.Left : this.xiaochu_fangxiang == Fang_Xiang.Up
+                                        });
+                                    }
+
+                                    let yidong_guocheng = arrayUtil.shu_ju_yiwei_twodimension(this.di_tu_arr, yidong_arr);
+                                    if (yidong_guocheng.length > 0) {
+                                        let yidong_time = 0.5;
+                                        this.node.runAction(cc.sequence(cc.delayTime(time), cc.callFunc(function () {
+                                            this.yidong_shuiguo(yidong_guocheng, yidong_time);
+                                        }.bind(this))))
+                                        time += yidong_time;
+                                    }
+                                }
                                 let slef = this;
                                 this.node.runAction(cc.sequence(cc.delayTime(time), cc.callFunc(function () {
                                     slef.shua_xing_ditu(slef.di_tu_arr);//这 为啥?刷新地图的时候是把节点删除掉之前做的都没用了啊
                                     slef.player_condition();//通关条件
                                 })))
+                                this.shuiguo1.getComponent('shuiguo').Stop_action();
+                                this.shuiguo_arr[i][j].getComponent('shuiguo').Stop_action();
                                 //这只改了一个s
                                 //this.shua_xing_ditu(this.di_tu_arr);
                                 this.m_move_focus.active = false;
+                                let tline = this.m_line_node.getComponent('thread');
                                 this.m_line_node.getComponent('thread').yin_cang();
                                 //消除的这一组水果的第一个水果 身上的 wo_bei_dian_zhong_le 要清除
                                 this.shuiguo1.getComponent('shuiguo').wo_bei_dian_zhong_le = false;
                                 this.shuiguo1 = null;
-                                // for (let i = 0; i < this.shuiguo_arr.length; i++) {
-                                //     for (let j = 0; j < this.shuiguo_arr[i].length; j++) {
-                                //         //禁用所有水果按钮
-                                //         this.shuiguo_arr[i][j].getComponent('shuiguo').forbid_click(false);
-                                //     }
-                                // }
 
                             } else {
                                 //检测完不能消除 要把它们的状态置回来
@@ -1098,7 +1146,7 @@ cc.Class({
             cc.sys.localStorage.setItem('class', guan_ka);
         }
         this.xing_jie_dian_player.addChild(player);
-        this.game.getComponent('game').m_gold();
+        //this.game.getComponent('game').tianzhengGoldZorder();
 
     },
     update(dt) {

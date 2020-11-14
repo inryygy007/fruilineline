@@ -52,7 +52,7 @@ cc.Class({
         this.node.active = false;//隐藏通关窗口
         this.game.getComponent('game').creation_game_prefabs(this.guan_ka, this.hang, this.lie, this.pageIndex);
         this.lianliankan_jiao_ben.shan_chu_jie_dian();
-        this.lianliankan_jiao_ben.game_start();//重新计时
+        // this.lianliankan_jiao_ben.game_start();//重新计时
     },
     //游戏时间
     game_time(time) {

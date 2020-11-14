@@ -66,3 +66,4 @@ function gen_rand2_arr(max_number, hang, lie) {
 
 //导出方法
 module.exports.gen_rand2_arr = gen_rand2_arr;
+module.exports.gen_random_number = gen_random_number;

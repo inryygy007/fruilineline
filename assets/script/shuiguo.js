@@ -62,10 +62,10 @@ cc.Class({
             return;
         }
         this.wo_bei_dian_zhong_le = true;
-        //调用脚本的方法
-        this.lianliankan_jiao_ben.you_shuiguo_bei_dianzhongle();
-        //那不是 因为多次点击 调用这个zooming 函数创建了多个动作吗
         this.Zooming();
+        //调用脚本的方法
+        this.lianliankan_jiao_ben.you_shuiguo_bei_dianzhongle();//
+        //那不是 因为多次点击 调用这个zooming 函数创建了多个动作吗
         //点击的时候设置移动焦点到自己这个块上来
         //this.lianliankan_jiao_ben.set_move_focus_with_fruit(this.node, false);
         //this.lianliankan_jiao_ben.bei_dian_ji_de_hang_lie(this.hang, this.lie);
@@ -100,10 +100,12 @@ cc.Class({
         let act3 = cc.repeatForever(cc.spawn(zoom_act, rotate_act));
 
         //谁执行的动作 谁去停止
-        this.action = cc.find("iconRoot/tupian", this.node).runAction(act3);
+        cc.find("iconRoot/tupian", this.node).runAction(act3);
+        this.action = act3;
     },
     //停止动作
     Stop_action() {
+        this.wo_bei_dian_zhong_le = false;
         let tupian = cc.find("iconRoot/tupian", this.node);
         tupian.stopAction(this.action);
         this.action = null;
